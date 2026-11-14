@@ -18,7 +18,7 @@ Arquivo: [`src/js/config.json`](../../src/js/config.json)
 
 ```json
 {
-    "apiUrl": "",
+    "apiUrl": "https://breaking-bad-api-ciwb.vercel.app/api",
     "prefixoCache": "ciwb_",
     "carrossel": [
         { "src": "img/carrossel-1.jpg", "alt": "...", "legenda": "" }
@@ -28,7 +28,7 @@ Arquivo: [`src/js/config.json`](../../src/js/config.json)
 
 | Campo | Situação |
 |-------|----------|
-| `apiUrl` | **Vazio**: preencher quando a API for escolhida |
+| `apiUrl` | **Preenchido** (14/11/2026): `https://breaking-bad-api-ciwb.vercel.app/api`, sem barra no final. As URLs dos recursos se montam com `` `${config.apiUrl}/characters` `` |
 | `prefixoCache` | Definido (`ciwb_`) |
 | `carrossel` | **3 entradas provisórias**: trocar `src` e `alt` (marcados com `PREENCHER`) pelas imagens reais. Imagens locais vão em `src/img/`; também pode ser uma URL externa |
 

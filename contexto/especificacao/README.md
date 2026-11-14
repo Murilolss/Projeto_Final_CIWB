@@ -19,7 +19,7 @@ Documentação de consulta durante o desenvolvimento. Reúne o enunciado (`conte
 | Modelagem da API | **Implementada** (12/11/2026) em `../API_BB`, conforme [05-api-breaking-bad.md](05-api-breaking-bad.md) e o [guia](guia-criar-api.md). 5 recursos, 187 imagens, 14 testes passando. **Publicada**: https://breaking-bad-api-ciwb.vercel.app/api (código em https://github.com/Murilolss/breaking-bad-api-ciwb) |
 | Repositório e hospedagem da API | **Decidido** (12/11/2026): repositório separado `../API_BB` (fora deste projeto), publicado na **Vercel** |
 | Formato do arquivo de configuração | **Decidido** — `src/js/config.json` (12/11/2026); ver [03-configuracao.md](03-configuracao.md) |
-| Link da API no `config.json` (`apiUrl`) | **Pendente**: a API já está no ar; preencher quando o front começar |
+| Link da API no `config.json` (`apiUrl`) | **Preenchido** (14/11/2026): `https://breaking-bad-api-ciwb.vercel.app/api` |
 | Imagens do carrossel | **Pendente** — imagens de Breaking Bad; há 3 entradas provisórias no `config.json` |
 | Recursos (páginas) do site | **Proposto**: personagens, mortes, episódios e frases marcantes (ver [05-api-breaking-bad.md](05-api-breaking-bad.md)) |
 | Idioma dos dados da API | **Decidido** (12/11/2026): valores em português; frases marcantes e últimas palavras em português e inglês `{ pt, en }` |

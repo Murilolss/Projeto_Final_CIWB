@@ -1,5 +1,5 @@
 {
-    "apiUrl": "",
+    "apiUrl": "https://breaking-bad-api-ciwb.vercel.app/api",
     "prefixoCache": "ciwb_",
     "carrossel": [
         {
