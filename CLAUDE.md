@@ -52,6 +52,16 @@ Mantenha essas páginas atualizadas quando uma decisão for tomada ou um requisi
 
 - `/salvar-memoria [observação]` — cria ou atualiza o registro da sessão atual em `contexto/memory/`.
 
+## Plugins do projeto
+
+- `.claude/plugins/` é um marketplace local (`ciwb-local`), declarado e ativado em `.claude/settings.json`.
+- `frontend-design@ciwb-local` — cópia do `frontend-design` oficial da Anthropic com **ressalvas do projeto** no início do `SKILL.md`:
+  - só HTML/CSS/JavaScript + Bootstrap 5.3;
+  - JavaScript limitado ao visto em aula;
+  - animações simples em CSS, que o grupo consiga explicar ao professor.
+  
+  Use esse plugin em todo trabalho visual do site. Não instale a versão `@claude-plugins-official`. Detalhes em `.claude/plugins/frontend-design/README.md`.
+
 ## Diretrizes
 
 - Baseie a implementação no que foi ensinado nas aulas (`contexto/slides/` e `contexto/codigo-exemplos/`).

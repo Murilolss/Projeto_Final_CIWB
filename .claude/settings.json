@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "ciwb-local": {
+      "source": {
+        "source": "directory",
+        "path": "./.claude/plugins"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "frontend-design@ciwb-local": true
+  }
+}

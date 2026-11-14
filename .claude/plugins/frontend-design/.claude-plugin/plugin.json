@@ -1,0 +1,9 @@
+{
+  "name": "frontend-design",
+  "description": "Frontend design skill for UI/UX implementation (adaptado ao Projeto Final de CIWB: HTML/CSS/JS + Bootstrap, animações simples)",
+  "version": "1.1.1-ciwb.2",
+  "author": {
+    "name": "Anthropic (original); ressalvas do Grupo do Projeto Final CIWB"
+  },
+  "license": "Apache-2.0"
+}

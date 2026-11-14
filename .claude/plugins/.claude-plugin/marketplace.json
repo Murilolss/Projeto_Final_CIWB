@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ciwb-local",
+  "description": "Plugins locais do Projeto Final de CIWB, adaptados às regras da disciplina",
+  "owner": {
+    "name": "Grupo do Projeto Final CIWB"
+  },
+  "plugins": [
+    {
+      "name": "frontend-design",
+      "description": "frontend-design oficial da Anthropic com ressalvas do projeto: só HTML/CSS/JavaScript + Bootstrap, animações simples que dão para explicar ao professor.",
+      "version": "1.1.1-ciwb.2",
+      "source": "./frontend-design",
+      "category": "development"
+    }
+  ]
+}
