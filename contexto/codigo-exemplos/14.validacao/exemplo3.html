@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação</title>
+    <style>
+        .erro{
+            color: red;
+            font-size: small;
+        }
+
+        .acerto{
+            color: green;
+            font-size: small;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Constraint Validation API</h1>
+    <hr>
+
+    <!-- <form action="" novalidate> -->
+    <form action="">
+        <p>
+            <label for="nome">Nome</label><br>
+            <input type="text" name="nome" id="nome"]
+            pattern="[a-zA-Z\s]+">
+            <span id="erro-nome"></span>
+        </p>
+
+        <p>
+            <label for="idade">Idade</label><br>
+            <input type="number" name="idade" id="idade"
+            min="0" max="100" step="1">
+            <span id="erro-idade"></span>
+        </p>
+
+        <p>
+            <label for="senha">Senha</label><br>
+            <input type="password" name="senha" id="senha"
+            minlength="8" maxlength="20">
+            <span id="erro-senha"></span>
+        </p>
+
+        <button type="submit">Enviar</button>
+
+    </form>
+
+    <script src="./exemplo3.js"></script>
+</body>
+</html>

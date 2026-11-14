@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação</title>
+</head>
+<body>
+    
+    <h1>Validação com JS</h1>
+    <hr>
+
+    <form action="">
+
+        <p>
+            <label for="nsenha">Nova senha</label><br>
+            <input type="password" name="nsenha" id="nsenha">
+        </p>
+
+        <p>
+            <label for="csenha">Confirme a senha</label><br>
+            <input type="password" name="csenha" id="csenha">
+            <span id="erro-senha"></span>
+        </p>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+
+        const nsenha = document.querySelector('#nsenha');
+        const csenha = document.querySelector('#csenha');
+        const erroSenha = document.querySelector('#erro-senha');
+
+        csenha.oninput = function(){
+
+            erroSenha.textContent = '';
+
+            // senhas iguais
+            if (nsenha.value == csenha.value){
+                erroSenha.style.color = 'green';
+                erroSenha.textContent = 'Ok!';
+            }
+            else{
+                erroSenha.style.color = 'red';
+                erroSenha.textContent = 'Senhas não conferem!';
+            }
+
+        }
+
+
+        //const form = document.querySelector('form');
+
+        // form.addEventListener('submit', function(e){
+
+        //     // interrompe a submissão do formulário
+        //     e.preventDefault();
+
+        //     // verifico se as senhas são iguais
+        //     if (nsenha.value == csenha.value){
+        //         // submete o formulário
+        //         form.submit();
+        //     }
+
+        //     else{
+        //         alert('Senhas não conferem!');
+        //     }
+
+        // });
+
+    </script>
+
+
+</body>
+</html>

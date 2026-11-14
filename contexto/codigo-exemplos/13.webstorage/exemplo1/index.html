@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    
+    <script>
+
+        const obj1 = {nome: 'João', sobrenome: 'Silva', idade: 30};
+        const obj2 = {modelo: 'Marea', marca: 'Fiat', ano: 2000};
+
+        // criando itens no local storage
+        localStorage.setItem('curso', 'TSI');
+
+        localStorage.setItem('cadastro', JSON.stringify(obj1));
+        localStorage.setItem('automovel', JSON.stringify(obj2));
+
+
+        // ler dados do local storage
+        const curso = localStorage.getItem('curso');
+
+        console.log(`Estou no primeiro ano do curso ${curso}`);
+
+        // converte a string para o objeto JS
+        const pessoa = JSON.parse(localStorage.getItem('cadastro'));
+
+        console.log(`Olá ${pessoa.nome} ${pessoa.sobrenome}`);
+
+        // remover um item do local storage
+        localStorage.removeItem('cadastro');
+
+
+    </script>
+
+</body>
+</html>

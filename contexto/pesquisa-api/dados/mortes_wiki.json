@@ -1,0 +1,996 @@
+[
+ {
+  "n": "1",
+  "temporada": "1",
+  "personagem": "Emilio Koyama",
+  "personagem_link": "Emilio Koyama",
+  "imagem_wiki": "1x1 Walt kills Emilio 2.png",
+  "causa": "Poisoned by phosphine gas created by mixing red phosphorus with hot water to save the lives of Walter White and Jesse Pinkman.",
+  "episodio_ref": "1x1",
+  "arma": "Phosphine Gas",
+  "responsavel": "Walter White",
+  "responsavel_links": [
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"I say we cap them both.\""
+ },
+ {
+  "n": "2",
+  "temporada": "1",
+  "personagem": "Krazy-8",
+  "personagem_link": "Krazy-8",
+  "imagem_wiki": "1x03 - Walt kills Krazy 8.jpg",
+  "causa": "Strangled to death with a bicycle lock for trying to stab Walter White.",
+  "episodio_ref": "1x3",
+  "arma": "Bike lock",
+  "responsavel": "Walter White",
+  "responsavel_links": [
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"Unlock me, Walter.\""
+ },
+ {
+  "n": "1",
+  "temporada": "2",
+  "personagem": "No-Doze",
+  "personagem_link": "No-Doze",
+  "imagem_wiki": "Ep-1-9.jpg",
+  "causa": "Beaten to death for \"disrespecting\" Tuco Salamanca in front of Walter White and Jesse Pinkman, later succumbed to these injuries.",
+  "episodio_ref": "2x1",
+  "arma": "Tuco’s Hands",
+  "responsavel": "Tuco Salamanca",
+  "responsavel_links": [
+   "Tuco Salamanca"
+  ],
+  "ultimas_palavras": "\"No Tuco, come on, I'm just...I'm just saying.\""
+ },
+ {
+  "n": "2",
+  "temporada": "2",
+  "personagem": "Gonzo",
+  "personagem_link": "Gonzo",
+  "imagem_wiki": "2x1 Gonzo dead.png",
+  "causa": "Accidentally crushed his arm by a settling car in a junkyard while moving No-Doze's body, which partially severed his arm and caused him to bleed to death.",
+  "episodio_ref": "2x1",
+  "arma": "Scrapped car",
+  "responsavel": "Himself (accidentally)",
+  "responsavel_links": [],
+  "ultimas_palavras": "\"Look, Tuco, we can't do him like that, man, buzzards and rats and all that. I'm just saying, you know? It's not very Christian.\""
+ },
+ {
+  "n": "3",
+  "temporada": "2",
+  "personagem": "Tuco Salamanca",
+  "personagem_link": "Tuco Salamanca",
+  "imagem_wiki": "2x2 Hank kills Tuco.png",
+  "causa": "Shot in the forehead during a shootout with Hank Schrader.",
+  "episodio_ref": "2x2",
+  "arma": "Glock 17",
+  "responsavel": "Hank Schrader",
+  "responsavel_links": [
+   "Hank Schrader"
+  ],
+  "ultimas_palavras": "\"Tell me what you did!\""
+ },
+ {
+  "n": "4",
+  "temporada": "2",
+  "personagem": "Convenience store clerk",
+  "personagem_link": null,
+  "imagem_wiki": "Ep-6-7.jpg",
+  "causa": "Stabbed by Spooge during the theft of an ATM.",
+  "episodio_ref": "2x6",
+  "arma": "Knife (presumed)",
+  "responsavel": "Spooge",
+  "responsavel_links": [
+   "Spooge"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "5",
+  "temporada": "2",
+  "personagem": "Spooge",
+  "personagem_link": "Spooge",
+  "imagem_wiki": "2x6 ATM on Spooge.png",
+  "causa": "Head crushed with an ATM for insulting his wife.",
+  "episodio_ref": "2x6",
+  "arma": "ATM machine",
+  "responsavel": "Spooge's Lady",
+  "responsavel_links": [
+   "Spooge's Lady"
+  ],
+  "ultimas_palavras": "\"Skank!\""
+ },
+ {
+  "n": "6",
+  "temporada": "2",
+  "personagem": "Tortuga",
+  "personagem_link": "Tortuga",
+  "imagem_wiki": "BB 303 01.png",
+  "causa": "Decapitated with a machete for being a DEA informant.",
+  "episodio_ref": "2x7|3x3",
+  "arma": "Machete",
+  "responsavel": "Marco Salamanca, on orders from Juan Bolsa",
+  "responsavel_links": [
+   "The Cousins",
+   "Juan Bolsa"
+  ],
+  "ultimas_palavras": "\"Gracias, jefe.\" (\"Thank you, boss.\")"
+ },
+ {
+  "n": "7",
+  "temporada": "2",
+  "personagem": "Unnamed Federale",
+  "personagem_link": null,
+  "imagem_wiki": "Tortuga.gif",
+  "causa": "Blown up with a bomb placed on a tortoise.",
+  "episodio_ref": "2x7",
+  "arma": "Bomb",
+  "responsavel": "The Cousins, on orders from Juan Bolsa",
+  "responsavel_links": [
+   "The Cousins"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "8",
+  "temporada": "2",
+  "personagem": "Combo",
+  "personagem_link": "Combo",
+  "imagem_wiki": "BB 2x11 3.png",
+  "causa": "Shot several times in the abdomen and in the neck for dealing on rival territory.",
+  "episodio_ref": "2x11",
+  "arma": "Gun",
+  "responsavel": "Tomás Cantillo, on orders from the Rival Dealers",
+  "responsavel_links": [
+   "Tomás Cantillo",
+   "Rival Dealers"
+  ],
+  "ultimas_palavras": "\"What are you waiting for? Go!\""
+ },
+ {
+  "n": "9",
+  "temporada": "2",
+  "personagem": "Jane Margolis",
+  "personagem_link": "Jane Margolis",
+  "imagem_wiki": "Ep-12-10.jpg",
+  "causa": "Choked on her own vomit from a heroin overdose. Allowed to die by Walter White because of the threat she posed to his business and relationship with Jesse Pinkman.",
+  "episodio_ref": "2x12",
+  "arma": "Heroin overdose",
+  "responsavel": "Herself, via being inadvertently flipped onto her back by Walter White",
+  "responsavel_links": [
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"I say we flush what we've got left and we start tonight.\""
+ },
+ {
+  "n": "10-176",
+  "temporada": "2",
+  "personagem": "167 unnamed passengers on the Wayfarer 515 and JM 21 flights",
+  "personagem_link": "Wayfarer 515 Victims",
+  "imagem_wiki": "2x13 Wayfarer crash.png",
+  "causa": "Mid-air collision inadvertently caused by Donald Margolis, who was suffering emotional strain after the death of his daughter.",
+  "episodio_ref": "2x13",
+  "arma": "Plane explosion",
+  "responsavel": "Donald Margolis (by extension of Walter White's actions)",
+  "responsavel_links": [
+   "Donald Margolis",
+   "Walter White"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "1-10",
+  "temporada": "3",
+  "personagem": "9 Mexican passengers and Olive Oil",
+  "personagem_link": "Olive Oil",
+  "imagem_wiki": "No Mas.jpg",
+  "causa": "Shot at close proximity, then left in the back of a truck while it was set afire. Olive Oil was killed for recognizing Leonel and Marco Salamanca as cartel members, and the other passengers were killed to cover up.",
+  "episodio_ref": "3x1",
+  "arma": "Exploding truck",
+  "responsavel": "Leonel and Marco Salamanca",
+  "responsavel_links": [
+   "The Cousins"
+  ],
+  "ultimas_palavras": "\"¿Qué tiene en la punta? Un poco de plata...\" (\"Hey, what's on the toes there? Little silver...\") (Olive Oil) Unknown/Varies (Others)"
+ },
+ {
+  "n": "11",
+  "temporada": "3",
+  "personagem": "Coyote driver",
+  "personagem_link": "Old Crawler",
+  "imagem_wiki": "BB 301 Leonel shots coyote driver.png",
+  "causa": "Shot in the back while running away, then in the head to finish him. Killed to cover up the murder of Olive Oil and the other passengers.",
+  "episodio_ref": "3x1",
+  "arma": "M1911A1",
+  "responsavel": "Leonel Salamanca",
+  "responsavel_links": [
+   "The Cousins"
+  ],
+  "ultimas_palavras": "\"What the hell's going on in there?\""
+ },
+ {
+  "n": "12",
+  "temporada": "3",
+  "personagem": "Mrs. Peyketewa",
+  "personagem_link": "Mrs. Peyketewa",
+  "imagem_wiki": "3x6 Mrs. Peyketewa.png",
+  "causa": "Killed in an unspecified manner, possibly shot or struck with an axe. Killed so Leonel and Marco Salamanca could take residence in her house.",
+  "episodio_ref": "3x6",
+  "arma": "Unknown",
+  "responsavel": "Leonel and Marco Salamanca",
+  "responsavel_links": [
+   "The Cousins"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "13",
+  "temporada": "3",
+  "personagem": "Deputy Bobby Kee",
+  "personagem_link": "Bobby Kee",
+  "imagem_wiki": "3x6 Deputy Bobby Kee.png",
+  "causa": "Struck in the back with an axe for investigating the murder of Mrs. Peyketewa.",
+  "episodio_ref": "3x6",
+  "arma": "Axe",
+  "responsavel": "Marco Salamanca",
+  "responsavel_links": [
+   "The Cousins"
+  ],
+  "ultimas_palavras": "\"On your knees or I'll fire!\""
+ },
+ {
+  "n": "14",
+  "temporada": "3",
+  "personagem": "Preppy Shopper",
+  "personagem_link": "Preppy Shopper",
+  "imagem_wiki": "3x7 Unnamed Man shot.png",
+  "causa": "Shot once in the chest and head at close range for being present during the assassination attempt of Hank Schrader.",
+  "episodio_ref": "3x7",
+  "arma": "M1911A1",
+  "responsavel": "Marco Salamanca",
+  "responsavel_links": [
+   "The Cousins"
+  ],
+  "ultimas_palavras": "\"Jesus.\""
+ },
+ {
+  "n": "15",
+  "temporada": "3",
+  "personagem": "Marco Salamanca",
+  "personagem_link": "The Cousins",
+  "imagem_wiki": "3x7-Marco.gif",
+  "causa": "Shot once in the head with a hollow point bullet after attempting to murder Hank Schrader.",
+  "episodio_ref": "3x7",
+  "arma": "M1911A1",
+  "responsavel": "Hank Schrader, via manipulation by Gustavo Fring",
+  "responsavel_links": [
+   "Hank Schrader",
+   "Gustavo Fring"
+  ],
+  "ultimas_palavras": "\"No. Muy fácil.\" (\"No, Too easy.\")"
+ },
+ {
+  "n": "16",
+  "temporada": "3",
+  "personagem": "Leonel Salamanca",
+  "personagem_link": "The Cousins",
+  "imagem_wiki": "3x8 Leonel Salamanca CPR.png",
+  "causa": "Poisoned with an unknown substance to prevent Juan Bolsa from finding out Gustavo Fring sanctioned the hit on Hank Schrader.",
+  "episodio_ref": "3x8",
+  "arma": "Unknown poison",
+  "responsavel": "Mike Ehrmantraut, on orders from Gustavo Fring",
+  "responsavel_links": [
+   "Mike Ehrmantraut",
+   "Gustavo Fring"
+  ],
+  "ultimas_palavras": "\"Terminalo.\" (\"Finish him.\")"
+ },
+ {
+  "n": "17-18",
+  "temporada": "3",
+  "personagem": "Two bodyguards of Juan Bolsa",
+  "personagem_link": null,
+  "imagem_wiki": "3x8 Bodyguards.png",
+  "causa": "Shot repeatedly after federales were lured to Juan Bolsa's home by Gustavo Fring.",
+  "episodio_ref": "3x8",
+  "arma": "Gun",
+  "responsavel": "Mexican federales, via manipulation by Gustavo Fring",
+  "responsavel_links": [
+   "Gustavo Fring"
+  ],
+  "ultimas_palavras": "\"Vamos.\" (\"Let's go.\") (First bodyguard) Unknown (Second bodyguard)"
+ },
+ {
+  "n": "19",
+  "temporada": "3",
+  "personagem": "Juan Bolsa",
+  "personagem_link": "Juan Bolsa",
+  "imagem_wiki": "3x8 Juan Bolsa.png",
+  "causa": "Shot repeatedly after federales were lured to his home by Gustavo Fring.",
+  "episodio_ref": "3x8",
+  "arma": "Heckler & Koch MP5K",
+  "responsavel": "Mexican federales, via manipulation by Gustavo Fring",
+  "responsavel_links": [
+   "Gustavo Fring"
+  ],
+  "ultimas_palavras": "\"¡¿Que diablos está pasando?!\" (\"What the hell is going on?!\")"
+ },
+ {
+  "n": "20",
+  "temporada": "3",
+  "personagem": "Tomás Cantillo",
+  "personagem_link": "Tomás Cantillo",
+  "imagem_wiki": "3x12 Tomás Cantillo body.png",
+  "causa": "Shot to death to possibly tie up loose ends related to Gustavo Fring's use of children in his business.",
+  "episodio_ref": "3x12",
+  "arma": "Ruger P95 and Smith & Wesson M945",
+  "responsavel": "Rival Dealers, possibly on orders from Gustavo Fring",
+  "responsavel_links": [
+   "Rival Dealers",
+   "Gustavo Fring"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "21-22",
+  "temporada": "3",
+  "personagem": "The two Rival Dealers",
+  "personagem_link": "Rival Dealers",
+  "imagem_wiki": "Episode-12-Walt-Bullethead-760.jpg",
+  "causa": "Ran over by a car and then shot once in the head to save the life of Jesse Pinkman.",
+  "episodio_ref": "3x12",
+  "arma": "Smith & Wesson M945 and Walt’s Aztek",
+  "responsavel": "Walter White",
+  "responsavel_links": [
+   "Walter White"
+  ],
+  "ultimas_palavras": "Unknown/Varies"
+ },
+ {
+  "n": "23-26",
+  "temporada": "3",
+  "personagem": "4 Cartel assassins",
+  "personagem_link": "The Cartel",
+  "imagem_wiki": "3x13 Cartel agents 1 and 2.png",
+  "causa": "Shot repeatedly to save Duane Chow.",
+  "episodio_ref": "3x13",
+  "arma": "Heckler & Koch Mark 23",
+  "responsavel": "Mike Ehrmantraut, on orders from Gustavo Fring in order to save/with assistance from Duane Chow",
+  "responsavel_links": [
+   "Mike Ehrmantraut",
+   "Gustavo Fring",
+   "Duane Chow"
+  ],
+  "ultimas_palavras": "\"Que es eso?\" (\"What's that?\") (First assassin)\"No sé.\" (\"I don't know.\") (Second assassin)Unknown/Varies (Other assassins)"
+ },
+ {
+  "n": "27",
+  "temporada": "3",
+  "personagem": "Gale Boetticher",
+  "personagem_link": "Gale Boetticher",
+  "imagem_wiki": "Episode-1-Gale-Apt.jpg",
+  "causa": "Shot once in the face to save the life of Walter White.",
+  "episodio_ref": "3x13",
+  "arma": "Beretta 84F",
+  "responsavel": "Jesse Pinkman, on orders from Walter White",
+  "responsavel_links": [
+   "Jesse Pinkman",
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"You don't have to do this.\""
+ },
+ {
+  "n": "1",
+  "temporada": "4",
+  "personagem": "Victor",
+  "personagem_link": "Victor",
+  "imagem_wiki": "Episode-1-Gus-Victor.jpg",
+  "causa": "Throat slit with a boxcutter, bled to death. Killed for being a risk to Gustavo Fring's business by being spotted at the scene of Gale Boetticher's murder.",
+  "episodio_ref": "4x1",
+  "arma": "Box Cutter",
+  "responsavel": "Gustavo Fring",
+  "responsavel_links": [
+   "Gustavo Fring"
+  ],
+  "ultimas_palavras": "\"The steps never change, and I know every step.\""
+ },
+ {
+  "n": "2",
+  "temporada": "4",
+  "personagem": "Los Pollos Hermanos Driver",
+  "personagem_link": "Los Pollos Hermanos",
+  "imagem_wiki": "4x4 Los Pollos truck driver.png",
+  "causa": "Shot at close proximity during a Los Pollos Hermanos truck robbery.",
+  "episodio_ref": "4x4",
+  "arma": "Heckler & Koch MP5K",
+  "responsavel": "Cartel assassins",
+  "responsavel_links": [
+   "The Cartel",
+   "Cartel Hijackers"
+  ],
+  "ultimas_palavras": "\"No, no, no!\""
+ },
+ {
+  "n": "3–4",
+  "temporada": "4",
+  "personagem": "Two Cartel assassins",
+  "personagem_link": "Cartel Hijackers",
+  "imagem_wiki": "4x4 Cartel assassins.png",
+  "causa": "Shot to death for attempting to rob a Los Pollos Hermanos truck.",
+  "episodio_ref": "4x4",
+  "arma": "Heckler & Koch Mark 23",
+  "responsavel": "Mike Ehrmantraut",
+  "responsavel_links": [
+   "Mike Ehrmantraut"
+  ],
+  "ultimas_palavras": "\"Por qué me estás hablando en inglés?\" (Why are you talking to me in English?)"
+ },
+ {
+  "n": "5",
+  "temporada": "4",
+  "personagem": "Los Pollos Hermanos Driver",
+  "personagem_link": "Los Pollos Hermanos",
+  "imagem_wiki": "4x6 driver.png",
+  "causa": "Shot multiple times during a Los Pollos Hermanos truck robbery.",
+  "episodio_ref": "4x6",
+  "arma": "M4A1 Carbine",
+  "responsavel": "Cartel assassins",
+  "responsavel_links": [
+   "The Cartel",
+   "Gaff's Men"
+  ],
+  "ultimas_palavras": "\"No, no no no no!\""
+ },
+ {
+  "n": "6–7",
+  "temporada": "4",
+  "personagem": "Two Los Pollos Hermanos guards",
+  "personagem_link": "Los Pollos Hermanos",
+  "imagem_wiki": "4x6 guards.png",
+  "causa": "Suffocated by exhaust fumes while locked in the back of a Los Pollos Hermanos truck during a robbery.",
+  "episodio_ref": "4x6",
+  "arma": "Exhaust Fumes",
+  "responsavel": "Cartel assassins",
+  "responsavel_links": [
+   "The Cartel",
+   "Gaff's Men"
+  ],
+  "ultimas_palavras": "(Gasping for air)"
+ },
+ {
+  "n": "8",
+  "temporada": "4",
+  "personagem": "Nick",
+  "personagem_link": "Nick (Gus' henchman)",
+  "imagem_wiki": "4x9 henchman dead.png",
+  "causa": "Shot during an attempt to take out Gus Fring's employees.",
+  "episodio_ref": "4x9",
+  "arma": "Remington 700",
+  "responsavel": "Gaff",
+  "responsavel_links": [
+   "Gaff"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "9–19",
+  "temporada": "4",
+  "personagem": "11 Cartel members, including Don Paco, Don Cesar, Don Renaldo, Don Artuno, Don Cisco, Don Luis, Don Escalada, Benicio Fuentes and Miguel",
+  "personagem_link": "The Cartel",
+  "imagem_wiki": "4x10 Cartel dead.png",
+  "causa": "Drinking poisoned tequila, killed so Gustavo Fring could destroy the Cartel.",
+  "episodio_ref": "4x10",
+  "arma": "Poison",
+  "responsavel": "Gustavo Fring",
+  "responsavel_links": [
+   "Gustavo Fring"
+  ],
+  "ultimas_palavras": "\"¿Si, jefe?\" (\"¿Yeah, boss?\") (Miguel) Unknown/Varies (others)"
+ },
+ {
+  "n": "20",
+  "temporada": "4",
+  "personagem": "Gaff",
+  "personagem_link": "Gaff",
+  "imagem_wiki": "4x10 Gaff dead.png",
+  "causa": "Garroted with fiberwire so he could not interfere with Gustavo Fring's murder of cartel leaders.",
+  "episodio_ref": "4x10",
+  "arma": "Garrote wire",
+  "responsavel": "Mike Ehrmantraut, on orders from Gustavo Fring",
+  "responsavel_links": [
+   "Mike Ehrmantraut",
+   "Gustavo Fring"
+  ],
+  "ultimas_palavras": "\"You're staying. You belong to the cartel now.\""
+ },
+ {
+  "n": "21",
+  "temporada": "4",
+  "personagem": "Eladio Vuente",
+  "personagem_link": "Eladio Vuente",
+  "imagem_wiki": "4x10 Don Eladio dead.png",
+  "causa": "Drinking poisoned tequila, both to destroy the Cartel and as revenge for the murder of Max Arciniega.",
+  "episodio_ref": "4x10",
+  "arma": "Poison",
+  "responsavel": "Gustavo Fring",
+  "responsavel_links": [
+   "Gustavo Fring"
+  ],
+  "ultimas_palavras": "\"¿Tú?\" (\"You?\")"
+ },
+ {
+  "n": "22",
+  "temporada": "4",
+  "personagem": "Joaquin Salamanca",
+  "personagem_link": "Joaquin Salamanca",
+  "imagem_wiki": "4x10 Joaquin Salamanca dead.png",
+  "causa": "Shot several times in the chest and abdomen so Gustavo Fring, Mike Ehrmantraut, and Jesse Pinkman could escape.",
+  "episodio_ref": "4x10",
+  "arma": "Beretta 92FS Inox",
+  "responsavel": "Jesse Pinkman",
+  "responsavel_links": [
+   "Jesse Pinkman"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "23",
+  "temporada": "4",
+  "personagem": "Hector Salamanca",
+  "personagem_link": "Hector Salamanca",
+  "imagem_wiki": "4x13 blown up room.png",
+  "causa": "Suicide explosion by a pipe bomb detonated from a wheelchair bell to kill Gustavo Fring and avenge the murders of Hector Salamanca's family members and Cartel allies.",
+  "episodio_ref": "4x13",
+  "arma": "Pipe Bomb",
+  "responsavel": "Himself (with assistance from Walter White)",
+  "responsavel_links": [
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"It is! It is personal–\" *Last words on Better Call Saul before suffering a stroke that would prevent him from speaking. He later dies in Breaking Bad."
+ },
+ {
+  "n": "24",
+  "temporada": "4",
+  "personagem": "Tyrus Kitt",
+  "personagem_link": "Tyrus Kitt",
+  "imagem_wiki": "4x13 Tyrus's last smirk.png",
+  "causa": "Blown up by a pipe bomb detonated by a wheelchair bell for being present during Hector Salamanca's suicide bombing.",
+  "episodio_ref": "4x13",
+  "arma": "Pipe Bomb",
+  "responsavel": "Hector Salamanca (with assistance from Walter White)",
+  "responsavel_links": [
+   "Hector Salamanca",
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"It's clear.\""
+ },
+ {
+  "n": "25",
+  "temporada": "4",
+  "personagem": "Gustavo Fring",
+  "personagem_link": "Gustavo Fring",
+  "imagem_wiki": "4x13 Gus' face off.png",
+  "causa": "Blown up by a pipe bomb detonated by a wheelchair bell from Hector Salamanca's suicide bombing. Killed in revenge for destroying the Cartel killing the last of the Salamancas, and threatening Walter White's family.",
+  "episodio_ref": "4x13",
+  "arma": "Pipe Bomb",
+  "responsavel": "Hector Salamanca (with assistance from Walter White)",
+  "responsavel_links": [
+   "Hector Salamanca",
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"Last chance to look at me, Hector.\""
+ },
+ {
+  "n": "26-27",
+  "temporada": "4",
+  "personagem": "Two Superlab Guards",
+  "personagem_link": "Gus' Operatives",
+  "imagem_wiki": "2deadbodies.png",
+  "causa": "Shot to death to save the life of Jesse Pinkman.",
+  "episodio_ref": "4x13",
+  "arma": "Ruger LCR",
+  "responsavel": "Walter White",
+  "responsavel_links": [
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"What, you got a problem with stairs?\" (first guard) Unknown (second guard)"
+ },
+ {
+  "n": "1",
+  "temporada": "5A",
+  "personagem": "Peter Schuler",
+  "personagem_link": "Peter Schuler",
+  "imagem_wiki": "5x2 Peter Schulder dead.png",
+  "causa": "Committed suicide to avoid criminal charges connected to Gustavo Fring. Placed one end of a defibrillator in his mouth and the other over his heart, electrocuting himself to death.",
+  "episodio_ref": "5x2",
+  "arma": "Defibrillator",
+  "responsavel": "Himself",
+  "responsavel_links": [],
+  "ultimas_palavras": "\"Ja, Frau Tromel.\" (\"Yes, Ms. Tromel.\")"
+ },
+ {
+  "n": "2",
+  "temporada": "5A",
+  "personagem": "Duane Chow",
+  "personagem_link": "Duane Chow",
+  "imagem_wiki": "Episode-2-chris-chow.jpg",
+  "causa": "Shot once in the head to fulfill a hit contract.",
+  "episodio_ref": "5x2",
+  "arma": "Glock 17",
+  "responsavel": "Chris Mara on orders from Lydia Rodarte-Quayle",
+  "responsavel_links": [
+   "Chris Mara",
+   "Lydia Rodarte-Quayle"
+  ],
+  "ultimas_palavras": "\"I don't know. I don't know. We gotta talk. Not on the phone. Can you come to my house?\""
+ },
+ {
+  "n": "3",
+  "temporada": "5A",
+  "personagem": "Chris Mara",
+  "personagem_link": "Chris Mara",
+  "imagem_wiki": "Episode-2-chris-chow-mike.jpg",
+  "causa": "Shot repeatedly in the chest with a suppressed pistol for attempting to kill Mike Ehrmantraut.",
+  "episodio_ref": "5x2",
+  "arma": "Beretta 84F",
+  "responsavel": "Mike Ehrmantraut",
+  "responsavel_links": [
+   "Mike Ehrmantraut"
+  ],
+  "ultimas_palavras": "\"Listen, Mike–\""
+ },
+ {
+  "n": "4",
+  "temporada": "5A",
+  "personagem": "Drew Sharp",
+  "personagem_link": "Drew Sharp",
+  "imagem_wiki": "5x5 boy.png",
+  "causa": "Shot once in the chest with a pistol for being present during Walter White's train robbery.",
+  "episodio_ref": "5x5",
+  "arma": "Smith & Wesson 4566TSW",
+  "responsavel": "Todd Alquist",
+  "responsavel_links": [
+   "Todd Alquist"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "5",
+  "temporada": "5A",
+  "personagem": "Michael \"Mike\" Ehrmantraut",
+  "personagem_link": "Mike Ehrmantraut",
+  "imagem_wiki": "Episode-7-mike-2-5021349857203498572349087.jpg",
+  "causa": "Shot once in the gut and bled out. Killed for refusing to give the names of his men to Walter White and for insulting him.",
+  "episodio_ref": "5x7",
+  "arma": "Taurus Model 605",
+  "responsavel": "Walter White",
+  "responsavel_links": [
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"Shut the fuck up, and let me die in peace.\""
+ },
+ {
+  "n": "6",
+  "temporada": "5A",
+  "personagem": "Dan Wachsberger",
+  "personagem_link": "Dan Wachsberger",
+  "imagem_wiki": "5x8 death.png",
+  "causa": "Stabbed to death to cover up involvement with Walter White's business.",
+  "episodio_ref": "5x8",
+  "arma": "Knife",
+  "responsavel": "Prison inmate members of Jack Welker's Gang, on orders from Jack Welker who was contracted by Walter White",
+  "responsavel_links": [
+   "Jack Welker's Gang",
+   "Jack Welker",
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"Okay I can't talk long. Tell the kids I love them.\""
+ },
+ {
+  "n": "7",
+  "temporada": "5A",
+  "personagem": "Ron Forenall",
+  "personagem_link": "Ron Forenall",
+  "imagem_wiki": "RON.png",
+  "causa": "Stabbed to death to cover up involvement with Walter White's business.",
+  "episodio_ref": "5x8",
+  "arma": "Knife",
+  "responsavel": "Prison inmate members of Jack Welker's Gang, on orders from Jack Welker who was contracted by Walter White",
+  "responsavel_links": [
+   "Jack Welker's Gang",
+   "Jack Welker",
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"HEY!\""
+ },
+ {
+  "n": "8",
+  "temporada": "5A",
+  "personagem": "Andrew Holt",
+  "personagem_link": "Andrew Holt",
+  "imagem_wiki": "ANDREW.png",
+  "causa": "Stabbed to death to cover up involvement with Walter White's business.",
+  "episodio_ref": "5x8",
+  "arma": "Knife",
+  "responsavel": "Prison inmate member of Jack Welker's Gang, on orders from Jack Welker who was contracted by Walter White",
+  "responsavel_links": [
+   "Jack Welker's Gang",
+   "Jack Welker",
+   "Walter White"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "9",
+  "temporada": "5A",
+  "personagem": "Jack McGann",
+  "personagem_link": "Jack McGann",
+  "imagem_wiki": "JACK.png",
+  "causa": "Stabbed to death to cover up involvement with Walter White's business.",
+  "episodio_ref": "5x8",
+  "arma": "Knife",
+  "responsavel": "Prison inmate members of Jack Welker's Gang, on orders from Jack Welker who was contracted by Walter White",
+  "responsavel_links": [
+   "Jack Welker's Gang",
+   "Jack Welker",
+   "Walter White"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "10",
+  "temporada": "5A",
+  "personagem": "Isaac Conley",
+  "personagem_link": "Isaac Conley",
+  "imagem_wiki": "ISAAC.png",
+  "causa": "Stabbed to death to cover up involvement with Walter White's business.",
+  "episodio_ref": "5x8",
+  "arma": "Knife",
+  "responsavel": "Prison inmate members of Jack Welker's Gang, on orders from Jack Welker who was contracted by Walter White",
+  "responsavel_links": [
+   "Jack Welker's Gang",
+   "Jack Welker",
+   "Walter White"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "11",
+  "temporada": "5A",
+  "personagem": "Harris Boivin",
+  "personagem_link": "Harris Boivin",
+  "imagem_wiki": "HARRIS.png",
+  "causa": "Stabbed to death to cover up involvement with Walter White's business.",
+  "episodio_ref": "5x8",
+  "arma": "Knife",
+  "responsavel": "Prison inmate members of Jack Welker's Gang, on orders from Jack Welker who was contracted by Walter White",
+  "responsavel_links": [
+   "Jack Welker's Gang",
+   "Jack Welker",
+   "Walter White"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "12",
+  "temporada": "5A",
+  "personagem": "Raymond Martinez",
+  "personagem_link": "Raymond Martinez",
+  "imagem_wiki": "RAYMOND.png",
+  "causa": "Stabbed to death to cover up involvement with Walter White's business.",
+  "episodio_ref": "5x8",
+  "arma": "Knife",
+  "responsavel": "Prison inmate member(s) of Jack Welker's Gang, on orders from Jack Welker who was contracted by Walter White",
+  "responsavel_links": [
+   "Jack Welker's Gang",
+   "Jack Welker",
+   "Walter White"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "13",
+  "temporada": "5A",
+  "personagem": "Anthony Perez",
+  "personagem_link": "Anthony Perez",
+  "imagem_wiki": "ANTHONY.png",
+  "causa": "Stabbed to death to cover up involvement with Walter White's business.",
+  "episodio_ref": "5x8",
+  "arma": "Knife",
+  "responsavel": "Prison inmate members of Jack Welker's Gang, on orders from Jack Welker who was contracted by Walter White",
+  "responsavel_links": [
+   "Jack Welker's Gang",
+   "Jack Welker",
+   "Walter White"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "14",
+  "temporada": "5A",
+  "personagem": "William Moniz",
+  "personagem_link": "William Moniz",
+  "imagem_wiki": "WILLIAM.png",
+  "causa": "Stabbed to death to cover up involvement with Walter White's business.",
+  "episodio_ref": "5x8",
+  "arma": "Knife",
+  "responsavel": "Prison inmate members of Jack Welker's Gang, on orders from Jack Welker who was contracted by Walter White",
+  "responsavel_links": [
+   "Jack Welker's Gang",
+   "Jack Welker",
+   "Walter White"
+  ],
+  "ultimas_palavras": "Unknown"
+ },
+ {
+  "n": "15",
+  "temporada": "5A",
+  "personagem": "Dennis Markowski",
+  "personagem_link": "Dennis Markowski",
+  "imagem_wiki": "5x8 fire.png",
+  "causa": "Doused in rubbing alcohol, set on fire and burned alive to cover up involvement with Walter White's business.",
+  "episodio_ref": "5x8",
+  "arma": "Alcohol and fire",
+  "responsavel": "Prison inmate members of Jack Welker's Gang, on orders from Jack Welker who was contracted by Walter White",
+  "responsavel_links": [
+   "Jack Welker's Gang",
+   "Jack Welker",
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"Help me!\""
+ },
+ {
+  "n": "1–9",
+  "temporada": "5B",
+  "personagem": "Nine of Declan's men, including his cook and his driver",
+  "personagem_link": "Declan",
+  "imagem_wiki": "BB 510 UC 0107 0446.jpg",
+  "causa": "Shot repeatedly for refusing to cooperate with Lydia Rodarte-Quayle.",
+  "episodio_ref": "5x10",
+  "arma": "Guns",
+  "responsavel": "Jack Welker's Gang, on orders from Lydia Rodarte-Quayle and Jack Welker",
+  "responsavel_links": [
+   "Jack Welker's Gang",
+   "Lydia Rodarte-Quayle",
+   "Jack Welker"
+  ],
+  "ultimas_palavras": "\"Hey! We got a problem\" (Unnamed Declan's men) Unknown/Varies"
+ },
+ {
+  "n": "10",
+  "temporada": "5B",
+  "personagem": "Declan",
+  "personagem_link": "Declan",
+  "imagem_wiki": "BB 510 UC 0107 0427.jpg",
+  "causa": "Shot once in the head for refusing to cooperate with Lydia Rodarte-Quayle.",
+  "episodio_ref": "5x10",
+  "arma": "Browning Hi-Power",
+  "responsavel": "Jack Welker, on orders from Lydia Rodarte-Quayle",
+  "responsavel_links": [
+   "Jack Welker",
+   "Lydia Rodarte-Quayle"
+  ],
+  "ultimas_palavras": "\"You stay here.\""
+ },
+ {
+  "n": "11",
+  "temporada": "5B",
+  "personagem": "Steven Gomez",
+  "personagem_link": "Steven Gomez",
+  "imagem_wiki": "Bb-ozymandias-5x14-gomezdead.png",
+  "causa": "Shot several times during a shootout with Jack Welker's gang.",
+  "episodio_ref": "5x14",
+  "arma": "M4A1 Carbine, AA-12, Browning Hi-Power, Ruger KP95",
+  "responsavel": "Jack Welker and his gang",
+  "responsavel_links": [
+   "Jack Welker",
+   "Jack Welker's Gang"
+  ],
+  "ultimas_palavras": "”You heard the man! Put ‘em down!”"
+ },
+ {
+  "n": "12",
+  "temporada": "5B",
+  "personagem": "Hank Schrader",
+  "personagem_link": "Hank Schrader",
+  "imagem_wiki": "BB 514 UC 0226 0461.jpg",
+  "causa": "Shot once in the head after a shootout with Jack Welker's gang.",
+  "episodio_ref": "5x14",
+  "arma": "Browning Hi-Power",
+  "responsavel": "Jack Welker",
+  "responsavel_links": [
+   "Jack Welker"
+  ],
+  "ultimas_palavras": "\"Do what you're gonna d-\""
+ },
+ {
+  "n": "13",
+  "temporada": "5B",
+  "personagem": "Andrea Cantillo",
+  "personagem_link": "Andrea Cantillo",
+  "imagem_wiki": "5x15 - Granite State 15.png",
+  "causa": "Shot once in the head to punish Jesse Pinkman for his refusal to cook meth with Todd Alquist and his attempted escape from Jack Welker's compound.",
+  "episodio_ref": "5x15",
+  "arma": "Ruger KP95",
+  "responsavel": "Todd Alquist",
+  "responsavel_links": [
+   "Todd Alquist"
+  ],
+  "ultimas_palavras": "\"Jesse’s here? Where?\""
+ },
+ {
+  "n": "14–19",
+  "temporada": "5B",
+  "personagem": "Six gang members, including Kenny, Matt, Frankie, and Lester",
+  "personagem_link": "Jack Welker's Gang",
+  "imagem_wiki": "Nazi death.png",
+  "causa": "Shot repeatedly by remote-activated M60 machine gun in revenge for stealing Walter White's money and murdering Hank Schrader.",
+  "episodio_ref": "5x16",
+  "arma": "M60 machine gun",
+  "responsavel": "Walter White",
+  "responsavel_links": [
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"Yeah, Toddy, get them both off!\" (Kenny)\"Yeah, you'll get them back. Just relax.\" (Frankie) Unknown/Varies (Others)"
+ },
+ {
+  "n": "20",
+  "temporada": "5B",
+  "personagem": "Todd Alquist",
+  "personagem_link": "Todd Alquist",
+  "imagem_wiki": "BB 516 UC 0328 0647.jpg",
+  "causa": "Strangled to death with chain shackles, neck broken in revenge for murdering Andrea Cantillo and for imprisoning and torturing Jesse Pinkman.",
+  "episodio_ref": "5x16",
+  "arma": "Handcuff chain",
+  "responsavel": "Jesse Pinkman",
+  "responsavel_links": [
+   "Jesse Pinkman"
+  ],
+  "ultimas_palavras": "\"Jesus, Mr. White...\""
+ },
+ {
+  "n": "21",
+  "temporada": "5B",
+  "personagem": "Jack Welker",
+  "personagem_link": "Jack Welker",
+  "imagem_wiki": "Walt kills Jack.png",
+  "causa": "Shot once in the head, after being mortally wounded by shots from a remote-activated M60 machine gun. Killed to avenge the murder of Hank Schrader and Steven Gomez and to save Jesse Pinkman from captivity.",
+  "episodio_ref": "5x16",
+  "arma": "M60 machine gun and Kimber Ultra Raptor II",
+  "responsavel": "Walter White",
+  "responsavel_links": [
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"You pull that trigger you'll never...\""
+ },
+ {
+  "n": "22",
+  "temporada": "5B",
+  "personagem": "Lydia Rodarte-Quayle",
+  "personagem_link": "Lydia Rodarte-Quayle",
+  "imagem_wiki": "BB 516 UC 0401 0888.jpg",
+  "causa": "Poisoned with ricin for betraying and working against Walter White.",
+  "episodio_ref": "5x16|El Camino",
+  "arma": "Ricin",
+  "responsavel": "Walter White",
+  "responsavel_links": [
+   "Walter White"
+  ],
+  "ultimas_palavras": "\"Oh my god.\""
+ },
+ {
+  "n": "23",
+  "temporada": "5B",
+  "personagem": "Walter White",
+  "personagem_link": "Walter White",
+  "imagem_wiki": "Walt's Death.png",
+  "causa": "Accidentally hit by a ricocheting bullet fired by his remote-activated M60 machine gun while trying to protect Jesse, bled out.",
+  "episodio_ref": "5x16",
+  "arma": "M60 machine gun",
+  "responsavel": "Himself (accidentally)",
+  "responsavel_links": [],
+  "ultimas_palavras": "\"Well,.. Goodbye, Lydia.\""
+ }
+]

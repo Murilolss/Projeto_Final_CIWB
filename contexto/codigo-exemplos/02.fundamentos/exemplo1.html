@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos</title>
+</head>
+<body>
+ 
+    <!-- JS externo -->
+    <script src="./exemplo1.js"></script>
+
+    <!-- JS interno -->
+    <script>
+        console.log('JS interno');
+    </script>
+
+    <!-- Apenas o JS externo será executado  -->
+    <script src="./exemplo1.js">
+        console.log('JS interno');
+    </script>
+
+</body>
+</html>
