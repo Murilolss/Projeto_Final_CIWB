@@ -86,6 +86,7 @@ src/
 - **CSS**, no `<head>`: Bootstrap 5.3.8 (CDN jsDelivr) → `global.css` → CSS dos componentes usados → `style.css` da página. Cada um pode sobrescrever o anterior.
 - **JS**, no fim do `<body>`: `bootstrap.bundle.min.js` → `services/*.js` → `components/*.js` → `script.js` da página. Cada arquivo usa funções dos anteriores.
 - `<html lang="pt-BR" data-bs-theme="dark">`: o modo escuro do Bootstrap 5.3. O `global.css` troca as variáveis `--bs-*` pela paleta do site.
+- **Fontes** (escolha do usuário, 14/11/2026): **Oswald** nos títulos (`h1`–`h6`, em maiúsculas) e **Source Sans 3** no texto, ambas do Google Fonts. Entram por `@import` no topo do `global.css`, uma vez só, e não por `<link>` em cada HTML. Ficam nas variáveis `--bb-fonte-titulo` e `--bb-fonte-texto`, com fontes de reserva.
 - Sem `import`/`export` (módulos não foram vistos em aula e exigem configuração extra): tudo entra por `<script>`, então **os nomes de função não podem se repetir** entre os arquivos.
 
 ### Regra dos caminhos (`raiz`)
