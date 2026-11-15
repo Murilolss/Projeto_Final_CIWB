@@ -83,7 +83,7 @@ src/
 ├── services/                           # funções que não desenham nada
 │   ├── config.js   # carregarConfig(raiz)          (T-12)
 │   ├── api.js      # buscarTodos(url)              (T-13, implementado)
-│   ├── cache.js    # buscarComCache(chave, url)    (T-14)
+│   ├── cache.js    # buscarComCache(chave, url)    (T-14, implementado)
 │   └── busca.js    # filtrarPorNome(itens, termo)  (T-15)
 ├── pages/
 │   ├── personagens/  index.html  style.css  script.js   (T-21)

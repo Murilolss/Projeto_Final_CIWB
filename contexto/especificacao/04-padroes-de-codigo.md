@@ -47,7 +47,7 @@ async function buscarTodos(url) {
 - Não precisa de limite de páginas: o laço só continua se a API mandar um `next`, e uma resposta de erro (404, 500) dispara o `throw`.
 - Mostrar o erro na tela fica para o componente Aviso (T-16).
 
-### Cache (RN01, RN02)
+### Cache (RN01, RN02): implementado em `src/services/cache.js` (T-14, 15/11/2026)
 
 ```js
 async function buscarComCache(chave, url) {
@@ -60,6 +60,10 @@ async function buscarComCache(chave, url) {
     return dados;
 }
 ```
+
+- A `chave` já vem com o prefixo: `config.prefixoCache + 'personagens'` → `ciwb_personagens`.
+- Se a API falhar, o `throw` do `buscarTodos` interrompe a função antes do `setItem`: um erro nunca é salvo no cache, e a próxima visita tenta a API de novo.
+- Sem expiração: o localStorage não expira (aula 13). Para testar com o cache vazio, DevTools → Application → Local Storage → Clear.
 
 ### Busca por nome (RF06, RF07)
 

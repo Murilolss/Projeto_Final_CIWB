@@ -19,8 +19,8 @@ Marque `[x]` conforme for implementando. Fonte do enunciado: `contexto/slides/00
 
 ## Cache (enunciado)
 
-- [ ] **RN01.** Os dados da API são salvos no **localStorage** em formato **JSON**.
-- [ ] **RN02.** Antes de cada requisição, verificar se os dados já estão no localStorage; se estiverem, usar o cache em vez da API.
+- [ ] **RN01.** Os dados da API são salvos no **localStorage** em formato **JSON**. *(T-14, 15/11/2026: `buscarComCache(chave, url)` em `src/services/cache.js` salva a lista inteira com `JSON.stringify` na chave `ciwb_<recurso>`. Falta as páginas usarem, T-21 a T-24.)*
+- [ ] **RN02.** Antes de cada requisição, verificar se os dados já estão no localStorage; se estiverem, usar o cache em vez da API. *(T-14, 15/11/2026: `buscarComCache` olha o `getItem` antes; se não for `null`, devolve o `JSON.parse` sem chamar a API. Falta as páginas usarem, T-21 a T-24.)*
 
 ## Requisitos não funcionais (enunciado)
 
