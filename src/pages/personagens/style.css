@@ -2,3 +2,11 @@
  * Página Personagens (T-21): estilos só desta página.
  * O que for comum a várias páginas vai no global.css ou no CSS do componente.
  */
+
+/* As fotos dos personagens são retratos em pé (a maioria entre 3 x 4 e 4 x 5),
+   muitas com o rosto bem de perto. O card.css usa 4 x 3, bom para as fotos deitadas
+   de mortes e episódios, mas aqui cortava testa ou queixo. Nesta página, a imagem
+   do card fica em pé (4 x 5). Este arquivo vem depois do card.css, então vence. */
+.card-imagem {
+    aspect-ratio: 4 / 5;
+}

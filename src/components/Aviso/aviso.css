@@ -1,5 +1,31 @@
 /*
- * Componente Aviso (T-15 e T-16): estilos só deste componente.
- * Use as variáveis do global.css (var(--bb-verde)...) em vez de repetir as cores.
- * Ex.: aparência de cada tipo de aviso (carregando, erro, vazio).
+ * Componente Aviso (T-16): estilos só deste componente.
+ * As cores e fontes vêm das variáveis do global.css (var(--bb-...)).
+ * A caixa é o .alert do Bootstrap; aqui só trocamos o fundo e a faixa colorida.
  */
+
+/* Fundo escuro do site, com uma faixa grossa à esquerda que muda com o tipo */
+.aviso {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;              /* espaço entre o spinner e o texto */
+    background-color: var(--bb-fundo-elevado);
+    border: 1px solid var(--bb-borda);
+    border-left: 4px solid var(--bb-verde-claro);
+    color: var(--bb-texto);
+}
+
+/* Carregando: verde, a cor do site */
+.aviso-carregando .spinner-border {
+    color: var(--bb-verde-claro);
+}
+
+/* Erro: vermelho do próprio Bootstrap */
+.aviso-erro {
+    border-left-color: var(--bs-danger);
+}
+
+/* Nenhum item encontrado: amarelo das roupas de proteção */
+.aviso-vazio {
+    border-left-color: var(--bb-amarelo);
+}

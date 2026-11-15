@@ -12,10 +12,10 @@ Marque `[x]` conforme for implementando. Fonte do enunciado: `contexto/slides/00
 - [x] **RF01. Estrutura das páginas**: toda página tem cabeçalho, menu de navegação e rodapé. *(T-11, 14/11/2026: `montarHeader`, `montarNavbar` e `montarFooter` em `src/components/`, chamados nas 5 páginas.)*
 - [ ] **RF02. Páginas por recurso**: uma página por tipo de conteúdo (ex.: personagens, planetas); o menu navega entre todas. *(O menu já liga as 5 páginas (T-11); faltam os conteúdos das páginas de recurso, T-21 a T-24.)*
 - [ ] **RF03. Listagem inicial**: ao abrir a página, lista **todos** os itens automaticamente. Se a API paginar, buscar **todas** as páginas. *(T-13, 14/11/2026: `buscarTodos(url)` em `src/services/api.js` segue o `next` até `null` e junta os `results`. Falta as páginas listarem os itens, T-21 a T-24.)*
-- [ ] **RF04. Informações resumidas**: a lista mostra só o básico (nome + 1 ou 2 campos), nunca os dados completos.
+- [ ] **RF04. Informações resumidas**: a lista mostra só o básico (nome + 1 ou 2 campos), nunca os dados completos. *(T-16, 15/11/2026: `criarCard(titulo, linhas, imagem, aoClicar)` e `montarLista(itens, criarCardDoItem)` em `src/components/Card/card.js`, com grade responsiva e “Ver detalhes”. Os campos de cada recurso ficam no `script.js` da página. Falta as páginas usarem, T-21 a T-24.)*
 - [ ] **RF05. Detalhes do item**: clicar em um item abre um **modal do Bootstrap** com todas as informações, preenchido via JavaScript.
-- [ ] **RF06. Busca por nome**: campo de busca em cada página que filtra a lista pelo nome (enquanto digita ou ao clicar em um botão).
-- [ ] **RF07. Resultado vazio**: se a busca não achar nada, mostrar uma mensagem informativa.
+- [ ] **RF06. Busca por nome**: campo de busca em cada página que filtra a lista pelo nome (enquanto digita ou ao clicar em um botão). *(T-15, 15/11/2026: `filtrarPorNome(itens, termo)` em `src/services/busca.js`, com `trim` + `toLowerCase` + `includes`. Não ignora acentos: “tomas” não acha “Tomás”. Faltam o campo com `label` e o evento `input` nas páginas, T-21 a T-24.)*
+- [ ] **RF07. Resultado vazio**: se a busca não achar nada, mostrar uma mensagem informativa. *(T-15/T-16, 15/11/2026: o `montarLista` mostra “Nenhum item encontrado.” com o `mostrarAviso(texto, 'vazio')`, de `src/components/Aviso/aviso.js`, quando recebe a lista vazia.)*
 
 ## Cache (enunciado)
 
@@ -25,7 +25,7 @@ Marque `[x]` conforme for implementando. Fonte do enunciado: `contexto/slides/00
 ## Requisitos não funcionais (enunciado)
 
 - [ ] **RNF01. Responsividade**: Bootstrap; funciona em celular, tablet e desktop. *(Header, navbar e footer já são responsivos: o menu recolhe abaixo de 992px. Testado em 375px.)*
-- [ ] **RNF02. Acessibilidade básica**: `header`, `nav`, `main`, `footer`; `label` nos campos; `alt` em todas as imagens (inclusive as do carrossel). *(Feito no layout: tags semânticas, `aria-current` no menu, `aria-label` no logo e no `nav`, aviso de nova aba no link da API. Faltam os `label` da busca e os `alt`.)*
+- [ ] **RNF02. Acessibilidade básica**: `header`, `nav`, `main`, `footer`; `label` nos campos; `alt` em todas as imagens (inclusive as do carrossel). *(Feito no layout: tags semânticas, `aria-current` no menu, `aria-label` no logo e no `nav`, aviso de nova aba no link da API. Os cards (T-16) têm `alt` com o nome do item, `h2` dentro do `h1` da página e um botão de verdade para o teclado; o Aviso usa `role="alert"` / `role="status"`. Faltam os `label` da busca e os `alt` do carrossel.)*
 - [ ] **RNF03. Organização**: HTML, CSS e JS em pastas e arquivos separados. Funções de API, cache e busca **reutilizadas** entre as páginas (sem copiar e colar).
 - [ ] **RNF04. Tecnologias**: HTML5, CSS3, JavaScript e Bootstrap. Dados obtidos com `fetch` + `async/await` (ou `Promise`). *(Já usados em `carregarConfig` (T-12) e `buscarTodos` (T-13).)*
 

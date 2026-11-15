@@ -34,12 +34,19 @@ Os scripts não são módulos, então o `await` fica dentro de uma `async functi
 async function iniciarPagina() {
     montarHeader('../../');                       // não dependem do config.json:
     montarNavbar('personagens', '../../');        // aparecem mesmo se ele falhar
-    const config = await carregarConfig('../../');
-    montarFooter(config.apiUrl);
-    // ... conteúdo da página
+    try {                                         // try/catch: ver 04-padroes-de-codigo.md, "Erro na tela"
+        const config = await carregarConfig('../../');
+        montarFooter(config.apiUrl);
+        mostrarAviso('Carregando...', 'carregando');
+        const itens = await buscarComCache(config.prefixoCache + 'personagens', config.apiUrl + '/characters');
+        montarLista(itens, criarCardDoItem);      // criarCardDoItem: definida no script.js da página
+    } catch (erro) {
+        mostrarAviso('Não foi possível carregar os dados: ' + erro.message, 'erro');
+    }
 }
 iniciarPagina();
 ```
+- No `main` de cada página de recurso ficam os contêineres vazios `<div id="aviso"></div>` e `<div id="lista"></div>`, preenchidos pelos componentes Aviso e Card (T-16). Eles entram no HTML nas T-21 a T-24.
 - Assim o menu existe **uma vez só** (em `components/Navbar/navbar.js`), sem copiar e colar entre as páginas (RNF03).
 
 ## Página inicial (`index.html`)
@@ -76,15 +83,15 @@ src/
 │   ├── Header/     header.js    header.css     # montarHeader(raiz)                 (T-11)
 │   ├── Navbar/     navbar.js    navbar.css     # montarNavbar(paginaAtual, raiz)    (T-11)
 │   ├── Footer/     footer.js    footer.css     # montarFooter(apiUrl)               (T-11)
-│   ├── Card/       card.js      card.css       # criarCard, montarLista             (T-16)
-│   ├── Aviso/      aviso.js     aviso.css      # carregando / erro / nenhum item    (T-15, T-16)
+│   ├── Card/       card.js      card.css       # criarCard, montarLista             (T-16, implementado)
+│   ├── Aviso/      aviso.js     aviso.css      # mostrarAviso, esconderAviso        (T-16, implementado)
 │   ├── Modal/      modal.js     modal.css      # mostrarDetalhes                    (T-17)
 │   └── Carrossel/  carrossel.js carrossel.css  # montarCarrossel (só index.html)     (T-19)
 ├── services/                           # funções que não desenham nada
 │   ├── config.js   # carregarConfig(raiz)          (T-12)
 │   ├── api.js      # buscarTodos(url)              (T-13, implementado)
 │   ├── cache.js    # buscarComCache(chave, url)    (T-14, implementado)
-│   └── busca.js    # filtrarPorNome(itens, termo)  (T-15)
+│   └── busca.js    # filtrarPorNome(itens, termo)  (T-15, implementado)
 ├── pages/
 │   ├── personagens/  index.html  style.css  script.js   (T-21)
 │   ├── mortes/       ...                                (T-22)
@@ -95,7 +102,7 @@ src/
 
 - **Componentes em PascalCase** (como no React); os arquivos dentro deles em minúsculo.
 - O `script.js` de cada página só diz **o que** mostrar (quais campos); os services e componentes fazem o **como**.
-- Cada arquivo da T-10 começou só com o comentário da função prevista e o cartão do quadro. Cada cartão preenche o seu. **Já preenchidos:** Header, Navbar, Footer (T-11) e `services/config.js` (T-12).
+- Cada arquivo da T-10 começou só com o comentário da função prevista e o cartão do quadro. Cada cartão preenche o seu. **Já preenchidos:** Header, Navbar, Footer (T-11), `services/config.js` (T-12), `services/api.js` (T-13), `services/cache.js` (T-14), `services/busca.js` (T-15), Card e Aviso (T-16).
 
 ### Ordem dos arquivos em cada página
 
