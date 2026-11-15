@@ -12,9 +12,9 @@ Pedido do usuário: centralizar em um único arquivo o **link da API** e as **im
 
 Cada imagem precisa de `alt` (RNF02); a legenda é opcional.
 
-## Formato: `src/js/config.json` (decidido em 12/11/2026)
+## Formato: `src/config.json` (decidido em 12/11/2026)
 
-Arquivo: [`src/js/config.json`](../../src/js/config.json)
+Arquivo: [`src/config.json`](../../src/config.json). Ficava em `src/js/config.json` e foi para a raiz de `src/` na T-10 (14/11/2026), quando a pasta `js/` deu lugar a `services/` e `components/` (ver [02-paginas-e-estrutura.md](02-paginas-e-estrutura.md#estrutura-de-pastas-de-src-rnf03-decidida-em-14112026-t-10)).
 
 ```json
 {
@@ -32,11 +32,12 @@ Arquivo: [`src/js/config.json`](../../src/js/config.json)
 | `prefixoCache` | Definido (`ciwb_`) |
 | `carrossel` | **3 entradas provisórias**: trocar `src` e `alt` (marcados com `PREENCHER`) pelas imagens reais. Imagens locais vão em `src/img/`; também pode ser uma URL externa |
 
-Como ler (padrão da aula 12):
+Como ler (padrão da aula 12), em `src/services/config.js`:
 
 ```js
-async function carregarConfig() {
-    const resposta = await fetch('js/config.json');
+// raiz: '' no index.html e '../../' nas páginas de src/pages/<nome>/
+async function carregarConfig(raiz) {
+    const resposta = await fetch(raiz + 'config.json');
     if (!resposta.ok) {
         throw new Error('Erro ao carregar a configuração');
     }
@@ -44,7 +45,9 @@ async function carregarConfig() {
 }
 ```
 
-O caminho `'js/config.json'` é relativo ao HTML que roda o script (as páginas ficam na raiz de `src/`).
+O caminho do `fetch` é relativo ao **HTML** que roda o script, e não ao `config.js`. Como as páginas de recurso ficam duas pastas abaixo (`src/pages/<nome>/`), elas passam `'../../'` como raiz.
+
+Os `src` das imagens do carrossel são relativos ao `index.html` (raiz de `src/`), que é a única página com carrossel: `img/carrossel-1.jpg` funciona sem ajuste.
 
 ### Por que não `.env`
 

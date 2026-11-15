@@ -20,8 +20,8 @@ Antes de escrever qualquer código, leia o `CLAUDE.md` e `contexto/especificacao
   - bibliotecas de animação: GSAP, Anime.js, AOS, Animate.css, Lottie;
   - `import`/`export` (módulos).
 - **Fontes:** Google Fonts por `<link>` é permitido, sempre com uma fonte de reserva.
-- **Arquivos separados (RNF03):** estilos em `src/css/style.css` e scripts em `src/js/*.js`. Nada de `style="..."` ou `<script>` com código dentro do HTML.
-- **Bootstrap primeiro:** navbar, grid, cards, carousel e modal vêm do Bootstrap. Personalize por cima, no `style.css`, com classes próprias ou variáveis CSS (`--bs-...`), sem reescrever o Bootstrap.
+- **Arquivos separados (RNF03):** estilos em `src/global.css` (cores e base), no `.css` de cada componente (`src/components/<Nome>/`) e no `style.css` de cada página (`src/pages/<nome>/`); scripts em `src/services/`, `src/components/<Nome>/` e no `script.js` da página. Estrutura completa em `contexto/especificacao/02-paginas-e-estrutura.md`. Nada de `style="..."` ou `<script>` com código dentro do HTML.
+- **Bootstrap primeiro:** navbar, grid, cards, carousel e modal vêm do Bootstrap. Personalize por cima, no `global.css` (paleta no `:root`) ou no CSS do componente, com classes próprias ou variáveis CSS (`--bs-...`), sem reescrever o Bootstrap.
 
 ### JavaScript: só o que foi ensinado
 
@@ -44,7 +44,7 @@ Regra de ouro: cada animação precisa ser explicada ao professor em **uma ou du
   - as animações que o Bootstrap já traz: o deslizar do carousel (inclusive `carousel-fade`), o *fade* do modal e o recolher da navbar. Elas contam como animação do site e não exigem código nosso;
   - disparo por JS só para trocar uma classe (por exemplo, adicionar `.aparecer` aos cards depois de montar a lista);
   - **animações de rolagem** (liberadas pelo usuário em 14/11/2026), em uma destas duas formas simples:
-    1. **Revelar ao rolar** (a preferida): um único `IntersectionObserver`, num arquivo compartilhado (ex.: `src/js/rolagem.js`), que adiciona a classe `.visivel` quando o elemento entra na tela. O CSS faz a `transition` de `opacity` e `transform` (ex.: sobe 20px enquanto aparece). São cerca de 10 linhas de JS, comentadas em português e marcadas como não vistas em aula. Para a lista de uma página de recurso, observe os cards depois de montá-los;
+    1. **Revelar ao rolar** (a preferida): um único `IntersectionObserver`, num arquivo compartilhado (ex.: `src/services/rolagem.js`), que adiciona a classe `.visivel` quando o elemento entra na tela. O CSS faz a `transition` de `opacity` e `transform` (ex.: sobe 20px enquanto aparece). São cerca de 10 linhas de JS, comentadas em português e marcadas como não vistas em aula. Para a lista de uma página de recurso, observe os cards depois de montá-los;
     2. **CSS puro com `animation-timeline: view()`**, dentro de `@supports (animation-timeline: view())`, para que o elemento apareça normalmente nos navegadores sem suporte;
   - um *parallax* leve só com CSS (`background-attachment: fixed` numa faixa com imagem), sem JS.
 - **Proibido:**

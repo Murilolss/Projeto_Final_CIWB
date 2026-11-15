@@ -438,7 +438,7 @@ Os dois caminhos abaixo chegam ao mesmo resultado. A diferença é por onde o de
   fetch('https://breaking-bad-api-ciwb.vercel.app/api/characters').then((r) => r.json()).then(console.log)
   ```
 
-- Colocar a URL pública no README da API e no `apiUrl` de `src/js/config.json` do site.
+- Colocar a URL pública no README da API e no `apiUrl` de `src/config.json` do site.
 
 ---
 

@@ -1,0 +1,5 @@
+/*
+ * Componente Aviso (T-15 e T-16): estilos só deste componente.
+ * Use as variáveis do global.css (var(--bb-verde)...) em vez de repetir as cores.
+ * Ex.: aparência de cada tipo de aviso (carregando, erro, vazio).
+ */

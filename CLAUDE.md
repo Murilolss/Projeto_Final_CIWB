@@ -36,7 +36,7 @@ Antes de implementar qualquer parte do site, consulte `contexto/especificacao/`:
 Resumo do que o usuário pediu além do enunciado:
 
 - A página inicial (`index.html`) tem um **carrossel de imagens** (Bootstrap).
-- O **link da API** e as **imagens do carrossel** ficam em `src/js/config.json`, lido com `fetch`, e nunca fixos no código. Foi escolhido no lugar de um `.env`, que o navegador não lê sem ferramentas de build. O site precisa rodar pelo Live Server.
+- O **link da API** e as **imagens do carrossel** ficam em `src/config.json`, lido com `fetch`, e nunca fixos no código. Foi escolhido no lugar de um `.env`, que o navegador não lê sem ferramentas de build. O site precisa rodar pelo Live Server.
 
 Mantenha essas páginas atualizadas quando uma decisão for tomada ou um requisito mudar.
 

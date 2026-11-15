@@ -1,0 +1,135 @@
+/*
+ * global.css: estilos que valem para TODAS as páginas (como o globals.css do React).
+ *
+ * Ordem dos CSS em cada página:
+ *   1. Bootstrap (CDN)
+ *   2. global.css            (este arquivo: cores e base)
+ *   3. components/<Nome>/... (estilo de cada componente usado)
+ *   4. style.css da página   (só o que é daquela página)
+ * Cada arquivo pode sobrescrever o anterior, porque vem depois.
+ *
+ * O <html> de toda página tem data-bs-theme="dark": o modo escuro do Bootstrap 5.3.
+ * Assim navbar, cards e modal já nascem escuros, e aqui só ajustamos as cores.
+ */
+
+
+/* ===================== 1. Variáveis (cores, fontes, espaços) ===================== */
+
+:root {
+    /* Paleta Breaking Bad */
+    --bb-verde: #1f7a43;          /* verde da tabela periódica do logo */
+    --bb-verde-escuro: #0f3d22;
+    --bb-verde-claro: #4caf6e;    /* links e destaques sobre o fundo escuro */
+    --bb-amarelo: #f2c230;        /* amarelo das roupas de proteção / deserto */
+    --bb-azul-cristal: #5ec8e5;   /* o azul do cristal */
+
+    --bb-fundo: #0e1410;          /* fundo da página */
+    --bb-fundo-elevado: #16201a;  /* cards, modal, navbar */
+    --bb-borda: #2a3a30;
+    --bb-texto: #e8ece9;
+    --bb-texto-suave: #a7b3ab;
+
+    /* Fontes (a identidade visual definitiva fica para o T-27) */
+    --bb-fonte-texto: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --bb-fonte-titulo: var(--bb-fonte-texto);
+
+    /* Espaços e cantos */
+    --bb-espaco: 1rem;
+    --bb-raio: 0.5rem;
+
+    /* Variáveis do próprio Bootstrap trocadas pela nossa paleta.
+       Como o global.css vem depois do Bootstrap, estes valores vencem. */
+    --bs-body-bg: var(--bb-fundo);
+    --bs-body-color: var(--bb-texto);
+    --bs-body-font-family: var(--bb-fonte-texto);
+    --bs-secondary-color: var(--bb-texto-suave);
+    --bs-border-color: var(--bb-borda);
+    --bs-border-radius: var(--bb-raio);
+    --bs-link-color: var(--bb-verde-claro);
+    --bs-link-color-rgb: 76, 175, 110;          /* o mesmo verde-claro em R, G, B */
+    --bs-link-hover-color: var(--bb-amarelo);
+    --bs-link-hover-color-rgb: 242, 194, 48;    /* o mesmo amarelo em R, G, B */
+}
+
+
+/* ===================== 2. Base ===================== */
+
+/* A página é uma coluna: header, nav, main e footer um embaixo do outro.
+   O main cresce (flex: 1) e empurra o rodapé para o fim, mesmo com pouco conteúdo. */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bb-fundo);
+    color: var(--bb-texto);
+}
+
+main {
+    flex: 1;
+}
+
+h1, h2, h3 {
+    font-family: var(--bb-fonte-titulo);
+}
+
+/* Imagens nunca passam da largura da tela (evita rolagem lateral no celular) */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Contorno amarelo bem visível em quem recebe o foco pelo teclado (acessibilidade) */
+:focus-visible {
+    outline: 3px solid var(--bb-amarelo);
+    outline-offset: 2px;
+}
+
+
+/* ===================== 3. Ladrilho de "elemento químico" ===================== */
+
+/* Quadrado no estilo da tabela periódica (como o "Br" e o "Ba" do logo da série).
+   Uso no HTML (montado pelo componente Header):
+     <span class="elemento">
+         <span class="elemento-numero">35</span>
+         <span class="elemento-simbolo">Br</span>
+     </span>                                                                     */
+.elemento {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--bb-verde);
+    border: 2px solid var(--bb-verde-claro);
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.elemento-numero {
+    position: absolute;   /* número pequeno no canto de cima, à esquerda */
+    top: 0.2rem;
+    left: 0.25rem;
+    font-size: 0.6rem;
+}
+
+.elemento-simbolo {
+    font-size: 1.4rem;
+}
+
+
+/* ===================== 4. Menos movimento ===================== */
+
+/* Se o usuário pediu ao sistema "reduzir movimento", as animações e transições
+   do site terminam na hora. Vale para tudo o que for criado nos outros CSS. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

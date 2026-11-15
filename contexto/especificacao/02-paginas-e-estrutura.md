@@ -5,23 +5,26 @@
 | Página | Arquivo | Conteúdo |
 |--------|---------|----------|
 | Início | `src/index.html` | Apresentação do site + **carrossel de imagens** |
-| Uma por recurso | `src/<recurso>.html` | Busca + lista resumida + modal de detalhes |
-
-Os recursos (ex.: `personagens.html`, `planetas.html`) só serão definidos quando a API for escolhida.
+| Personagens | `src/pages/personagens/index.html` | Busca + lista resumida + modal de detalhes |
+| Mortes | `src/pages/mortes/index.html` | idem |
+| Episódios | `src/pages/episodios/index.html` | idem |
+| Frases marcantes | `src/pages/frases/index.html` | idem |
+| Temporadas | `src/pages/temporadas/index.html` | Só se o T-25 aprovar |
 
 ## Layout comum (RF01, RNF02)
 
-Toda página, inclusive a inicial, segue o mesmo esqueleto:
+Toda página, inclusive a inicial, segue o mesmo esqueleto. Os contêineres ficam vazios no HTML e são preenchidos pelos **componentes** (funções JS, ver "Estrutura de pastas"):
 
 ```html
-<header>  título/logo do site                      </header>
-<nav>     menu com links para TODAS as páginas     </nav>   <!-- navbar do Bootstrap, recolhe no celular -->
-<main>    conteúdo próprio da página               </main>
-<footer>  autoria, disciplina, fonte dos dados     </footer>
+<header id="cabecalho"></header>  <!-- montarHeader(raiz): título + ladrilho .elemento -->
+<nav id="menu"></nav>             <!-- montarNavbar(paginaAtual, raiz): navbar do Bootstrap, recolhe no celular -->
+<main> conteúdo próprio da página </main>
+<footer id="rodape"></footer>     <!-- montarFooter(): autoria, disciplina, fonte dos dados -->
 ```
 
-- O menu marca a página atual (classe `active` + `aria-current="page"`).
+- O menu marca a página atual (classe `active` + `aria-current="page"`), a partir do parâmetro `paginaAtual`.
 - O rodapé cita a API usada como fonte dos dados.
+- Assim o menu existe **uma vez só** (em `components/Navbar/navbar.js`), sem copiar e colar entre as páginas (RNF03).
 
 ## Página inicial (`index.html`)
 
@@ -44,25 +47,54 @@ Ordem dentro do `main`:
 5. Mensagem de "nenhum item encontrado" (RF07), escondida por padrão.
 6. Um único modal do Bootstrap por página (RF05), preenchido a cada clique.
 
-## Estrutura de pastas proposta para `src/` (RNF03)
+## Estrutura de pastas de `src/` (RNF03), decidida em 14/11/2026 (T-10)
+
+Organização **inspirada no React** (`components/` + `globals.css`) e no projeto anterior da disciplina (cada página na sua pasta, com `index.html` + `style.css`). Escolha do usuário.
 
 ```
 src/
-├── index.html
-├── <recurso>.html          # uma por recurso
-├── css/
-│   └── style.css           # estilos próprios (o Bootstrap vem por CDN)
-├── img/                    # imagens locais do carrossel (se não forem URLs externas)
-├── js/
-│   ├── config.json         # link da API + imagens do carrossel (ver 03-configuracao.md)
-│   ├── api.js              # fetch + paginação          (compartilhado)
-│   ├── cache.js            # leitura/gravação no localStorage (compartilhado)
-│   ├── busca.js            # filtro por nome + mensagem de vazio (compartilhado)
-│   ├── ui.js               # montar lista e modal       (compartilhado)
-│   ├── carrossel.js        # monta o carrossel (só index.html)
-│   └── <recurso>.js        # específico de cada página: campos do resumo e do modal
+├── index.html  index.css  index.js     # página inicial (carrossel)
+├── global.css                          # :root com as cores + base (vale para todas as páginas)
+├── config.json                         # link da API + imagens do carrossel (ver 03-configuracao.md)
+├── components/                         # pedaços de tela reaproveitados: um .js + um .css cada
+│   ├── Header/     header.js    header.css     # montarHeader(raiz)                 (T-11)
+│   ├── Navbar/     navbar.js    navbar.css     # montarNavbar(paginaAtual, raiz)    (T-11)
+│   ├── Footer/     footer.js    footer.css     # montarFooter()                     (T-11)
+│   ├── Card/       card.js      card.css       # criarCard, montarLista             (T-16)
+│   ├── Aviso/      aviso.js     aviso.css      # carregando / erro / nenhum item    (T-15, T-16)
+│   ├── Modal/      modal.js     modal.css      # mostrarDetalhes                    (T-17)
+│   └── Carrossel/  carrossel.js carrossel.css  # montarCarrossel (só index.html)     (T-19)
+├── services/                           # funções que não desenham nada
+│   ├── config.js   # carregarConfig(raiz)          (T-12)
+│   ├── api.js      # buscarTodos(url)              (T-13)
+│   ├── cache.js    # buscarComCache(chave, url)    (T-14)
+│   └── busca.js    # filtrarPorNome(itens, termo)  (T-15)
+├── pages/
+│   ├── personagens/  index.html  style.css  script.js   (T-21)
+│   ├── mortes/       ...                                (T-22)
+│   ├── episodios/    ...                                (T-23)
+│   └── frases/       ...                                (T-24)
+└── img/                                # imagens locais do carrossel (se não forem URLs da API)
 ```
 
-A ideia é que o arquivo de cada recurso só diga **o que** mostrar (quais campos), e os arquivos compartilhados façam o **como**.
+- **Componentes em PascalCase** (como no React); os arquivos dentro deles em minúsculo.
+- O `script.js` de cada página só diz **o que** mostrar (quais campos); os services e componentes fazem o **como**.
+- Hoje cada arquivo da T-10 tem só o comentário com a função prevista e o cartão do quadro. Cada cartão preenche o seu.
 
-> Esta estrutura é uma proposta: pode mudar quando a API for definida.
+### Ordem dos arquivos em cada página
+
+- **CSS**, no `<head>`: Bootstrap 5.3.8 (CDN jsDelivr) → `global.css` → CSS dos componentes usados → `style.css` da página. Cada um pode sobrescrever o anterior.
+- **JS**, no fim do `<body>`: `bootstrap.bundle.min.js` → `services/*.js` → `components/*.js` → `script.js` da página. Cada arquivo usa funções dos anteriores.
+- `<html lang="pt-BR" data-bs-theme="dark">`: o modo escuro do Bootstrap 5.3. O `global.css` troca as variáveis `--bs-*` pela paleta do site.
+- Sem `import`/`export` (módulos não foram vistos em aula e exigem configuração extra): tudo entra por `<script>`, então **os nomes de função não podem se repetir** entre os arquivos.
+
+### Regra dos caminhos (`raiz`)
+
+O `fetch`, os links e as imagens resolvem o caminho a partir da **página aberta**, e não do arquivo `.js`. Por isso as funções que montam links ou leem arquivos recebem a raiz como parâmetro:
+
+| Página | `raiz` | Exemplo |
+|---|---|---|
+| `src/index.html` | `''` | `carregarConfig('')`, `montarNavbar('inicio', '')` |
+| `src/pages/<nome>/index.html` | `'../../'` | `carregarConfig('../../')`, `montarNavbar('personagens', '../../')` |
+
+Os `<link>` e `<script>` do HTML também usam `../../` nas páginas de `pages/`.

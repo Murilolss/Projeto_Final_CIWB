@@ -14,7 +14,7 @@ Use o que foi ensinado. Antes de usar algo fora das aulas, confira `contexto/sli
 | `toLowerCase()`, `includes()`, `trim()` | aula 06 | Comparar nomes na busca |
 | Template string `` `${...}` `` | aula 12 | Montar URLs e textos |
 
-**Não vistos em aula** (evitar ou usar com cuidado): `Array.filter/map`, `import/export` (módulos), bundlers, `.env`. A configuração fica em `src/js/config.json`, lido com `fetch` (ver [03-configuracao.md](03-configuracao.md)). O Bootstrap só aparece no enunciado; use a documentação oficial (versão 5.3, via CDN).
+**Não vistos em aula** (evitar ou usar com cuidado): `Array.filter/map`, `import/export` (módulos), bundlers, `.env`. A configuração fica em `src/config.json`, lido com `fetch` por `carregarConfig(raiz)` em `src/services/config.js` (ver [03-configuracao.md](03-configuracao.md)). O Bootstrap só aparece no enunciado; use a documentação oficial (versão 5.3, via CDN).
 
 ## Padrão do professor para requisições
 
@@ -86,6 +86,8 @@ function filtrarPorNome(itens, termo) {
 
 ## Boas práticas combinadas
 
-- Funções de API, cache e busca **só** nos arquivos compartilhados (RNF03).
+- Funções de API, cache e busca **só** em `src/services/`, e o que desenha na tela (header, navbar, footer, card, aviso, modal, carrossel) **só** em `src/components/` (RNF03). Onde fica cada função: [02-paginas-e-estrutura.md](02-paginas-e-estrutura.md#estrutura-de-pastas-de-src-rnf03-decidida-em-14112026-t-10).
+- Sem `import`/`export`: tudo entra por `<script>`, então os nomes de função não podem se repetir entre arquivos.
+- Funções que leem arquivos ou montam links recebem a `raiz` (`''` no `index.html`, `'../../'` em `pages/<nome>/`).
 - Mostrar a mensagem "Carregando..." durante o `fetch` e uma mensagem de erro se a API falhar.
 - Usar `textContent` (e não `innerHTML`) para colocar na página os textos que vêm da API.
