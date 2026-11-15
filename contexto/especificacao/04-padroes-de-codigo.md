@@ -24,26 +24,28 @@ Como os scripts não são módulos, o `await` não pode ficar solto no arquivo: 
 
 ## Esboços (adaptar quando a API for definida)
 
-### Buscar todas as páginas (RF03)
+### Buscar todas as páginas (RF03): implementado em `src/services/api.js` (T-13, 14/11/2026)
 
 ```js
-// A forma de achar a "próxima página" depende da API (na SWAPI é o campo next).
 async function buscarTodos(url) {
     const todos = [];
-    while (url) {
+    while (url) {                                   // while: aula 04
         const resposta = await fetch(url);
         if (!resposta.ok) {
-            throw new Error('Erro ao acessar a API');
+            throw new Error('Erro ao acessar a API (' + resposta.status + ')');
         }
-        const json = await resposta.json();
+        const json = await resposta.json();         // { count, next, previous, results }
         json.results.forEach(function (item) {
             todos.push(item);
         });
-        url = json.next;   // null na última página
+        url = json.next;   // link completo da próxima página, ou null na última
     }
     return todos;
 }
 ```
+
+- Não precisa de limite de páginas: o laço só continua se a API mandar um `next`, e uma resposta de erro (404, 500) dispara o `throw`.
+- Mostrar o erro na tela fica para o componente Aviso (T-16).
 
 ### Cache (RN01, RN02)
 
