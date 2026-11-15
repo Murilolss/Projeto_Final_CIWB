@@ -19,11 +19,27 @@ Toda página, inclusive a inicial, segue o mesmo esqueleto. Os contêineres fica
 <header id="cabecalho"></header>  <!-- montarHeader(raiz): título + ladrilho .elemento -->
 <nav id="menu"></nav>             <!-- montarNavbar(paginaAtual, raiz): navbar do Bootstrap, recolhe no celular -->
 <main> conteúdo próprio da página </main>
-<footer id="rodape"></footer>     <!-- montarFooter(): autoria, disciplina, fonte dos dados -->
+<footer id="rodape"></footer>     <!-- montarFooter(apiUrl): autoria, disciplina, fonte dos dados -->
 ```
 
-- O menu marca a página atual (classe `active` + `aria-current="page"`), a partir do parâmetro `paginaAtual`.
-- O rodapé cita a API usada como fonte dos dados.
+- O menu marca a página atual (classe `active` + `aria-current="page"`), a partir do parâmetro `paginaAtual`. As páginas do menu ficam no array `paginasDoMenu`, em `navbar.js`: uma página nova no menu é só mais um objeto nesse array.
+- O rodapé cita a API usada como fonte dos dados, com o link recebido em `apiUrl` (vem de `config.apiUrl`, nunca fixo no código). Os integrantes ficam no array `integrantesDoGrupo`, em `footer.js`.
+- O título do header **não** é `h1`: cada página tem o seu `h1` no `main`.
+
+### Ordem das chamadas em cada página (implementado na T-11, 14/11/2026)
+
+Os scripts não são módulos, então o `await` fica dentro de uma `async function iniciarPagina()`, chamada no fim do `script.js` (cada página carrega um só `script.js`, então o nome não conflita):
+
+```js
+async function iniciarPagina() {
+    montarHeader('../../');                       // não dependem do config.json:
+    montarNavbar('personagens', '../../');        // aparecem mesmo se ele falhar
+    const config = await carregarConfig('../../');
+    montarFooter(config.apiUrl);
+    // ... conteúdo da página
+}
+iniciarPagina();
+```
 - Assim o menu existe **uma vez só** (em `components/Navbar/navbar.js`), sem copiar e colar entre as páginas (RNF03).
 
 ## Página inicial (`index.html`)
@@ -59,7 +75,7 @@ src/
 ├── components/                         # pedaços de tela reaproveitados: um .js + um .css cada
 │   ├── Header/     header.js    header.css     # montarHeader(raiz)                 (T-11)
 │   ├── Navbar/     navbar.js    navbar.css     # montarNavbar(paginaAtual, raiz)    (T-11)
-│   ├── Footer/     footer.js    footer.css     # montarFooter()                     (T-11)
+│   ├── Footer/     footer.js    footer.css     # montarFooter(apiUrl)               (T-11)
 │   ├── Card/       card.js      card.css       # criarCard, montarLista             (T-16)
 │   ├── Aviso/      aviso.js     aviso.css      # carregando / erro / nenhum item    (T-15, T-16)
 │   ├── Modal/      modal.js     modal.css      # mostrarDetalhes                    (T-17)
@@ -79,7 +95,7 @@ src/
 
 - **Componentes em PascalCase** (como no React); os arquivos dentro deles em minúsculo.
 - O `script.js` de cada página só diz **o que** mostrar (quais campos); os services e componentes fazem o **como**.
-- Hoje cada arquivo da T-10 tem só o comentário com a função prevista e o cartão do quadro. Cada cartão preenche o seu.
+- Cada arquivo da T-10 começou só com o comentário da função prevista e o cartão do quadro. Cada cartão preenche o seu. **Já preenchidos:** Header, Navbar, Footer (T-11) e `services/config.js` (T-12).
 
 ### Ordem dos arquivos em cada página
 

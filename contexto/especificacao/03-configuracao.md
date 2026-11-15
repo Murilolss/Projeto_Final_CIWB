@@ -32,7 +32,7 @@ Arquivo: [`src/config.json`](../../src/config.json). Ficava em `src/js/config.js
 | `prefixoCache` | Definido (`ciwb_`) |
 | `carrossel` | **3 entradas provisórias**: trocar `src` e `alt` (marcados com `PREENCHER`) pelas imagens reais. Imagens locais vão em `src/img/`; também pode ser uma URL externa |
 
-Como ler (padrão da aula 12), em `src/services/config.js`:
+Como ler (padrão da aula 12), em `src/services/config.js`. **Implementado na T-12 (14/11/2026)** e usado por todas as páginas; o `montarFooter(config.apiUrl)` é o primeiro a usar o resultado:
 
 ```js
 // raiz: '' no index.html e '../../' nas páginas de src/pages/<nome>/

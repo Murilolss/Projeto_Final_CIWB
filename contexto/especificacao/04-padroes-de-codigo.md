@@ -14,11 +14,13 @@ Use o que foi ensinado. Antes de usar algo fora das aulas, confira `contexto/sli
 | `toLowerCase()`, `includes()`, `trim()` | aula 06 | Comparar nomes na busca |
 | Template string `` `${...}` `` | aula 12 | Montar URLs e textos |
 
-**Não vistos em aula** (evitar ou usar com cuidado): `Array.filter/map`, `import/export` (módulos), bundlers, `.env`. A configuração fica em `src/config.json`, lido com `fetch` por `carregarConfig(raiz)` em `src/services/config.js` (ver [03-configuracao.md](03-configuracao.md)). O Bootstrap só aparece no enunciado; use a documentação oficial (versão 5.3, via CDN).
+**Não vistos em aula** (evitar ou usar com cuidado): `Array.filter/map`, `join` (não está na aula 07: monte listas com `forEach` + `createElement`), `try/catch`, `import/export` (módulos), bundlers, `.env`. A configuração fica em `src/config.json`, lido com `fetch` por `carregarConfig(raiz)` em `src/services/config.js` (ver [03-configuracao.md](03-configuracao.md)). O Bootstrap só aparece no enunciado; use a documentação oficial (versão 5.3, via CDN).
 
 ## Padrão do professor para requisições
 
 `async function` → `await fetch(url)` → `if (!resposta.ok)` trata o erro → `await resposta.json()` → monta o DOM.
+
+Como os scripts não são módulos, o `await` não pode ficar solto no arquivo: cada `script.js` de página tem uma `async function iniciarPagina()` chamada no fim (ver a ordem das chamadas em [02-paginas-e-estrutura.md](02-paginas-e-estrutura.md#ordem-das-chamadas-em-cada-página-implementado-na-t-11-14112026)). Implementado em `src/services/config.js` (`carregarConfig`, T-12).
 
 ## Esboços (adaptar quando a API for definida)
 

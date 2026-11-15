@@ -1,5 +1,39 @@
 /*
  * Componente Footer (T-11): estilos só deste componente.
- * Use as variáveis do global.css (var(--bb-verde)...) em vez de repetir as cores.
- * Ex.: cor do rodapé e tamanho do texto.
+ * As cores e fontes vêm das variáveis do global.css (var(--bb-...)).
  */
+
+/* Fundo do rodapé, com uma faixa verde em cima (o verde da tabela periódica) */
+.rodape {
+    margin-top: 3rem;
+    padding: 2rem 0 1.25rem;
+    background-color: var(--bb-fundo-elevado);
+    border-top: 3px solid var(--bb-verde);
+    color: var(--bb-texto-suave);
+    font-size: 0.95rem;
+}
+
+/* Título de cada coluna, com a fonte dos títulos */
+.rodape-titulo {
+    margin-bottom: 0.5rem;
+    color: var(--bb-texto);
+    font-family: var(--bb-fonte-titulo);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Tira o espaço extra embaixo do último texto de cada coluna */
+.rodape p:last-child,
+.rodape ul:last-child {
+    margin-bottom: 0;
+}
+
+/* Linha final com o aviso, separada das colunas por um traço fino */
+.rodape-aviso {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--bb-borda);
+    font-size: 0.85rem;
+    text-align: center;
+}

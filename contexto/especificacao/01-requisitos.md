@@ -9,8 +9,8 @@ Marque `[x]` conforme for implementando. Fonte do enunciado: `contexto/slides/00
 
 ## Requisitos funcionais (enunciado)
 
-- [ ] **RF01. Estrutura das páginas**: toda página tem cabeçalho, menu de navegação e rodapé.
-- [ ] **RF02. Páginas por recurso**: uma página por tipo de conteúdo (ex.: personagens, planetas); o menu navega entre todas.
+- [x] **RF01. Estrutura das páginas**: toda página tem cabeçalho, menu de navegação e rodapé. *(T-11, 14/11/2026: `montarHeader`, `montarNavbar` e `montarFooter` em `src/components/`, chamados nas 5 páginas.)*
+- [ ] **RF02. Páginas por recurso**: uma página por tipo de conteúdo (ex.: personagens, planetas); o menu navega entre todas. *(O menu já liga as 5 páginas (T-11); faltam os conteúdos das páginas de recurso, T-21 a T-24.)*
 - [ ] **RF03. Listagem inicial**: ao abrir a página, lista **todos** os itens automaticamente. Se a API paginar, buscar **todas** as páginas.
 - [ ] **RF04. Informações resumidas**: a lista mostra só o básico (nome + 1 ou 2 campos), nunca os dados completos.
 - [ ] **RF05. Detalhes do item**: clicar em um item abre um **modal do Bootstrap** com todas as informações, preenchido via JavaScript.
@@ -24,8 +24,8 @@ Marque `[x]` conforme for implementando. Fonte do enunciado: `contexto/slides/00
 
 ## Requisitos não funcionais (enunciado)
 
-- [ ] **RNF01. Responsividade**: Bootstrap; funciona em celular, tablet e desktop.
-- [ ] **RNF02. Acessibilidade básica**: `header`, `nav`, `main`, `footer`; `label` nos campos; `alt` em todas as imagens (inclusive as do carrossel).
+- [ ] **RNF01. Responsividade**: Bootstrap; funciona em celular, tablet e desktop. *(Header, navbar e footer já são responsivos: o menu recolhe abaixo de 992px. Testado em 375px.)*
+- [ ] **RNF02. Acessibilidade básica**: `header`, `nav`, `main`, `footer`; `label` nos campos; `alt` em todas as imagens (inclusive as do carrossel). *(Feito no layout: tags semânticas, `aria-current` no menu, `aria-label` no logo e no `nav`, aviso de nova aba no link da API. Faltam os `label` da busca e os `alt`.)*
 - [ ] **RNF03. Organização**: HTML, CSS e JS em pastas e arquivos separados. Funções de API, cache e busca **reutilizadas** entre as páginas (sem copiar e colar).
 - [ ] **RNF04. Tecnologias**: HTML5, CSS3, JavaScript e Bootstrap. Dados obtidos com `fetch` + `async/await` (ou `Promise`).
 

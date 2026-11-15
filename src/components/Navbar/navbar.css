@@ -1,5 +1,87 @@
 /*
  * Componente Navbar (T-11): estilos só deste componente.
- * Use as variáveis do global.css (var(--bb-verde)...) em vez de repetir as cores.
- * Ex.: cor de fundo da navbar e destaque do link ativo.
+ * As cores e fontes vêm das variáveis do global.css (var(--bb-...)).
+ * O seletor começa com #menu para vencer as cores padrão da navbar do Bootstrap.
  */
+
+/* Fundo da barra do menu */
+#menu.navbar {
+    background-color: var(--bb-fundo-elevado);
+    border-bottom: 1px solid var(--bb-borda);
+}
+
+/* Links do menu com a fonte dos títulos, em maiúsculas */
+#menu .nav-link {
+    position: relative;   /* referência para a linha amarela (::after) */
+    color: var(--bb-texto-suave);
+    font-family: var(--bb-fonte-titulo);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+#menu .nav-link:hover,
+#menu .nav-link:focus-visible {
+    color: var(--bb-texto);
+}
+
+/* Página atual em amarelo */
+#menu .nav-link.active {
+    color: var(--bb-amarelo);
+}
+
+/* Animação: a linha amarela embaixo do link começa com largura zero (scaleX(0))
+   e cresce até a largura toda (scaleX(1)) ao passar o mouse.
+   Na página atual, a linha já fica sempre visível. */
+#menu .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0.3rem;
+    width: 2rem;          /* no celular: linha curta embaixo do começo do texto */
+    height: 2px;
+    background-color: var(--bb-amarelo);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+#menu .nav-link:hover::after,
+#menu .nav-link:focus-visible::after,
+#menu .nav-link.active::after {
+    transform: scaleX(1);
+}
+
+/* Telas grandes (menu aberto em linha): a linha ocupa a largura do texto.
+   0.5rem é o espaço lateral que o Bootstrap dá a cada link nesse tamanho. */
+@media (min-width: 992px) {
+    #menu .nav-link::after {
+        left: 0.5rem;
+        right: 0.5rem;
+        width: auto;
+    }
+}
+
+/* Botão "Menu" do celular */
+#menu .navbar-toggler {
+    border-color: var(--bb-borda);
+    color: var(--bb-texto);
+}
+
+/* Ícone e texto lado a lado. Só abaixo de 992px: acima disso o Bootstrap
+   esconde o botão (display: none), e não podemos sobrescrever isso. */
+@media (max-width: 991.98px) {
+    #menu .navbar-toggler {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+.menu-botao-texto {
+    font-family: var(--bb-fonte-titulo);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
