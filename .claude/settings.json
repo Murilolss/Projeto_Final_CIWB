@@ -13,6 +13,26 @@
   "permissions": {
     "allow": [
       "ClaudeInChromeDomain(localhost:5519)"
+    ],
+    "deny": [
+      "Bash(git commit:*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset:*)",
+      "Bash(git merge --no-ff:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git push --force-with-lease:*)",
+      "Bash(git branch -D:*)",
+      "Bash(git branch -d:*)",
+      "PowerShell(git commit:*)",
+      "PowerShell(git rebase:*)",
+      "PowerShell(git reset:*)",
+      "PowerShell(git merge --no-ff:*)",
+      "PowerShell(git push --force:*)",
+      "PowerShell(git push -f:*)",
+      "PowerShell(git push --force-with-lease:*)",
+      "PowerShell(git branch -D:*)",
+      "PowerShell(git branch -d:*)"
     ]
   }
 }

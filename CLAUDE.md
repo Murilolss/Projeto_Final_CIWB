@@ -75,6 +75,7 @@ Mantenha essas páginas atualizadas quando uma decisão for tomada ou um requisi
 - **Merge fast-forward e push são permitidos** (decidido pelo usuário em 14/11/2026), sempre com `git merge --ff-only` (não cria commit) e `git push` sem `--force`. O jeito padrão é a skill `/atualizar-branch`. Se o fast-forward falhar, o Claude para e explica; quem resolve é o usuário.
 - Comandos só de leitura (`git status`, `git diff`, `git log`, `git fetch`) continuam permitidos.
 - Criar ou trocar de branch (`git branch`, `git switch`) é permitido quando o usuário pedir.
+- Essas proibições também estão travadas por regras `deny` em `.claude/settings.json` (`git commit`, `rebase`, `reset`, `merge --no-ff`, `push --force` e apagar branch). As regras e as orientações para outra pessoa configurar o mesmo estão em `contexto/regras-git-e-commits.md`.
 
 ### Branches
 
