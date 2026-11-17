@@ -5,9 +5,11 @@
 // O que mostrar de cada recurso fica no script.js da página, não aqui. Exemplo (Personagens):
 //   function criarCardDoItem(item) {
 //       return criarCard(item.name, ['Ator: ' + item.portrayed_by, 'Status: ' + item.status], item.image,
-//           function () { mostrarDetalhes(item); });   // mostrarDetalhes: Modal (T-17)
+//           function () { abrirPersonagem(item); });
 //   }
 //   montarLista(itens, criarCardDoItem);
+// abrirPersonagem(item) também fica no script.js da página: monta a lista de campos
+// e chama mostrarDetalhes(titulo, campos, imagem), do componente Modal (T-17).
 
 // Cria o card de UM item e devolve a coluna da grade com o card dentro.
 //   titulo:   o nome do item (vira o título do card e o alt da imagem)

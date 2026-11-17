@@ -1,18 +1,8 @@
 {
-  "enabledPlugins": {
-    "frontend-design@ciwb-local": true
-  },
-  "extraKnownMarketplaces": {
-    "ciwb-local": {
-      "source": {
-        "source": "directory",
-        "path": "./.claude/plugins"
-      }
-    }
-  },
   "permissions": {
     "allow": [
-      "ClaudeInChromeDomain(localhost:5519)"
+      "ClaudeInChromeDomain(localhost:5519)",
+      "mcp__claude-in-chrome__tabs_context_mcp"
     ],
     "deny": [
       "Bash(git commit:*)",
@@ -34,5 +24,16 @@
       "PowerShell(git branch -D:*)",
       "PowerShell(git branch -d:*)"
     ]
+  },
+  "enabledPlugins": {
+    "frontend-design@ciwb-local": true
+  },
+  "extraKnownMarketplaces": {
+    "ciwb-local": {
+      "source": {
+        "source": "directory",
+        "path": "./.claude/plugins"
+      }
+    }
   }
 }

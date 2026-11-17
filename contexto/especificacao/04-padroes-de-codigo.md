@@ -99,7 +99,7 @@ campoBusca.addEventListener('input', function () {
 ```js
 function criarCardDoItem(item) {
     return criarCard(item.name, ['Ator: ' + item.portrayed_by, 'Status: ' + item.status], item.image,
-        function () { mostrarDetalhes(item); });   // mostrarDetalhes: Modal (T-17)
+        function () { abrirPersonagem(item); });   // abrirPersonagem: ver "Modal de detalhes"
 }
 ```
 
@@ -131,10 +131,32 @@ async function iniciarPagina() {
 
 - Em uma frase, para a apresentação: "o `try` tenta carregar; se algo der `throw` lá dentro, o JavaScript pula para o `catch`, que recebe o erro e mostra a mensagem na tela."
 
-### Modal de detalhes (RF05)
+### Modal de detalhes (RF05): implementado em `src/components/Modal/modal.js` (T-17, 17/11/2026)
 
-- Um `<div class="modal">` por página, com título e corpo vazios.
-- Ao clicar em um item: limpar o corpo (`innerHTML = ''`), preencher com `createElement`, depois abrir com `bootstrap.Modal.getOrCreateInstance(elementoModal).show()` (ou com `data-bs-toggle="modal"` no item).
+- `mostrarDetalhes(titulo, campos, imagem)`:
+  - `campos` é um array de objetos `{ rotulo, valor }`;
+  - o título entra por `textContent`; o corpo é limpo com `innerHTML = ''` e preenchido com `createElement`. Vem a imagem (se não for `null`, com `alt = titulo`) e depois uma `dl.row` com `dt.col-sm-4` e `dd.col-sm-8`: lado a lado no computador, um embaixo do outro no celular;
+  - no fim, `bootstrap.Modal.getOrCreateInstance(modal).show()`.
+- **Formatos de `valor`** (tratados no `adicionarCampo`):
+  - texto ou número: aparece como está;
+  - array: uma linha para cada item;
+  - `null`, `''` ou array vazio: "Não informado", porque o RF05 pede todos os campos.
+  - O array é reconhecido com `instanceof Array` (aula 02).
+- **O HTML do modal não fica nos `index.html`.** Na primeira chamada, `criarModal()` monta o `#modal-detalhes` (`modal-lg`, `modal-dialog-centered`, `modal-dialog-scrollable`, `modal-fullscreen-sm-down`) no fim do `<body>`. Os cliques seguintes reaproveitam o mesmo modal, e assim as 4 páginas não repetem esse HTML (RNF03).
+- **Acessibilidade:** `aria-labelledby` aponta para o título (`h2.h4`) e o X tem `aria-label="Fechar"`. Há também um botão "Fechar" no rodapé. O Bootstrap prende o foco no modal e fecha com Esc e com clique fora. Ele **não** devolve o foco quando o modal abre pelo JS (só faz isso com `data-bs-toggle`). Por isso, o `mostrarDetalhes` guarda o `document.activeElement` (o "Ver detalhes"), e o evento `hidden.bs.modal` devolve o foco a ele.
+- **Imagem:** `object-fit: contain` com `max-height: 360px`, então a foto aparece inteira, sem corte.
+- **Os campos de cada recurso ficam na página**, e a página converte as URLs e os objetos `{ pt, en }` em texto. Exemplo:
+
+```js
+function abrirPersonagem(item) {
+    mostrarDetalhes(item.name, [
+        { rotulo: 'Nome completo', valor: item.full_name },
+        { rotulo: 'Ator', valor: item.portrayed_by },
+        { rotulo: 'Status', valor: item.status },
+        { rotulo: 'Ocupações', valor: item.occupations }   // array: uma linha por ocupação
+    ], item.image);
+}
+```
 
 ### Carrossel (página inicial)
 

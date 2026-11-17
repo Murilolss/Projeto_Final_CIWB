@@ -68,7 +68,7 @@ Ordem dentro do `main`:
 3. Aviso de carregamento enquanto busca os dados.
 4. Lista resumida (RF04): cards ou `list-group` do Bootstrap, em grade responsiva.
 5. Mensagem de "nenhum item encontrado" (RF07), escondida por padrão.
-6. Um único modal do Bootstrap por página (RF05), preenchido a cada clique.
+6. Um único modal do Bootstrap por página (RF05), preenchido a cada clique. O `mostrarDetalhes` cria o modal no fim do `<body>` na primeira chamada, então ele não precisa de contêiner no HTML (T-17).
 
 ## Estrutura de pastas de `src/` (RNF03), decidida em 14/11/2026 (T-10)
 
@@ -85,7 +85,7 @@ src/
 │   ├── Footer/     footer.js    footer.css     # montarFooter(apiUrl)               (T-11)
 │   ├── Card/       card.js      card.css       # criarCard, montarLista             (T-16, implementado)
 │   ├── Aviso/      aviso.js     aviso.css      # mostrarAviso, esconderAviso        (T-16, implementado)
-│   ├── Modal/      modal.js     modal.css      # mostrarDetalhes                    (T-17)
+│   ├── Modal/      modal.js     modal.css      # mostrarDetalhes                    (T-17, implementado)
 │   └── Carrossel/  carrossel.js carrossel.css  # montarCarrossel (só index.html)     (T-19)
 ├── services/                           # funções que não desenham nada
 │   ├── config.js   # carregarConfig(raiz)          (T-12)

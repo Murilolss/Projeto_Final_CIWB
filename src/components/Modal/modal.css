@@ -1,5 +1,49 @@
 /*
  * Componente Modal (T-17): estilos só deste componente.
- * Use as variáveis do global.css (var(--bb-verde)...) em vez de repetir as cores.
- * Ex.: imagem do topo do modal e a lista de campos (rótulo + valor).
+ * As cores e fontes vêm das variáveis do global.css (var(--bb-...)).
  */
+
+/* Caixa do modal com as mesmas cores dos cards */
+.modal-detalhes {
+    background-color: var(--bb-fundo-elevado);
+    border: 1px solid var(--bb-borda);
+}
+
+.modal-detalhes .modal-header,
+.modal-detalhes .modal-footer {
+    border-color: var(--bb-borda);
+}
+
+.modal-detalhes .modal-title {
+    font-family: var(--bb-fonte-titulo);
+    color: var(--bb-texto);
+}
+
+/* Imagem inteira, sem cortar: object-fit: contain encaixa a foto na altura máxima.
+   Funciona com os retratos em pé (personagens) e com as fotos deitadas (mortes e episódios). */
+.modal-imagem {
+    display: block;
+    width: 100%;
+    max-height: 360px;
+    object-fit: contain;
+    background-color: var(--bb-fundo);
+    border-radius: var(--bb-raio);
+    margin-bottom: var(--bb-espaco);
+}
+
+/* Rótulo menor e mais apagado; o valor em destaque */
+.modal-campos dt {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--bb-texto-suave);
+}
+
+.modal-campos dd {
+    color: var(--bb-texto);
+}
+
+/* "Não informado" */
+.modal-campos .modal-vazio {
+    font-style: italic;
+    color: var(--bb-texto-suave);
+}
