@@ -3,7 +3,7 @@
 **Implementada** em 12/11/2026 no repositório `Arnaldo/API_BB`, seguindo o [guia de criação](guia-criar-api.md):
 
 - Express + JSON, no formato SWAPI;
-- 14 testes passando;
+- 15 testes passando (eram 14; o do carrossel entrou em 17/11/2026);
 - **publicada** na Vercel em 12/11/2026.
 
 Esta página define **o que** a API entrega. O **como** está no guia e no README da API.
@@ -48,6 +48,7 @@ Pesquisa e dados brutos: [`../pesquisa-api/`](../pesquisa-api/README.md).
 | Episódios | `/api/episodes` | 62 | 7 | `episodios.html` | jessicagertig + Wiki |
 | Temporadas | `/api/seasons` | 5 | 1 | (a definir) | Gerado dos episódios |
 | Frases marcantes | `/api/quotes` | 28 | 3 | `frases.html` | Seleção própria, bilíngue, conferida na Wiki ([lista](../pesquisa-api/frases-marcantes.md)) |
+| Carrossel | `/api/carousel` | 10 | 1 | `index.html` (carrossel) | 10 cenas marcantes escolhidas pelo usuário na Wiki (T-18, 17/11/2026) |
 
 Cada recurso também tem a rota de item: `/api/<recurso>/<id>` (ex.: `/api/characters/1`).
 
@@ -215,10 +216,33 @@ Gerada a partir dos episódios. A temporada 5 junta as partes 5A e 5B (16 episó
 - `explicit: true` marca as 4 frases com palavrão.
 - **Lista:** a frase em português e o personagem. **Modal:** a frase nos dois idiomas, o contexto e o episódio.
 
+### Carrossel (`/api/carousel/:id`)
+
+```json
+{
+    "id": 7,
+    "name": "Diga meu nome",
+    "description": "Walter White, de óculos e cavanhaque, encara a câmera de perto",
+    "season": "https://<api>/api/seasons/5",
+    "episode": "https://<api>/api/episodes/53",
+    "episode_code": "5x07",
+    "image": "https://<api>/img/carousel/07.jpg",
+    "url": "https://<api>/api/carousel/7"
+}
+```
+
+- 10 cenas marcantes, **em ordem cronológica** (o `id` segue a ordem): 1x01, 1x06, 2x10, T3, 4x11, 4x13, 5x07, 5x08, 5x14 e 5x16.
+- `name` é a legenda do slide, e `description` é o texto alternativo da imagem (RNF02).
+- `episode` e `episode_code` são `null` no slide 4 (superlaboratório), porque a Wiki não diz de que episódio é a imagem.
+- Escrito à mão em `data/base/carousel.json`; o `npm run dados` gera `data/carousel.json` e confere temporada, episódio, descrição e imagem.
+- Imagens em `public/img/carousel/01.jpg` a `10.jpg`: JPEG com no máximo 1280 px de largura, de 67 a 209 KB cada.
+- Escolha do usuário: as fotos 1, 2 e 6 foram trocadas na revisão. A 1 antiga era do flashback do 5x14, a 2 tinha qualidade baixa e a 6 mostrava o rosto destruído do Gus.
+
 ## Ligações entre recursos
 
 - `character.death` → `deaths/:id`, e `death.character` → `characters/:id` (ida e volta).
 - `quote.character` → `characters/:id`.
+- `carousel.season` → `seasons/:id`, e `carousel.episode` → `episodes/:id` (ou `null`).
 - `death.episode`, `quote.episode` → `episodes/:id`. O código fica em `episode_code`.
 - `death.season`, `episode.season` e `character.seasons` → `seasons/:id`.
 - `season.episodes` → `episodes/:id`, e `episode.characters` → `characters/:id`.
@@ -226,14 +250,14 @@ Gerada a partir dos episódios. A temporada 5 junta as partes 5A e 5B (16 episó
 
 ## Imagens
 
-- Ficam dentro da API, em `public/img/{characters,deaths,episodes}/`, servidas em `/img/...` pelo CDN da Vercel.
-  - Nomes: `characters/<slug-do-nome>`, `deaths/<id com 2 dígitos>`, `episodes/<1x01>`.
+- Ficam dentro da API, em `public/img/{characters,deaths,episodes,carousel}/`, servidas em `/img/...` pelo CDN da Vercel.
+  - Nomes: `characters/<slug-do-nome>`, `deaths/<id com 2 dígitos>`, `episodes/<1x01>`, `carousel/<id com 2 dígitos>`.
   - Depois de colocar uma imagem, rode `npm run dados`.
 - **Baixadas em 12/11/2026** (187 imagens, 7,6 MB, com 500 px de largura) com `npm run imagens`, rodado a pedido do usuário. A Wiki bloqueia o acesso sem `Referer` (403), por isso o script envia esse cabeçalho.
   - Personagens e episódios: o script usa os links da fonte.
   - Mortes: o endereço vem da API MediaWiki (`api.php`, `prop=imageinfo`), porque `Special:FilePath` dá 403 para scripts.
 - Citar a Breaking Bad Wiki (CC BY-SA) no README da API (feito).
-- Também servem para o carrossel da página inicial (`config.json`).
+- O carrossel da página inicial tem as **próprias 10 imagens** (`public/img/carousel/`), em tamanho maior (até 1280 px). Elas foram baixadas à mão em 17/11/2026, com `Referer` + `?format=original`, e convertidas para JPEG com o .NET do PowerShell.
 
 ## Decisões
 
@@ -249,7 +273,8 @@ Gerada a partir dos episódios. A temporada 5 junta as partes 5A e 5B (16 episó
 | Nome do projeto | **Decidido** (usuário): `breaking-bad-api-ciwb` |
 | Onde fica o código da API | **Decidido** (usuário, 12/11/2026): repositório separado `Arnaldo/API_BB` (branch `main`) |
 | Como implementar a API | **Decidido** (usuário, 12/11/2026): Node + Express + JSON, conforme o [guia](guia-criar-api.md) |
-| Recurso de temporadas | **Decidido** (usuário): entra, fica com 5 recursos |
+| Recurso de temporadas | **Decidido** (usuário): entra, fica com 5 recursos (6 com o carrossel, de 17/11/2026) |
+| Recurso de carrossel | **Decidido** (usuário, 17/11/2026): rota `/api/carousel` com as 10 imagens da página inicial; o site lê dela, e não do `config.json` |
 | Relações como URL (SWAPI) | **Decidido** (Claude, critério do guia): ids viram URLs, com o texto legível ao lado (`episode_code`) |
 | Lista final de personagens (61) e traduções | **Pendente**: revisar com o usuário |
 | Origem das imagens | **Feito** (usuário pediu para rodar `npm run imagens`): 187 imagens da Wiki em `public/img/` |

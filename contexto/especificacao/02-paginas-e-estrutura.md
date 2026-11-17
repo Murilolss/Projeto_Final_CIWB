@@ -52,7 +52,7 @@ iniciarPagina();
 ## Página inicial (`index.html`)
 
 - **Carrossel de imagens** (componente `carousel` do Bootstrap) no topo do `main`.
-  - As imagens (caminho, texto alternativo e legenda) vêm do **arquivo de configuração** ([03-configuracao.md](03-configuracao.md)), e não ficam fixas no HTML.
+  - As imagens vêm da **API**, na rota `/carousel` (`image`, `description` como texto alternativo e `name` como legenda), lidas com `buscarComCache`. Não ficam fixas no HTML (decisão de 17/11/2026, T-18; ver [05-api-breaking-bad.md](05-api-breaking-bad.md#carrossel-apicarouselid)).
   - O JavaScript monta os slides com `createElement`/`appendChild`; o primeiro slide recebe a classe `active`.
   - Toda imagem precisa de `alt` (RNF02).
   - Controles anterior/próximo e indicadores, com texto para leitor de tela (`visually-hidden`).
@@ -78,7 +78,7 @@ Organização **inspirada no React** (`components/` + `globals.css`) e no projet
 src/
 ├── index.html  index.css  index.js     # página inicial (carrossel)
 ├── global.css                          # :root com as cores + base (vale para todas as páginas)
-├── config.json                         # link da API + imagens do carrossel (ver 03-configuracao.md)
+├── config.json                         # link da API + prefixo do cache (ver 03-configuracao.md)
 ├── components/                         # pedaços de tela reaproveitados: um .js + um .css cada
 │   ├── Header/     header.js    header.css     # montarHeader(raiz)                 (T-11)
 │   ├── Navbar/     navbar.js    navbar.css     # montarNavbar(paginaAtual, raiz)    (T-11)
@@ -97,7 +97,6 @@ src/
 │   ├── mortes/       ...                                (T-22)
 │   ├── episodios/    ...                                (T-23)
 │   └── frases/       ...                                (T-24)
-└── img/                                # imagens locais do carrossel (se não forem URLs da API)
 ```
 
 - **Componentes em PascalCase** (como no React); os arquivos dentro deles em minúsculo.

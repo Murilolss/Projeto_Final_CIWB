@@ -161,7 +161,9 @@ function abrirPersonagem(item) {
 ### Carrossel (página inicial)
 
 - Estrutura do Bootstrap: `.carousel.slide` → `.carousel-inner` → um `.carousel-item` por imagem (o primeiro com `active`) → `<img class="d-block w-100" alt="...">` e, se houver, `.carousel-caption`.
-- O JS lê as imagens do arquivo de configuração e cria os `.carousel-item`.
+- O JS busca os slides com `buscarComCache(config.prefixoCache + 'carrossel', config.apiUrl + '/carousel')` e cria os `.carousel-item`: `src = slide.image`, `alt = slide.description` (RNF02) e legenda = `slide.name`.
+- São 10 slides, em uma página só da API (`next: null`).
+- As imagens têm proporções diferentes: a maioria em 16:9, uma em 4:3 (superlaboratório) e uma em 3:2 (Felina). Por isso o carrossel precisa de **altura fixa** com `object-fit: cover`, para os slides não mudarem de tamanho.
 
 ## Boas práticas combinadas
 

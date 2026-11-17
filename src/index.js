@@ -1,5 +1,5 @@
 // Página inicial (T-19 e T-20)
-// Monta o layout (Header, Navbar, Footer) e o carrossel com as imagens do config.json.
+// Monta o layout (Header, Navbar, Footer) e o carrossel com as imagens da API (/carousel).
 //
 // raiz = '', porque o index.html fica na pasta src/.
 //
@@ -10,12 +10,13 @@ async function iniciarPagina() {
     montarHeader('');
     montarNavbar('inicio', '');
 
-    // Configuração (T-12): link da API e imagens do carrossel
+    // Configuração (T-12): link da API e prefixo do cache
     const config = await carregarConfig('');
     montarFooter(config.apiUrl);
 
     // Próximos passos:
-    //   montarCarrossel(config.carrossel);   (T-19)
+    //   const slides = await buscarComCache(config.prefixoCache + 'carrossel', config.apiUrl + '/carousel');
+    //   montarCarrossel(slides);             (T-19)
     //   apresentação e atalhos               (T-20)
 }
 

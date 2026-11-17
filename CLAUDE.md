@@ -76,6 +76,7 @@ Mantenha essas páginas atualizadas quando uma decisão for tomada ou um requisi
 - Comandos só de leitura (`git status`, `git diff`, `git log`, `git fetch`) continuam permitidos.
 - Criar ou trocar de branch (`git branch`, `git switch`) é permitido quando o usuário pedir.
 - Essas proibições também estão travadas por regras `deny` em `.claude/settings.json` (`git commit`, `rebase`, `reset`, `merge --no-ff`, `push --force` e apagar branch). As regras e as orientações para outra pessoa configurar o mesmo estão em `contexto/regras-git-e-commits.md`.
+- **Exceção: repositório da API (`../API_BB`).** Lá o Claude **pode commitar** (decidido pelo usuário em 17/11/2026); no front (este repositório), não. O push da API publica na Vercel, então só com a confirmação do usuário. Mas o `deny` de `git commit` deste `.claude/settings.json` vale para a sessão inteira e bloqueou o commit na API em 17/11/2026. Para o Claude commitar lá, é preciso abrir a sessão na pasta da API ou o usuário ajustar a regra.
 
 ### Branches
 

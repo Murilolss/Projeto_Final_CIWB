@@ -1,6 +1,6 @@
 // Service config (T-12)
 // Lê o config.json com fetch + async/await (padrão da aula 12) e devolve o objeto:
-// config.apiUrl, config.prefixoCache e config.carrossel.
+// config.apiUrl e config.prefixoCache. As imagens do carrossel vêm da API (/carousel).
 //
 // raiz: caminho da página até a pasta src/ ('' no index.html, '../../' em pages/<nome>/).
 // O fetch resolve o caminho a partir da PÁGINA aberta (e não deste arquivo),

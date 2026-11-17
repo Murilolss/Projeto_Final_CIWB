@@ -5,7 +5,7 @@ Marque `[x]` conforme for implementando. Fonte do enunciado: `contexto/slides/00
 ## Pedidos do usuário (além do enunciado)
 
 - [ ] **US01. Página inicial com carrossel de imagens** (carousel do Bootstrap). Ver [02-paginas-e-estrutura.md](02-paginas-e-estrutura.md#página-inicial-indexhtml).
-- [ ] **US02. Configuração centralizada**: o link da API e as imagens do carrossel ficam em um arquivo de configuração, e não espalhados no código. Ver [03-configuracao.md](03-configuracao.md).
+- [ ] **US02. Configuração centralizada**: o link da API fica em um arquivo de configuração (`src/config.json`), e não espalhado no código. As imagens do carrossel vêm da API (`/api/carousel`), a partir desse link (mudança pedida pelo usuário em 17/11/2026, na T-18). Ver [03-configuracao.md](03-configuracao.md).
 
 ## Requisitos funcionais (enunciado)
 
@@ -25,7 +25,7 @@ Marque `[x]` conforme for implementando. Fonte do enunciado: `contexto/slides/00
 ## Requisitos não funcionais (enunciado)
 
 - [ ] **RNF01. Responsividade**: Bootstrap; funciona em celular, tablet e desktop. *(Header, navbar e footer já são responsivos: o menu recolhe abaixo de 992px. Testado em 375px.)*
-- [ ] **RNF02. Acessibilidade básica**: `header`, `nav`, `main`, `footer`; `label` nos campos; `alt` em todas as imagens (inclusive as do carrossel). *(Feito no layout: tags semânticas, `aria-current` no menu, `aria-label` no logo e no `nav`, aviso de nova aba no link da API. Os cards (T-16) têm `alt` com o nome do item, `h2` dentro do `h1` da página e um botão de verdade para o teclado; o Aviso usa `role="alert"` / `role="status"`. Faltam os `label` da busca e os `alt` do carrossel.)*
+- [ ] **RNF02. Acessibilidade básica**: `header`, `nav`, `main`, `footer`; `label` nos campos; `alt` em todas as imagens (inclusive as do carrossel). *(Feito no layout: tags semânticas, `aria-current` no menu, `aria-label` no logo e no `nav`, aviso de nova aba no link da API. Os cards (T-16) têm `alt` com o nome do item, `h2` dentro do `h1` da página e um botão de verdade para o teclado; o Aviso usa `role="alert"` / `role="status"`. Os `alt` do carrossel já existem na API, no campo `description` de `/api/carousel` (T-18); falta a T-19 usá-los. Faltam os `label` da busca.)*
 - [ ] **RNF03. Organização**: HTML, CSS e JS em pastas e arquivos separados. Funções de API, cache e busca **reutilizadas** entre as páginas (sem copiar e colar).
 - [ ] **RNF04. Tecnologias**: HTML5, CSS3, JavaScript e Bootstrap. Dados obtidos com `fetch` + `async/await` (ou `Promise`). *(Já usados em `carregarConfig` (T-12) e `buscarTodos` (T-13).)*
 

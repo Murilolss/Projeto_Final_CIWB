@@ -1,21 +1,4 @@
 {
     "apiUrl": "https://breaking-bad-api-ciwb.vercel.app/api",
-    "prefixoCache": "ciwb_",
-    "carrossel": [
-        {
-            "src": "img/carrossel-1.jpg",
-            "alt": "PREENCHER: descrição da imagem 1",
-            "legenda": ""
-        },
-        {
-            "src": "img/carrossel-2.jpg",
-            "alt": "PREENCHER: descrição da imagem 2",
-            "legenda": ""
-        },
-        {
-            "src": "img/carrossel-3.jpg",
-            "alt": "PREENCHER: descrição da imagem 3",
-            "legenda": ""
-        }
-    ]
+    "prefixoCache": "ciwb_"
 }
