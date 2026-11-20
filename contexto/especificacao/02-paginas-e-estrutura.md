@@ -56,6 +56,7 @@ iniciarPagina();
   - O JavaScript monta os slides com `createElement`/`appendChild`; o primeiro slide recebe a classe `active`.
   - Toda imagem precisa de `alt` (RNF02).
   - Controles anterior/próximo e indicadores, com texto para leitor de tela (`visually-hidden`).
+  - **Implementado na T-19 (20/11/2026):** `<div id="aviso">` ("Carregando..." ou erro) e `<section id="carrossel" aria-label="Cenas marcantes da série">` abaixo do `h1`; autoplay de 5 s com pausa no hover; legenda com o nome da cena e o código do episódio. Detalhes em [04-padroes-de-codigo.md](04-padroes-de-codigo.md#carrossel-página-inicial-implementado-em-srccomponentscarrosselcarrosseljs-t-19-20112026).
 - Abaixo do carrossel: texto curto sobre o site e atalhos (cards ou botões) para cada página de recurso.
 - A página inicial **não** é obrigada a ter lista/busca, porque não é página de recurso.
 
@@ -86,7 +87,7 @@ src/
 │   ├── Card/       card.js      card.css       # criarCard, montarLista             (T-16, implementado)
 │   ├── Aviso/      aviso.js     aviso.css      # mostrarAviso, esconderAviso        (T-16, implementado)
 │   ├── Modal/      modal.js     modal.css      # mostrarDetalhes                    (T-17, implementado)
-│   └── Carrossel/  carrossel.js carrossel.css  # montarCarrossel (só index.html)     (T-19)
+│   └── Carrossel/  carrossel.js carrossel.css  # montarCarrossel (só index.html)     (T-19, implementado)
 ├── services/                           # funções que não desenham nada
 │   ├── config.js   # carregarConfig(raiz)          (T-12)
 │   ├── api.js      # buscarTodos(url)              (T-13, implementado)
@@ -101,7 +102,7 @@ src/
 
 - **Componentes em PascalCase** (como no React); os arquivos dentro deles em minúsculo.
 - O `script.js` de cada página só diz **o que** mostrar (quais campos); os services e componentes fazem o **como**.
-- Cada arquivo da T-10 começou só com o comentário da função prevista e o cartão do quadro. Cada cartão preenche o seu. **Já preenchidos:** Header, Navbar, Footer (T-11), `services/config.js` (T-12), `services/api.js` (T-13), `services/cache.js` (T-14), `services/busca.js` (T-15), Card e Aviso (T-16).
+- Cada arquivo da T-10 começou só com o comentário da função prevista e o cartão do quadro. Cada cartão preenche o seu. **Já preenchidos:** Header, Navbar, Footer (T-11), `services/config.js` (T-12), `services/api.js` (T-13), `services/cache.js` (T-14), `services/busca.js` (T-15), Card e Aviso (T-16), Modal (T-17) e Carrossel (T-19).
 
 ### Ordem dos arquivos em cada página
 

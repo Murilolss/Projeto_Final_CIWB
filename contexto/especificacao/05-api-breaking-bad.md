@@ -231,9 +231,9 @@ Gerada a partir dos episódios. A temporada 5 junta as partes 5A e 5B (16 episó
 }
 ```
 
-- 10 cenas marcantes, **em ordem cronológica** (o `id` segue a ordem): 1x01, 1x06, 2x10, T3, 4x11, 4x13, 5x07, 5x08, 5x14 e 5x16.
+- 10 cenas marcantes, **em ordem cronológica** (o `id` segue a ordem): 1x01, 1x06, 2x10, 3x06, 4x11, 4x13, 5x07, 5x08, 5x14 e 5x16.
 - `name` é a legenda do slide, e `description` é o texto alternativo da imagem (RNF02).
-- `episode` e `episode_code` são `null` no slide 4 (superlaboratório), porque a Wiki não diz de que episódio é a imagem.
+- O slide 4 (superlaboratório) é do **3x06 "Pôr do Sol"** (informado pelo usuário em 20/11/2026). Antes ele tinha `episode` e `episode_code` `null`, porque a Wiki marca a foto como "unknown episode". O código da API ainda aceita `null` para uma cena futura sem episódio.
 - Escrito à mão em `data/base/carousel.json`; o `npm run dados` gera `data/carousel.json` e confere temporada, episódio, descrição e imagem.
 - Imagens em `public/img/carousel/01.jpg` a `10.jpg`: JPEG com no máximo 1280 px de largura, de 67 a 209 KB cada.
 - Escolha do usuário: as fotos 1, 2 e 6 foram trocadas na revisão. A 1 antiga era do flashback do 5x14, a 2 tinha qualidade baixa e a 6 mostrava o rosto destruído do Gus.

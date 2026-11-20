@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="components/Header/header.css">
     <link rel="stylesheet" href="components/Navbar/navbar.css">
     <link rel="stylesheet" href="components/Footer/footer.css">
+    <link rel="stylesheet" href="components/Aviso/aviso.css">
     <link rel="stylesheet" href="components/Carrossel/carrossel.css">
     <!-- 4. Estilos só desta página -->
     <link rel="stylesheet" href="index.css">
@@ -26,7 +27,14 @@
 
     <main class="container py-4">
         <h1>Breaking Bad</h1>
-        <!-- Carrossel (T-19), apresentação e atalhos (T-20) -->
+
+        <!-- "Carregando..." ou erro (componente Aviso, T-16) -->
+        <div id="aviso"></div>
+
+        <!-- Carrossel (T-19): preenchido pelo montarCarrossel com as imagens da API -->
+        <section id="carrossel" aria-label="Cenas marcantes da série"></section>
+
+        <!-- Apresentação e atalhos (T-20) -->
     </main>
 
     <footer id="rodape"></footer>
@@ -36,10 +44,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <!-- 2. Services -->
     <script src="services/config.js"></script>
+    <script src="services/api.js"></script>
+    <script src="services/cache.js"></script>
     <!-- 3. Componentes -->
     <script src="components/Header/header.js"></script>
     <script src="components/Navbar/navbar.js"></script>
     <script src="components/Footer/footer.js"></script>
+    <script src="components/Aviso/aviso.js"></script>
     <script src="components/Carrossel/carrossel.js"></script>
     <!-- 4. Script desta página -->
     <script src="index.js"></script>

@@ -1,5 +1,72 @@
 /*
  * Componente Carrossel (T-19): estilos só deste componente.
- * Use as variáveis do global.css (var(--bb-verde)...) em vez de repetir as cores.
- * Ex.: altura das imagens do carrossel e fundo da legenda.
+ * As cores e fontes vêm das variáveis do global.css (var(--bb-...)).
+ * A estrutura e a troca de slides são do carousel do Bootstrap; aqui só ajustamos o visual.
  */
+
+/* Moldura: borda fina e cantos arredondados, como os cards.
+   overflow: hidden faz as fotos respeitarem os cantos. */
+.carrossel-cenas {
+    margin-bottom: 2rem;
+    border: 1px solid var(--bb-borda);
+    border-radius: var(--bb-raio);
+    overflow: hidden;
+    background-color: var(--bb-fundo-elevado);
+}
+
+/* Altura fixa para todas as fotos: elas têm proporções diferentes (16:9, 4:3 e 3:2),
+   e sem isso o carrossel mudaria de tamanho a cada slide.
+   object-fit: cover preenche a área toda e corta o que sobrar, sem esticar a foto. */
+.carrossel-imagem {
+    height: 480px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Legenda presa na base da foto, ocupando a largura toda.
+   O degradê (transparente em cima, escuro embaixo) deixa o texto legível em qualquer foto.
+   No Bootstrap, a legenda fica a 15% de cada lado; aqui ela vai de ponta a ponta. */
+.carrossel-legenda {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 3rem 1.5rem 2.5rem;   /* espaço embaixo para os indicadores */
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+    text-align: left;
+}
+
+.carrossel-titulo {
+    margin-bottom: 0.25rem;
+    color: var(--bb-texto);
+}
+
+/* "Episódio 5x07" no amarelo das roupas de proteção */
+.carrossel-episodio {
+    margin-bottom: 0;
+    color: var(--bb-amarelo);
+    font-weight: 600;
+}
+
+/* Indicadores: o do slide atual fica verde */
+.carrossel-cenas .carousel-indicators .active {
+    background-color: var(--bb-verde-claro);
+}
+
+/* Celular: foto mais baixa e letras menores */
+@media (max-width: 767.98px) {
+    .carrossel-imagem {
+        height: 260px;
+    }
+
+    .carrossel-legenda {
+        padding: 2rem 1rem 2rem;
+    }
+
+    .carrossel-titulo {
+        font-size: 1.1rem;
+    }
+
+    .carrossel-episodio {
+        font-size: 0.9rem;
+    }
+}

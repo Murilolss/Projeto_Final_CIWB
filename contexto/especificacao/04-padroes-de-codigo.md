@@ -158,12 +158,18 @@ function abrirPersonagem(item) {
 }
 ```
 
-### Carrossel (página inicial)
+### Carrossel (página inicial): implementado em `src/components/Carrossel/carrossel.js` (T-19, 20/11/2026)
 
 - Estrutura do Bootstrap: `.carousel.slide` → `.carousel-inner` → um `.carousel-item` por imagem (o primeiro com `active`) → `<img class="d-block w-100" alt="...">` e, se houver, `.carousel-caption`.
-- O JS busca os slides com `buscarComCache(config.prefixoCache + 'carrossel', config.apiUrl + '/carousel')` e cria os `.carousel-item`: `src = slide.image`, `alt = slide.description` (RNF02) e legenda = `slide.name`.
+- O `index.js` busca os slides com `buscarComCache(config.prefixoCache + 'carrossel', config.apiUrl + '/carousel')`, dentro do `try/catch` de "Erro na tela", com "Carregando..." no `#aviso`. O cache é consultado **antes** da API: com a chave `ciwb_carrossel` salva, a API não é chamada. Só os dados (com o link de cada foto) vão para o localStorage; os `.jpg` ficam no cache do navegador (decisão do usuário, 20/11/2026).
+- `montarCarrossel(slides)` preenche `<section id="carrossel">`:
+  - `div.carousel.slide.carousel-fade#carrossel-cenas`: o fade é a animação de destaque da página inicial, e vem do próprio Bootstrap;
+  - um `for` com índice (aula 04) cria, para cada slide, o indicador (`criarIndicador`, com `aria-label="Cena N"` e `aria-current` no primeiro) e o item (`criarSlide`): `src = slide.image`, `alt = slide.description` (RNF02) e legenda com `h2.h4` = `slide.name` e "Episódio 5x07" = `slide.episode_code` (todos os 10 slides têm episódio desde 20/11/2026; o `if` só evita uma legenda vazia se a API mandar `null`);
+  - `criarControle('prev' | 'next', texto)`: setas com `span.visually-hidden` "Anterior"/"Próximo".
+- **Autoplay de 5 s** (escolha do usuário, 20/11/2026): `bootstrap.Carousel.getOrCreateInstance(carrossel, { interval: 5000, ride: 'carousel' })`. O `data-bs-ride` do HTML só liga carrosséis que já existem quando a página carrega, e este nasce depois do `fetch`. Pausa com o mouse em cima e troca com as setas do teclado (padrões do Bootstrap).
 - São 10 slides, em uma página só da API (`next: null`).
-- As imagens têm proporções diferentes: a maioria em 16:9, uma em 4:3 (superlaboratório) e uma em 3:2 (Felina). Por isso o carrossel precisa de **altura fixa** com `object-fit: cover`, para os slides não mudarem de tamanho.
+- As imagens têm proporções diferentes: a maioria em 16:9, uma em 4:3 (superlaboratório) e uma em 3:2 (Felina). Por isso a `.carrossel-imagem` tem **altura fixa** (480px; 260px abaixo de 768px) com `object-fit: cover`, para os slides não mudarem de tamanho.
+- A legenda ocupa a base inteira da foto, com um degradê escuro para ficar legível, e aparece também no celular.
 
 ## Boas práticas combinadas
 

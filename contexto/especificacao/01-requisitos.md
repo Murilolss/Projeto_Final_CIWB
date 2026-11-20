@@ -4,7 +4,7 @@ Marque `[x]` conforme for implementando. Fonte do enunciado: `contexto/slides/00
 
 ## Pedidos do usuário (além do enunciado)
 
-- [ ] **US01. Página inicial com carrossel de imagens** (carousel do Bootstrap). Ver [02-paginas-e-estrutura.md](02-paginas-e-estrutura.md#página-inicial-indexhtml).
+- [x] **US01. Página inicial com carrossel de imagens** (carousel do Bootstrap). *(T-19, 20/11/2026: 10 cenas da rota `/carousel`, com cache, autoplay e legenda.)* Ver [02-paginas-e-estrutura.md](02-paginas-e-estrutura.md#página-inicial-indexhtml).
 - [ ] **US02. Configuração centralizada**: o link da API fica em um arquivo de configuração (`src/config.json`), e não espalhado no código. As imagens do carrossel vêm da API (`/api/carousel`), a partir desse link (mudança pedida pelo usuário em 17/11/2026, na T-18). Ver [03-configuracao.md](03-configuracao.md).
 
 ## Requisitos funcionais (enunciado)
