@@ -158,6 +158,32 @@ function abrirPersonagem(item) {
 }
 ```
 
+### Datas (AAAA-MM-DD → DD/MM/AAAA): implementado em `src/services/datas.js` (T-26, 20/11/2026)
+
+```js
+function formatarData(data) {
+    if (!data) {
+        return null;                       // o Modal mostra "Não informado"
+    }
+    const partes = data.split('-');        // split: aula 06
+    return `${partes[2]}/${partes[1]}/${partes[0]}`;
+}
+```
+
+- **Não usar `new Date('2008-01-20')`:** o JavaScript lê esse formato como meia-noite em UTC, e no Brasil (UTC−3) isso ainda é o dia 19. A data sairia com um dia a menos. Como a API já manda o texto pronto, basta reorganizá-lo.
+- Serve para `premiere_date`/`finale_date` (temporadas) e `air_date` (episódios). O `birth_date` dos personagens às vezes é aproximado ("c. 1958"); a T-21 precisa tratar esse caso antes de chamar a função.
+
+### Página de recurso completa: `src/pages/temporadas/` (T-25/T-26, 20/11/2026)
+
+Primeira página de recurso pronta. É o **modelo** para as T-21 a T-24: o `script.js` só diz quais campos mostrar.
+
+- `let temporadas = []` e `let episodios = []` ficam fora do `iniciarPagina()`, para a busca e o modal enxergarem os dados depois do carregamento.
+- `criarCardDaTemporada(temporada)`: `criarCard(name, ['16 episódios', 'De 15/07/2012 a 29/09/2013'], image, aoClicar)`.
+- `abrirTemporada(temporada)`: `mostrarDetalhes` com Número, Quantidade de episódios, Estreia, Último episódio e **Episódios**. Esse último é um array com uma linha por episódio ("5x01 · Live Free or Die (Viver Livre ou Morrer) · 15/07/2012"), e o Modal já desenha um `li` para cada um.
+- **Episódios dentro da temporada:** a temporada da API só traz os links dos episódios. Por isso a página também carrega `/episodes` com `buscarComCache(config.prefixoCache + 'episodios', ...)`, a **mesma chave** que a página de Episódios (T-23) vai usar. Quem abrir uma das duas já deixa o cache pronto para a outra. A função `episodiosDaTemporada` percorre os episódios com `forEach` e guarda os que têm `episodio.season === temporada.url`.
+- Requisições: com o localStorage vazio, 1 a `/seasons` e 7 a `/episodes` (62 episódios, 10 por página). Com o cache cheio, nenhuma.
+- Busca: `filtrarPorNome` sobre o `name` ("Temporada 3"), então digitar "3" acha a Temporada 3.
+
 ### Carrossel (página inicial): implementado em `src/components/Carrossel/carrossel.js` (T-19, 20/11/2026)
 
 - Estrutura do Bootstrap: `.carousel.slide` → `.carousel-inner` → um `.carousel-item` por imagem (o primeiro com `active`) → `<img class="d-block w-100" alt="...">` e, se houver, `.carousel-caption`.

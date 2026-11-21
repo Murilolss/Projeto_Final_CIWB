@@ -3,7 +3,7 @@
 // no celular, com link para TODAS as páginas (RF01, RF02).
 //
 // Uso: montarNavbar(paginaAtual, raiz)
-//   paginaAtual: 'inicio', 'personagens', 'mortes', 'episodios' ou 'frases'.
+//   paginaAtual: 'inicio', 'personagens', 'mortes', 'temporadas', 'episodios' ou 'frases'.
 //                O link dessa página recebe a classe active e aria-current="page".
 //   raiz: caminho da página até a pasta src/ ('' no index.html, '../../' em pages/<nome>/).
 //
@@ -16,6 +16,7 @@ const paginasDoMenu = [
     { id: 'inicio', nome: 'Início', caminho: 'index.html' },
     { id: 'personagens', nome: 'Personagens', caminho: 'pages/personagens/index.html' },
     { id: 'mortes', nome: 'Mortes', caminho: 'pages/mortes/index.html' },
+    { id: 'temporadas', nome: 'Temporadas', caminho: 'pages/temporadas/index.html' },
     { id: 'episodios', nome: 'Episódios', caminho: 'pages/episodios/index.html' },
     { id: 'frases', nome: 'Frases marcantes', caminho: 'pages/frases/index.html' }
 ];

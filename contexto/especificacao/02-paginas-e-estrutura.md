@@ -7,9 +7,11 @@
 | Início | `src/index.html` | Apresentação do site + **carrossel de imagens** |
 | Personagens | `src/pages/personagens/index.html` | Busca + lista resumida + modal de detalhes |
 | Mortes | `src/pages/mortes/index.html` | idem |
+| Temporadas | `src/pages/temporadas/index.html` | idem. O modal lista **todos os episódios** da temporada. Aprovada na T-25 e **implementada** na T-26 (20/11/2026) |
 | Episódios | `src/pages/episodios/index.html` | idem |
 | Frases marcantes | `src/pages/frases/index.html` | idem |
-| Temporadas | `src/pages/temporadas/index.html` | Só se o T-25 aprovar |
+
+Ordem do menu (`paginasDoMenu`, em `navbar.js`), desde 20/11/2026: Início · Personagens · Mortes · **Temporadas** · Episódios · Frases marcantes. Temporadas vem antes de Episódios, do geral para o específico (escolha do usuário).
 
 ## Layout comum (RF01, RNF02)
 
@@ -46,7 +48,7 @@ async function iniciarPagina() {
 }
 iniciarPagina();
 ```
-- No `main` de cada página de recurso ficam os contêineres vazios `<div id="aviso"></div>` e `<div id="lista"></div>`, preenchidos pelos componentes Aviso e Card (T-16). Eles entram no HTML nas T-21 a T-24.
+- No `main` de cada página de recurso ficam o campo de busca (`label for="busca"` + `input type="search" id="busca"`) e os contêineres vazios `<div id="aviso"></div>` e `<div id="lista"></div>`, preenchidos pelos componentes Aviso e Card (T-16). Já estão em `pages/temporadas/` (T-26) e entram nas outras nas T-21 a T-24. **Use `src/pages/temporadas/` como modelo** (HTML e `script.js`).
 - Assim o menu existe **uma vez só** (em `components/Navbar/navbar.js`), sem copiar e colar entre as páginas (RNF03).
 
 ## Página inicial (`index.html`)
@@ -92,17 +94,19 @@ src/
 │   ├── config.js   # carregarConfig(raiz)          (T-12)
 │   ├── api.js      # buscarTodos(url)              (T-13, implementado)
 │   ├── cache.js    # buscarComCache(chave, url)    (T-14, implementado)
-│   └── busca.js    # filtrarPorNome(itens, termo)  (T-15, implementado)
+│   ├── busca.js    # filtrarPorNome(itens, termo)  (T-15, implementado)
+│   └── datas.js    # formatarData(data)            (T-26, implementado)
 ├── pages/
 │   ├── personagens/  index.html  style.css  script.js   (T-21)
 │   ├── mortes/       ...                                (T-22)
+│   ├── temporadas/   ...                                (T-26, implementado: modelo das outras)
 │   ├── episodios/    ...                                (T-23)
 │   └── frases/       ...                                (T-24)
 ```
 
 - **Componentes em PascalCase** (como no React); os arquivos dentro deles em minúsculo.
 - O `script.js` de cada página só diz **o que** mostrar (quais campos); os services e componentes fazem o **como**.
-- Cada arquivo da T-10 começou só com o comentário da função prevista e o cartão do quadro. Cada cartão preenche o seu. **Já preenchidos:** Header, Navbar, Footer (T-11), `services/config.js` (T-12), `services/api.js` (T-13), `services/cache.js` (T-14), `services/busca.js` (T-15), Card e Aviso (T-16), Modal (T-17) e Carrossel (T-19).
+- Cada arquivo da T-10 começou só com o comentário da função prevista e o cartão do quadro. Cada cartão preenche o seu. **Já preenchidos:** Header, Navbar, Footer (T-11), `services/config.js` (T-12), `services/api.js` (T-13), `services/cache.js` (T-14), `services/busca.js` (T-15), Card e Aviso (T-16), Modal (T-17), Carrossel (T-19), e `services/datas.js` + `pages/temporadas/` (T-26, criados já completos).
 
 ### Ordem dos arquivos em cada página
 

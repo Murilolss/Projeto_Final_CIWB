@@ -21,7 +21,7 @@ Documentação de consulta durante o desenvolvimento. Reúne o enunciado (`conte
 | Formato do arquivo de configuração | **Decidido** — `src/config.json` (12/11/2026; saiu de `src/js/` na T-10, em 14/11/2026); ver [03-configuracao.md](03-configuracao.md) |
 | Link da API no `config.json` (`apiUrl`) | **Preenchido** (14/11/2026): `https://breaking-bad-api-ciwb.vercel.app/api` |
 | Imagens do carrossel | **Decidido** (17/11/2026, T-18): 10 cenas marcantes em ordem cronológica, escolhidas pelo usuário na Breaking Bad Wiki. Ficam na API, na rota `/api/carousel` (pedido do usuário), e não mais no `config.json`. Ver [05-api-breaking-bad.md](05-api-breaking-bad.md#carrossel-apicarouselid) |
-| Recursos (páginas) do site | **Proposto**: personagens, mortes, episódios e frases marcantes (ver [05-api-breaking-bad.md](05-api-breaking-bad.md)) |
+| Recursos (páginas) do site | **Decidido** (20/11/2026, T-25): personagens, mortes, **temporadas**, episódios e frases marcantes. A página de temporadas entrou por decisão do usuário e já está implementada (T-26). Ver [05-api-breaking-bad.md](05-api-breaking-bad.md) |
 | Idioma dos dados da API | **Decidido** (12/11/2026): valores em português; frases marcantes e últimas palavras em português e inglês `{ pt, en }` |
 
 ## Prazo

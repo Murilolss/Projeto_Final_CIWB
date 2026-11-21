@@ -46,7 +46,7 @@ Pesquisa e dados brutos: [`../pesquisa-api/`](../pesquisa-api/README.md).
 | Personagens | `/api/characters` | 61 | 7 | `personagens.html` | Breaking Bad Wiki |
 | Mortes | `/api/deaths` | 64 registros (270 vítimas) | 7 | `mortes.html` | Breaking Bad Wiki |
 | Episódios | `/api/episodes` | 62 | 7 | `episodios.html` | jessicagertig + Wiki |
-| Temporadas | `/api/seasons` | 5 | 1 | (a definir) | Gerado dos episódios |
+| Temporadas | `/api/seasons` | 5 | 1 | `pages/temporadas/` (T-25/T-26) | Gerado dos episódios |
 | Frases marcantes | `/api/quotes` | 28 | 3 | `frases.html` | Seleção própria, bilíngue, conferida na Wiki ([lista](../pesquisa-api/frases-marcantes.md)) |
 | Carrossel | `/api/carousel` | 10 | 1 | `index.html` (carrossel) | 10 cenas marcantes escolhidas pelo usuário na Wiki (T-18, 17/11/2026) |
 
@@ -195,6 +195,8 @@ As funções planejadas em [`04-padroes-de-codigo.md`](04-padroes-de-codigo.md) 
 ```
 
 Gerada a partir dos episódios. A temporada 5 junta as partes 5A e 5B (16 episódios). A imagem é a do primeiro episódio.
+
+**Lista:** `name`, `episodes_count` e o período (`premiere_date` a `finale_date`). **Modal:** todos os campos e a lista de todos os episódios (código, título original, `title_pt` e data). Como `episodes` só tem links, o site cruza com `/api/episodes` pelo `episode.season` (ver [04-padroes-de-codigo.md](04-padroes-de-codigo.md)).
 
 ### Frase marcante (`/api/quotes/:id`)
 

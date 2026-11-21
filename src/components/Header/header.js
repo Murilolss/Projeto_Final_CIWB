@@ -65,7 +65,7 @@ function montarHeader(raiz) {
 
     const slogan = document.createElement('p');
     slogan.className = 'cabecalho-slogan';
-    slogan.textContent = 'Guia de fã da série: personagens, mortes, episódios e frases';
+    slogan.textContent = 'Guia de fã da série: personagens, mortes, temporadas, episódios e frases';
 
     container.appendChild(logo);
     container.appendChild(slogan);
