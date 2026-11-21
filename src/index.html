@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="components/Footer/footer.css">
     <link rel="stylesheet" href="components/Aviso/aviso.css">
     <link rel="stylesheet" href="components/Carrossel/carrossel.css">
+    <link rel="stylesheet" href="components/Card/card.css">
     <!-- 4. Estilos só desta página -->
     <link rel="stylesheet" href="index.css">
 </head>
@@ -34,7 +35,105 @@
         <!-- Carrossel (T-19): preenchido pelo montarCarrossel com as imagens da API -->
         <section id="carrossel" aria-label="Cenas marcantes da série"></section>
 
-        <!-- Apresentação e atalhos (T-20) -->
+        <!-- ============ Apresentação e atalhos (T-20) ============ -->
+
+        <!-- 1. A série: sinopse e ficha técnica. Texto fixo, porque é conteúdo da página,
+                e não dado de um recurso da API (decisão do usuário, T-20). -->
+        <section id="sobre" class="secao" aria-labelledby="titulo-sobre">
+            <h2 id="titulo-sobre">A série</h2>
+
+            <div class="row g-4">
+                <div class="col-lg-7 sinopse">
+                    <p>
+                        <strong>Breaking Bad</strong> acompanha Walter White, um professor de química do
+                        ensino médio de Albuquerque, no Novo México, que descobre um câncer de pulmão
+                        inoperável pouco depois de completar 50 anos. Com medo de deixar a família sem
+                        dinheiro, ele se junta a Jesse Pinkman, um ex-aluno que vende drogas, para fabricar
+                        metanfetamina de altíssima pureza.
+                    </p>
+                    <p>
+                        O que começa como um plano para pagar as contas vira uma escalada. Walter adota o
+                        nome de Heisenberg, entra em guerra com traficantes e esconde tudo da esposa, Skyler,
+                        e do cunhado, Hank, agente da DEA. Em cinco temporadas, a série mostra um homem comum
+                        se transformando em criminoso: nas palavras do criador, Vince Gilligan,
+                        "do Sr. Chips ao Scarface".
+                    </p>
+                </div>
+
+                <div class="col-lg-5">
+                    <article class="card ficha">
+                        <div class="card-body">
+                            <h3 class="h5 card-title">Ficha técnica</h3>
+                            <!-- dl: lista de pares "nome → valor". O row/col do Bootstrap põe
+                                 cada par numa linha no tablet e no desktop. -->
+                            <dl class="row mb-0">
+                                <dt class="col-sm-4">Criação</dt>
+                                <dd class="col-sm-8">Vince Gilligan</dd>
+
+                                <dt class="col-sm-4">Emissora</dt>
+                                <dd class="col-sm-8">AMC (Estados Unidos)</dd>
+
+                                <dt class="col-sm-4">Exibição</dt>
+                                <dd class="col-sm-8">20/01/2008 a 29/09/2013</dd>
+
+                                <dt class="col-sm-4">Ambientação</dt>
+                                <dd class="col-sm-8">Albuquerque, Novo México</dd>
+
+                                <dt class="col-sm-4">Gênero</dt>
+                                <dd class="col-sm-8">Drama, crime e suspense</dd>
+
+                                <dt class="col-sm-4">Produção</dt>
+                                <dd class="col-sm-8">Sony Pictures Television</dd>
+
+                                <dt class="col-sm-4">Prêmios</dt>
+                                <dd class="col-sm-8">16 Emmys do Primetime, entre eles 2 de Melhor Série
+                                    Dramática (2013 e 2014)</dd>
+
+                                <dt class="col-sm-4">Continuações</dt>
+                                <dd class="col-sm-8">Better Call Saul (2015–2022) e El Camino (2019)</dd>
+                            </dl>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Atalhos: um ladrilho da tabela periódica para cada página de recurso,
+                com o total de itens que veio da API. Preenchido pelo montarAtalhos (index.js). -->
+        <section id="explorar" class="secao" aria-labelledby="titulo-explorar">
+            <h2 id="titulo-explorar">Explore o site</h2>
+            <div id="atalhos" class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3"></div>
+        </section>
+
+        <!-- 3. Elenco principal: os personagens com role "principal" da API.
+                O montarLista (componente Card) preenche o <div id="lista">. -->
+        <section id="elenco" class="secao" aria-labelledby="titulo-elenco">
+            <div class="secao-topo">
+                <h2 id="titulo-elenco">Elenco principal</h2>
+                <a href="pages/personagens/index.html">Ver todos os personagens</a>
+            </div>
+            <div id="lista"></div>
+        </section>
+
+        <!-- 4. Frase sorteada entre as frases marcantes da API.
+                hidden: a seção só aparece depois que as frases carregam (o index.js tira o hidden). -->
+        <section id="frase" class="secao"aria-labelledby="titulo-frase" hidden>
+            <h2 id="titulo-frase">Frase em destaque</h2>
+
+            <!-- aria-live: o leitor de tela lê a frase nova quando o botão troca -->
+            <figure class="frase-caixa" aria-live="polite">
+                <blockquote class="blockquote">
+                    <p id="frase-pt" class="frase-pt"></p>
+                    <p id="frase-en" class="frase-en" lang="en"></p>
+                </blockquote>
+                <figcaption class="blockquote-footer mb-0">
+                    <span id="frase-autor"></span>
+                    <span id="frase-contexto" class="frase-contexto"></span>
+                </figcaption>
+            </figure>
+
+            <button type="button" id="outra-frase" class="btn btn-outline-warning">Sortear outra frase</button>
+        </section>
     </main>
 
     <footer id="rodape"></footer>
@@ -52,6 +151,7 @@
     <script src="components/Footer/footer.js"></script>
     <script src="components/Aviso/aviso.js"></script>
     <script src="components/Carrossel/carrossel.js"></script>
+    <script src="components/Card/card.js"></script>
     <!-- 4. Script desta página -->
     <script src="index.js"></script>
 </body>

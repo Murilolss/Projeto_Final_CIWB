@@ -64,6 +64,16 @@ async function buscarComCache(chave, url) {
 - A `chave` já vem com o prefixo: `config.prefixoCache + 'personagens'` → `ciwb_personagens`.
 - Se a API falhar, o `throw` do `buscarTodos` interrompe a função antes do `setItem`: um erro nunca é salvo no cache, e a próxima visita tenta a API de novo.
 - Sem expiração: o localStorage não expira (aula 13). Para testar com o cache vazio, DevTools → Application → Local Storage → Clear.
+- **Chaves por recurso (fixadas na T-20, 20/11/2026).** Toda página que usa um recurso usa a **mesma** chave. Assim o cache que uma página salva serve para as outras. A página inicial carrega os 5 recursos, e quem passa por ela já deixa tudo salvo. As T-21 a T-24 **precisam** usar estes nomes:
+
+  | Recurso | Rota | Chave | Quem usa |
+  |---|---|---|---|
+  | Carrossel | `/carousel` | `ciwb_carrossel` | início |
+  | Personagens | `/characters` | `ciwb_personagens` | início, Personagens (T-21) |
+  | Mortes | `/deaths` | `ciwb_mortes` | início, Mortes (T-22) |
+  | Temporadas | `/seasons` | `ciwb_temporadas` | início, Temporadas |
+  | Episódios | `/episodes` | `ciwb_episodios` | início, Temporadas, Episódios (T-23) |
+  | Frases | `/quotes` | `ciwb_frases` | início, Frases (T-24) |
 
 ### Busca por nome (RF06, RF07): implementado em `src/services/busca.js` (T-15, 15/11/2026)
 
@@ -196,6 +206,36 @@ Primeira página de recurso pronta. É o **modelo** para as T-21 a T-24: o `scri
 - São 10 slides, em uma página só da API (`next: null`).
 - As imagens têm proporções diferentes: a maioria em 16:9, uma em 4:3 (superlaboratório) e uma em 3:2 (Felina). Por isso a `.carrossel-imagem` tem **altura fixa** (480px; 260px abaixo de 768px) com `object-fit: cover`, para os slides não mudarem de tamanho.
 - A legenda ocupa a base inteira da foto, com um degradê escuro para ficar legível, e aparece também no celular.
+
+### Página inicial: apresentação, atalhos, elenco e frase (T-20, 20/11/2026)
+
+As funções ficam no `src/index.js`, porque só servem à página inicial. Os estilos ficam no `src/index.css`.
+
+- **Sinopse e ficha técnica:** texto fixo no `index.html` (decisão do usuário). É conteúdo da página, e não dado de um recurso. A ficha é uma `dl.row` dentro de um `.card`.
+- **Atalhos em ladrilhos (`montarAtalhos`):**
+  - um `for` com índice percorre o `paginasDoMenu` (do `navbar.js`) a partir do 1, pulando o Início. O índice vira o "número atômico";
+  - cada atalho é um `<a class="atalho">` com:
+    - `criarLadrilho(i, pagina.simbolo)`, **reaproveitado do `header.js`**, com `aria-hidden="true"`;
+    - o `h3` com o nome e o `p` com a `descricao`;
+    - o `<p class="atalho-total" id="total-<id>">`, que começa vazio;
+  - roda **antes** do `try`: com a API fora do ar, os atalhos continuam funcionando;
+  - `simbolo` e `descricao` ficam no próprio `paginasDoMenu`. Uma página nova é um objeto só, e aparece no menu e nos atalhos.
+- **Números da série nos ladrilhos:**
+  - `mostrarTotal(id, texto)` escreve no `#total-<id>`;
+  - os totais são o `.length` de cada array (61 personagens, 5 temporadas, 62 episódios, 28 frases);
+  - as mortes mostram `somarVitimas(mortes)`, um `forEach` que soma `victims_count` (270 vítimas em 64 registros).
+- **Elenco principal:**
+  - `personagensPrincipais` usa `forEach` + `if (role === 'principal')` + `push` (11 personagens);
+  - `criarCardDoElenco` chama `criarCard(name, ['Interpretado por ' + portrayed_by], image)`, **sem** `aoClicar`. Os detalhes ficam na página de Personagens, para onde aponta o link "Ver todos os personagens";
+  - a lista é desenhada com `montarLista` em `<div id="lista">`;
+  - o `index.css` troca a imagem para `aspect-ratio: 4 / 5` só em `#elenco .card-imagem`, como na página de Personagens. No 4:3 do `card.css`, os retratos ficavam com testa e queixo cortados (corrigido a pedido do usuário).
+- **Frase em destaque:**
+  - `frasesSemPalavrao` deixa de fora as 4 com `explicit: true` (sobram 24);
+  - `sortearFrase` usa `Math.floor(Math.random() * frases.length)`, o mesmo padrão do dado em `codigo-exemplos/03.condicional_repeticao/exemplo2.js`, e um `while` sorteia de novo se cair na frase que já está na tela;
+  - `mostrarFrase` preenche o PT, o EN (`lang="en"`), "Personagem · Episódio 5x07" e o `context`;
+  - a `<section id="frase">` nasce com `hidden` e só aparece depois que as frases carregam. O `figure` tem `aria-live="polite"`;
+  - o botão "Sortear outra frase" chama o `sortearFrase` no `click`.
+- **Requisições:** com o localStorage vazio, 26 (1 carrossel + 7 personagens + 7 mortes + 1 temporadas + 7 episódios + 3 frases). Com o cache cheio, nenhuma. Depois do início, a página de Temporadas também não faz nenhuma.
 
 ## Boas práticas combinadas
 

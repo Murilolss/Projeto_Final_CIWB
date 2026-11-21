@@ -1,4 +1,162 @@
 /*
  * index.css: estilos só da página inicial (T-19 e T-20).
- * Ex.: espaço abaixo do carrossel e os atalhos para as páginas de recurso.
+ * As cores e fontes vêm das variáveis do global.css (var(--bb-...)).
  */
+
+/* ===================== Seções ===================== */
+
+/* Espaço entre o carrossel e cada seção da T-20 */
+.secao {
+    margin-top: 3rem;
+}
+
+/* Título da seção com um traço verde embaixo, curto, como um sublinhado de cartaz */
+.secao h2 {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--bb-verde);
+    display: inline-block;
+}
+
+/* Título e link "Ver todos" na mesma linha. flex-wrap: no celular, o link desce. */
+.secao-topo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+}
+
+
+/* ===================== A série (sinopse + ficha) ===================== */
+
+.sinopse p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.ficha {
+    background-color: var(--bb-fundo-elevado);
+    border: 1px solid var(--bb-borda);
+    border-top: 4px solid var(--bb-amarelo);
+}
+
+.ficha dt {
+    font-family: var(--bb-fonte-titulo);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--bb-amarelo);
+}
+
+.ficha dd {
+    color: var(--bb-texto-suave);
+}
+
+
+/* ===================== Atalhos (ladrilhos da tabela periódica) ===================== */
+
+/* O link inteiro é o card: fundo escuro, borda fina e sem sublinhado.
+   O transition deixa o hover suave (o mesmo efeito do card clicável, card.css). */
+.atalho {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem;
+    background-color: var(--bb-fundo-elevado);
+    border: 1px solid var(--bb-borda);
+    border-radius: var(--bb-raio);
+    color: var(--bb-texto);
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+/* Mouse em cima ou foco pelo teclado: sobe um pouco e a borda fica verde.
+   O global.css desliga o movimento para quem pediu "reduzir movimento". */
+.atalho:hover,
+.atalho:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--bb-verde-claro);
+    color: var(--bb-texto);
+}
+
+/* O ladrilho do atalho é maior que o do logo (3rem no global.css) */
+.atalho .elemento {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.atalho .elemento-simbolo {
+    font-size: 2rem;
+}
+
+.atalho .elemento-numero {
+    font-size: 0.75rem;
+}
+
+.atalho-nome {
+    margin-bottom: 0.35rem;
+}
+
+/* flex-grow: a descrição ocupa o espaço que sobra e empurra o total para o fim do card,
+   então os totais ficam alinhados na mesma linha, mesmo com descrições de tamanhos diferentes */
+.atalho-descricao {
+    flex-grow: 1;
+    margin-bottom: 0.5rem;
+    color: var(--bb-texto-suave);
+    font-size: 0.95rem;
+}
+
+/* O total faz o papel da "massa atômica" que fica embaixo do elemento */
+.atalho-total {
+    margin-bottom: 0;
+    font-family: var(--bb-fonte-titulo);
+    font-size: 1.15rem;
+    color: var(--bb-amarelo);
+}
+
+
+/* ===================== Elenco principal ===================== */
+
+/* As fotos dos personagens são retratos em pé. O card.css usa 4 x 3 (bom para as
+   fotos deitadas de mortes e episódios), que aqui cortava testa e queixo.
+   No elenco, a imagem fica em pé (4 x 5), igual à página de Personagens. */
+#elenco .card-imagem {
+    aspect-ratio: 4 / 5;
+}
+
+
+/* ===================== Frase em destaque ===================== */
+
+.frase-caixa {
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    background-color: var(--bb-fundo-elevado);
+    border-left: 5px solid var(--bb-amarelo);
+    border-radius: var(--bb-raio);
+}
+
+.frase-pt {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+.frase-en {
+    font-style: italic;
+    color: var(--bb-texto-suave);
+    margin-bottom: 0;
+}
+
+/* O blockquote-footer do Bootstrap já põe o "—" antes do nome */
+.frase-caixa .blockquote-footer {
+    margin-top: 0.75rem;
+    color: var(--bb-texto);
+}
+
+/* O contexto fica numa linha própria, mais apagado */
+.frase-contexto {
+    display: block;
+    color: var(--bb-texto-suave);
+}

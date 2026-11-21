@@ -4,7 +4,7 @@
 
 | Página | Arquivo | Conteúdo |
 |--------|---------|----------|
-| Início | `src/index.html` | Apresentação do site + **carrossel de imagens** |
+| Início | `src/index.html` | **Carrossel de imagens** + sinopse e ficha técnica, atalhos em ladrilhos com os números da série, elenco principal e frase sorteada (T-20) |
 | Personagens | `src/pages/personagens/index.html` | Busca + lista resumida + modal de detalhes |
 | Mortes | `src/pages/mortes/index.html` | idem |
 | Temporadas | `src/pages/temporadas/index.html` | idem. O modal lista **todos os episódios** da temporada. Aprovada na T-25 e **implementada** na T-26 (20/11/2026) |
@@ -24,7 +24,7 @@ Toda página, inclusive a inicial, segue o mesmo esqueleto. Os contêineres fica
 <footer id="rodape"></footer>     <!-- montarFooter(apiUrl): autoria, disciplina, fonte dos dados -->
 ```
 
-- O menu marca a página atual (classe `active` + `aria-current="page"`), a partir do parâmetro `paginaAtual`. As páginas do menu ficam no array `paginasDoMenu`, em `navbar.js`: uma página nova no menu é só mais um objeto nesse array.
+- O menu marca a página atual (classe `active` + `aria-current="page"`), a partir do parâmetro `paginaAtual`. As páginas do menu ficam no array `paginasDoMenu`, em `navbar.js`: uma página nova no menu é só mais um objeto nesse array. Desde a T-20, cada página de recurso também tem `simbolo` e `descricao`, usados só nos atalhos da página inicial.
 - O rodapé cita a API usada como fonte dos dados, com o link recebido em `apiUrl` (vem de `config.apiUrl`, nunca fixo no código). Os integrantes ficam no array `integrantesDoGrupo`, em `footer.js`.
 - O título do header **não** é `h1`: cada página tem o seu `h1` no `main`.
 
@@ -59,7 +59,12 @@ iniciarPagina();
   - Toda imagem precisa de `alt` (RNF02).
   - Controles anterior/próximo e indicadores, com texto para leitor de tela (`visually-hidden`).
   - **Implementado na T-19 (20/11/2026):** `<div id="aviso">` ("Carregando..." ou erro) e `<section id="carrossel" aria-label="Cenas marcantes da série">` abaixo do `h1`; autoplay de 5 s com pausa no hover; legenda com o nome da cena e o código do episódio. Detalhes em [04-padroes-de-codigo.md](04-padroes-de-codigo.md#carrossel-página-inicial-implementado-em-srccomponentscarrosselcarrosseljs-t-19-20112026).
-- Abaixo do carrossel: texto curto sobre o site e atalhos (cards ou botões) para cada página de recurso.
+- **Abaixo do carrossel (T-20, implementado em 20/11/2026)**, nesta ordem, cada seção com o seu `h2`:
+  1. **A série** (`#sobre`): sinopse sem spoilers do fim + ficha técnica (criação, emissora, exibição, ambientação, gênero, produção, prêmios, continuações). **Texto fixo no HTML** (escolha do usuário).
+  2. **Explore o site** (`#explorar`): um **ladrilho da tabela periódica** por página de recurso (Pe, Mo, Te, Ep, Fr), com nome, descrição e o **total vindo da API** (61 personagens, 270 vítimas, 5 temporadas, 62 episódios, 28 frases). Os atalhos são montados a partir do `paginasDoMenu`, que ganhou os campos `simbolo` e `descricao`.
+  3. **Elenco principal** (`#elenco`): cards (componente Card, sem clique) dos 11 personagens com `role: "principal"` e link para Personagens.
+  4. **Frase em destaque** (`#frase`): uma frase marcante sorteada (sem as `explicit`), em PT e EN, com quem fala, o episódio e o contexto, e um botão "Sortear outra frase".
+  - Detalhes do código em [04-padroes-de-codigo.md](04-padroes-de-codigo.md#página-inicial-apresentação-atalhos-elenco-e-frase-t-20-20112026).
 - A página inicial **não** é obrigada a ter lista/busca, porque não é página de recurso.
 
 ## Página de recurso
@@ -79,7 +84,7 @@ Organização **inspirada no React** (`components/` + `globals.css`) e no projet
 
 ```
 src/
-├── index.html  index.css  index.js     # página inicial (carrossel)
+├── index.html  index.css  index.js     # página inicial (carrossel T-19; sinopse, atalhos, elenco e frase T-20)
 ├── global.css                          # :root com as cores + base (vale para todas as páginas)
 ├── config.json                         # link da API + prefixo do cache (ver 03-configuracao.md)
 ├── components/                         # pedaços de tela reaproveitados: um .js + um .css cada

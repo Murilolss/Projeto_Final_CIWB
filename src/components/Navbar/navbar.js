@@ -12,13 +12,31 @@
 
 // Lista das páginas do site (array de objetos). Para criar uma página nova no menu,
 // basta acrescentar um objeto aqui: o menu existe só neste arquivo (RNF03).
+// simbolo e descricao (T-20) não são usados pelo menu: servem aos atalhos da página
+// inicial (index.js), que viram ladrilhos da tabela periódica. A página nova aparece
+// no menu e nos atalhos ao mesmo tempo.
 const paginasDoMenu = [
     { id: 'inicio', nome: 'Início', caminho: 'index.html' },
-    { id: 'personagens', nome: 'Personagens', caminho: 'pages/personagens/index.html' },
-    { id: 'mortes', nome: 'Mortes', caminho: 'pages/mortes/index.html' },
-    { id: 'temporadas', nome: 'Temporadas', caminho: 'pages/temporadas/index.html' },
-    { id: 'episodios', nome: 'Episódios', caminho: 'pages/episodios/index.html' },
-    { id: 'frases', nome: 'Frases marcantes', caminho: 'pages/frases/index.html' }
+    {
+        id: 'personagens', nome: 'Personagens', caminho: 'pages/personagens/index.html',
+        simbolo: 'Pe', descricao: 'Quem é quem na série, do elenco principal aos coadjuvantes'
+    },
+    {
+        id: 'mortes', nome: 'Mortes', caminho: 'pages/mortes/index.html',
+        simbolo: 'Mo', descricao: 'Quem morreu, como, por quê e as últimas palavras'
+    },
+    {
+        id: 'temporadas', nome: 'Temporadas', caminho: 'pages/temporadas/index.html',
+        simbolo: 'Te', descricao: 'As cinco temporadas e todos os episódios de cada uma'
+    },
+    {
+        id: 'episodios', nome: 'Episódios', caminho: 'pages/episodios/index.html',
+        simbolo: 'Ep', descricao: 'Sinopse, roteiro, direção e elenco de cada episódio'
+    },
+    {
+        id: 'frases', nome: 'Frases marcantes', caminho: 'pages/frases/index.html',
+        simbolo: 'Fr', descricao: 'As falas mais famosas, em português e inglês'
+    }
 ];
 
 function montarNavbar(paginaAtual, raiz) {
