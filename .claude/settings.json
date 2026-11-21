@@ -3,7 +3,8 @@
     "allow": [
       "ClaudeInChromeDomain(localhost:5519)",
       "mcp__claude-in-chrome__tabs_context_mcp",
-      "ClaudeInChromeDomain(127.0.0.1:5599)"
+      "ClaudeInChromeDomain(127.0.0.1:5599)",
+      "ClaudeInChromeDomain(localhost:5599)"
     ],
     "deny": [
       "Bash(git commit:*)",

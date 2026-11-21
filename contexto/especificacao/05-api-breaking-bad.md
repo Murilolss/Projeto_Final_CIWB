@@ -110,7 +110,7 @@ As funções planejadas em [`04-padroes-de-codigo.md`](04-padroes-de-codigo.md) 
 
 | Campo | Tipo | Observação |
 |---|---|---|
-| `full_name` | texto ou `null` | `null` quando a Wiki não informa |
+| `full_name` | texto ou `null` | Quando a Wiki deixa o campo vazio e o `name` já tem nome e sobrenome, repete o `name` (ex.: "Jane Margolis"). Gonzo e No-Doze usam o nome real que a Wiki dá ("Álvaro González", "Normando dos Santos"). Fica `null` só para os 9 conhecidos por apelido ou primeiro nome (Skinny Pete, Tortuga, Victor, Kenny, Declan, Lawson, Old Joe, Clovis, Spooge). Corrigido em 21/11/2026: antes, 37 eram `null` |
 | `birth_date` | texto ou `null` | `AAAA-MM-DD` quando a data é exata. Senão, o texto aproximado traduzido (`"c. 1958"`, `"c. março de 1966"`, `"década de 1950"`) |
 | `status` | texto | `Vivo`, `Morto` ou `Desconhecido` |
 | `status_detail` | texto ou `null` | Detalhe do status, ex.: Ted, "Ficou com sequelas depois de um acidente em casa" |

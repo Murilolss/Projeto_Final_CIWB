@@ -30,7 +30,18 @@
 
     <main class="container py-4">
         <h1>Personagens</h1>
-        <!-- Busca (T-15), aviso (T-15/T-16), lista (T-16) e modal (T-17): montados no T-21 -->
+
+        <!-- Busca por nome (RF06). O label ligado ao campo pelo for/id (RNF02) -->
+        <div class="busca mb-4">
+            <label for="busca" class="form-label">Buscar personagem</label>
+            <input type="search" id="busca" class="form-control" placeholder="Ex.: Walter White" autocomplete="off">
+        </div>
+
+        <!-- "Carregando...", erro ou "Nenhum item encontrado" (componente Aviso) -->
+        <div id="aviso"></div>
+
+        <!-- Um card por personagem (componente Card). O modal é criado pelo componente Modal -->
+        <div id="lista"></div>
     </main>
 
     <footer id="rodape"></footer>
@@ -43,6 +54,7 @@
     <script src="../../services/api.js"></script>
     <script src="../../services/cache.js"></script>
     <script src="../../services/busca.js"></script>
+    <script src="../../services/datas.js"></script>
     <!-- 3. Componentes -->
     <script src="../../components/Header/header.js"></script>
     <script src="../../components/Navbar/navbar.js"></script>

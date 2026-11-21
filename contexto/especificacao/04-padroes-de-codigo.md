@@ -70,7 +70,7 @@ async function buscarComCache(chave, url) {
   |---|---|---|---|
   | Carrossel | `/carousel` | `ciwb_carrossel` | início |
   | Personagens | `/characters` | `ciwb_personagens` | início, Personagens (T-21) |
-  | Mortes | `/deaths` | `ciwb_mortes` | início, Mortes (T-22) |
+  | Mortes | `/deaths` | `ciwb_mortes` | início, Personagens (T-21), Mortes (T-22) |
   | Temporadas | `/seasons` | `ciwb_temporadas` | início, Temporadas |
   | Episódios | `/episodes` | `ciwb_episodios` | início, Temporadas, Episódios (T-23) |
   | Frases | `/quotes` | `ciwb_frases` | início, Frases (T-24) |
@@ -181,7 +181,7 @@ function formatarData(data) {
 ```
 
 - **Não usar `new Date('2008-01-20')`:** o JavaScript lê esse formato como meia-noite em UTC, e no Brasil (UTC−3) isso ainda é o dia 19. A data sairia com um dia a menos. Como a API já manda o texto pronto, basta reorganizá-lo.
-- Serve para `premiere_date`/`finale_date` (temporadas) e `air_date` (episódios). O `birth_date` dos personagens às vezes é aproximado ("c. 1958"); a T-21 precisa tratar esse caso antes de chamar a função.
+- Serve para `premiere_date`/`finale_date` (temporadas) e `air_date` (episódios). O `birth_date` dos personagens às vezes é aproximado ("c. 1958"). A T-21 trata isso no `formatarNascimento` da página de Personagens, que só chama o `formatarData` quando a data é exata.
 
 ### Página de recurso completa: `src/pages/temporadas/` (T-25/T-26, 20/11/2026)
 
@@ -193,6 +193,19 @@ Primeira página de recurso pronta. É o **modelo** para as T-21 a T-24: o `scri
 - **Episódios dentro da temporada:** a temporada da API só traz os links dos episódios. Por isso a página também carrega `/episodes` com `buscarComCache(config.prefixoCache + 'episodios', ...)`, a **mesma chave** que a página de Episódios (T-23) vai usar. Quem abrir uma das duas já deixa o cache pronto para a outra. A função `episodiosDaTemporada` percorre os episódios com `forEach` e guarda os que têm `episodio.season === temporada.url`.
 - Requisições: com o localStorage vazio, 1 a `/seasons` e 7 a `/episodes` (62 episódios, 10 por página). Com o cache cheio, nenhuma.
 - Busca: `filtrarPorNome` sobre o `name` ("Temporada 3"), então digitar "3" acha a Temporada 3.
+
+### Página de Personagens: `src/pages/personagens/` (T-21, 21/11/2026)
+
+Segue o modelo de Temporadas.
+
+- `let personagens = []` e `let mortes = []` ficam fora das funções.
+- **Card** (`criarCardDoPersonagem`): `criarCard(name, ['Ator: Bryan Cranston', 'Status: Morto'], image, aoClicar)`. O cartão do quadro dizia "ocupação", mas o usuário escolheu ator e status em 21/11/2026, como já estava nesta especificação. A foto fica em 4:5 pelo `style.css` da página.
+- **Modal** (`abrirPersonagem`): Nome completo, Apelidos (array), Ator, Nascimento, Status, Ocupações (array), Papel na série, Temporadas, Primeira aparição e Última aparição. O `status_detail` entra entre parênteses no Status, ex.: "Vivo (Fugiu do complexo de Jack Welker no final da série)". O `role` vira "Elenco principal" ou "Recorrente".
+- **Morte no modal** (decisão do usuário, 21/11/2026): o personagem só traz o link `death`. Por isso a página também carrega `/deaths` com a chave `ciwb_mortes`, a mesma da página inicial e da página de Mortes (T-22). O `morteDoPersonagem` percorre as mortes com `forEach` e acha a que tem `morte.url === personagem.death`. Para quem tem `death`, o array de campos ganha, com `push`, o "Episódio da morte" (`episode_code`) e a "Causa da morte" (`cause`). Os 34 mortos têm `death`, e nenhum vivo tem. O Kenny aponta para a morte em grupo da gangue de Jack.
+- **Funções auxiliares da página:**
+  - `formatarNascimento(data)`: a expressão regular `/^\d{4}-\d{2}-\d{2}$/` com `.test` (aula 15) separa a data exata, que passa pelo `formatarData`. Datas aproximadas ("c. 1958", "década de 1950", "novembro (ano desconhecido)") aparecem como vieram, e `null` vira "Não informado";
+  - `numerosDasTemporadas(personagem)`: `split('/')` em cada link de `seasons` e o último pedaço, concatenado em "1, 2, 3, 4, 5" (sem `join`).
+- **Requisições:** com o localStorage vazio, 14 (7 `/characters` + 7 `/deaths`). Com o cache cheio, ou depois da página inicial, nenhuma.
 
 ### Carrossel (página inicial): implementado em `src/components/Carrossel/carrossel.js` (T-19, 20/11/2026)
 

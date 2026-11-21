@@ -5,7 +5,7 @@
 | Página | Arquivo | Conteúdo |
 |--------|---------|----------|
 | Início | `src/index.html` | **Carrossel de imagens** + sinopse e ficha técnica, atalhos em ladrilhos com os números da série, elenco principal e frase sorteada (T-20) |
-| Personagens | `src/pages/personagens/index.html` | Busca + lista resumida + modal de detalhes |
+| Personagens | `src/pages/personagens/index.html` | Busca + lista resumida (ator e status) + modal de detalhes, com o episódio e a causa da morte de quem morre. **Implementada** na T-21 (21/11/2026) |
 | Mortes | `src/pages/mortes/index.html` | idem |
 | Temporadas | `src/pages/temporadas/index.html` | idem. O modal lista **todos os episódios** da temporada. Aprovada na T-25 e **implementada** na T-26 (20/11/2026) |
 | Episódios | `src/pages/episodios/index.html` | idem |
