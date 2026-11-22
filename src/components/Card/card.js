@@ -4,8 +4,9 @@
 //
 // O que mostrar de cada recurso fica no script.js da página, não aqui. Exemplo (Personagens):
 //   function criarCardDoItem(item) {
-//       return criarCard(item.name, ['Ator: ' + item.portrayed_by, 'Status: ' + item.status], item.image,
-//           function () { abrirPersonagem(item); });
+//       return criarCard(item.name, ['Ator: ' + item.portrayed_by], item.image,
+//           function () { abrirPersonagem(item); },
+//           { rotulo: 'Status', texto: item.status, tipo: item.status.toLowerCase() });
 //   }
 //   montarLista(itens, criarCardDoItem);
 // abrirPersonagem(item) também fica no script.js da página: monta a lista de campos
@@ -16,7 +17,10 @@
 //   linhas:   array com os textos curtos, um parágrafo para cada
 //   imagem:   link da imagem, ou null (algumas não têm, e as frases nunca têm)
 //   aoClicar: função chamada no clique, ou nada (sem ela, o card não é clicável)
-function criarCard(titulo, linhas, imagem, aoClicar) {
+//   etiqueta: opcional (T-27). Objeto { rotulo, texto, tipo } que vira uma etiqueta colorida
+//             no canto da foto, ex.: { rotulo: 'Status', texto: 'Morto', tipo: 'morto' }.
+//             A cor de cada tipo fica no style.css da página (.etiqueta-morto, ...).
+function criarCard(titulo, linhas, imagem, aoClicar, etiqueta) {
     // Coluna da grade: o .row do montarLista decide quantas cabem por linha
     const coluna = document.createElement('div');
     coluna.className = 'col';
@@ -42,6 +46,23 @@ function criarCard(titulo, linhas, imagem, aoClicar) {
     tituloCard.className = 'card-title h5';
     tituloCard.textContent = titulo;
     corpo.appendChild(tituloCard);
+
+    // Etiqueta (T-27): fica logo depois do título no HTML, para o leitor de tela ler
+    // "nome, status, ...". O card.css a coloca no canto de cima da foto.
+    if (etiqueta) {
+        const spanEtiqueta = document.createElement('span');
+        spanEtiqueta.className = 'badge etiqueta etiqueta-' + etiqueta.tipo;
+
+        // visually-hidden (Bootstrap): o rótulo não aparece na tela, mas o leitor
+        // de tela lê "Status: Morto" em vez de só "Morto"
+        const spanRotulo = document.createElement('span');
+        spanRotulo.className = 'visually-hidden';
+        spanRotulo.textContent = etiqueta.rotulo + ': ';
+
+        spanEtiqueta.appendChild(spanRotulo);
+        spanEtiqueta.appendChild(document.createTextNode(etiqueta.texto));
+        corpo.appendChild(spanEtiqueta);
+    }
 
     linhas.forEach(function (texto) {
         const paragrafo = document.createElement('p');

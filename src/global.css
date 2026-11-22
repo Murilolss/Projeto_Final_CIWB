@@ -28,6 +28,8 @@
     --bb-verde-claro: #4caf6e;    /* links e destaques sobre o fundo escuro */
     --bb-amarelo: #f2c230;        /* amarelo das roupas de proteção / deserto */
     --bb-azul-cristal: #5ec8e5;   /* o azul do cristal */
+    --bb-vermelho: #b3261e;       /* mortes (T-27). Texto branco por cima: contraste 6,5:1 */
+    --bb-cinza: #5c6b62;          /* o que é desconhecido (T-27). Texto branco: 5,6:1 */
 
     --bb-fundo: #0e1410;          /* fundo da página */
     --bb-fundo-elevado: #16201a;  /* cards, modal, navbar */
@@ -68,6 +70,25 @@ body {
     min-height: 100vh;
     background-color: var(--bb-fundo);
     color: var(--bb-texto);
+
+    /* Brilho do fundo (T-27): uma luz verde bem fraca no alto, à direita, como a luz
+       de um laboratório. É um degradê radial (círculo) que vai do verde quase
+       transparente até transparente. background-attachment: fixed deixa a luz parada
+       enquanto a página rola. A cor de fundo continua por baixo dele. */
+    background-image: radial-gradient(circle at 85% 10%, rgba(76, 175, 110, 0.10), transparent 40rem);
+    background-attachment: fixed;
+}
+
+/* Barra de rolagem nas cores do site (T-27): verde sobre o fundo escuro.
+   scrollbar-color recebe duas cores: a da barra que se arrasta e a do trilho. */
+html {
+    scrollbar-color: var(--bb-verde) var(--bb-fundo);
+}
+
+/* Texto selecionado com o mouse em amarelo, com letra escura para continuar legível (T-27) */
+::selection {
+    background-color: var(--bb-amarelo);
+    color: #111111;
 }
 
 main {

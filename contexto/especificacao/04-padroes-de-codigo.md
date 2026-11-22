@@ -102,6 +102,7 @@ campoBusca.addEventListener('input', function () {
 ### Lista em cards (RF04): implementado em `src/components/Card/card.js` (T-16, 15/11/2026)
 
 - `criarCard(titulo, linhas, imagem, aoClicar)`: devolve um `div.col` com o `.card` do Bootstrap. A imagem só aparece se não for `null` e tem `alt = titulo`. O título é um `h2.h5`, e há um `p` para cada texto de `linhas`. Com `aoClicar`, entra um botão "Ver detalhes" com `stretched-link`, que deixa o card inteiro clicável e funciona pelo teclado; nesse caso o card ganha a classe `card-clicavel`, com o efeito de hover.
+- **Etiqueta (T-27, 21/11/2026):** `criarCard` aceita um 5º parâmetro opcional, `etiqueta = { rotulo, texto, tipo }`. Ele vira um `span.badge.etiqueta.etiqueta-<tipo>` logo depois do título, com um `span.visually-hidden` "Status: " para o leitor de tela. O `card.css` coloca a etiqueta no canto de cima da foto (`position: absolute`). A cor de cada tipo fica no `style.css` da página. O clique em cima dela continua abrindo o modal, porque o `::after` do `stretched-link` está por cima. Sem o parâmetro, nada muda.
 - `montarLista(itens, criarCardDoItem)`: limpa `#lista`, coloca a grade (`row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4`) e um card por item. Com a lista vazia, mostra "Nenhum item encontrado." no Aviso; senão, esconde o Aviso.
 - Imagem do card: `aspect-ratio: 4 / 3` com `object-fit: cover` e `object-position: center top`, o que serve para as fotos deitadas de mortes e episódios. As fotos dos personagens são em pé, e muitas mostram o rosto bem de perto. Por isso o `pages/personagens/style.css` troca o formato para `4 / 5`, e assim nem a testa nem o queixo são cortados. Leonel e Marco Salamanca usam a mesma foto: os dois primos sentados na cama, escolhida pelo usuário em 15/11/2026. Ela está em `public/img/characters/{leonel,marco}-salamanca.jpg` na API e mostra o rosto dos dois mesmo no formato em pé.
 - Os campos de cada recurso ficam na página:
@@ -199,7 +200,7 @@ Primeira página de recurso pronta. É o **modelo** para as T-21 a T-24: o `scri
 Segue o modelo de Temporadas.
 
 - `let personagens = []` e `let mortes = []` ficam fora das funções.
-- **Card** (`criarCardDoPersonagem`): `criarCard(name, ['Ator: Bryan Cranston', 'Status: Morto'], image, aoClicar)`. O cartão do quadro dizia "ocupação", mas o usuário escolheu ator e status em 21/11/2026, como já estava nesta especificação. A foto fica em 4:5 pelo `style.css` da página.
+- **Card** (`criarCardDoPersonagem`): `criarCard(name, ['Ator: Bryan Cranston'], image, aoClicar, { rotulo: 'Status', texto: 'Morto', tipo: 'morto' })`. O `tipo` é o `status.toLowerCase()`. O cartão do quadro dizia "ocupação", mas o usuário escolheu ator e status em 21/11/2026, como já estava nesta especificação. Desde a T-27, o status aparece numa etiqueta colorida sobre a foto: `.etiqueta-vivo` verde, `.etiqueta-morto` vermelho (`--bb-vermelho`) e `.etiqueta-desconhecido` cinza (`--bb-cinza`), todas com contraste ≥ 5,4:1 com o texto branco. A foto fica em 4:5 pelo `style.css` da página.
 - **Modal** (`abrirPersonagem`): Nome completo, Apelidos (array), Ator, Nascimento, Status, Ocupações (array), Papel na série, Temporadas, Primeira aparição e Última aparição. O `status_detail` entra entre parênteses no Status, ex.: "Vivo (Fugiu do complexo de Jack Welker no final da série)". O `role` vira "Elenco principal" ou "Recorrente".
 - **Morte no modal** (decisão do usuário, 21/11/2026): o personagem só traz o link `death`. Por isso a página também carrega `/deaths` com a chave `ciwb_mortes`, a mesma da página inicial e da página de Mortes (T-22). O `morteDoPersonagem` percorre as mortes com `forEach` e acha a que tem `morte.url === personagem.death`. Para quem tem `death`, o array de campos ganha, com `push`, o "Episódio da morte" (`episode_code`) e a "Causa da morte" (`cause`). Os 34 mortos têm `death`, e nenhum vivo tem. O Kenny aponta para a morte em grupo da gangue de Jack.
 - **Funções auxiliares da página:**
@@ -249,6 +250,16 @@ As funções ficam no `src/index.js`, porque só servem à página inicial. Os e
   - a `<section id="frase">` nasce com `hidden` e só aparece depois que as frases carregam. O `figure` tem `aria-live="polite"`;
   - o botão "Sortear outra frase" chama o `sortearFrase` no `click`.
 - **Requisições:** com o localStorage vazio, 26 (1 carrossel + 7 personagens + 7 mortes + 1 temporadas + 7 episódios + 3 frases). Com o cache cheio, nenhuma. Depois do início, a página de Temporadas também não faz nenhuma.
+
+### Identidade visual: favicon e detalhes do `global.css` (T-27, 21/11/2026)
+
+- **Favicon:** `src/img/favicon.svg` é o ladrilho "Br" (35) do logo, em SVG. Cada página tem `<link rel="icon" type="image/svg+xml" href="...img/favicon.svg">` logo depois do `<title>`, com a `raiz` da página no caminho.
+- **`global.css`:**
+  - cores novas no `:root`: `--bb-vermelho` (`#b3261e`) e `--bb-cinza` (`#5c6b62`);
+  - `::selection` em amarelo, com o texto escuro;
+  - `html { scrollbar-color: verde fundo }`;
+  - no `body`, um `radial-gradient` verde com opacidade 0,10 no alto à direita, com `background-attachment: fixed`, como uma luz de laboratório.
+- Não entraram (o usuário não escolheu): o cabeçalho com ladrilho nas páginas de recurso e o estilo próprio do campo de busca.
 
 ## Boas práticas combinadas
 

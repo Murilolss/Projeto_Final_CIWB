@@ -1,7 +1,7 @@
 // Página Personagens (T-21)
 // Diz O QUE mostrar; o COMO fica nos services e componentes compartilhados (RNF03).
 // Recursos da API: /characters (61 personagens) e /deaths (64 mortes)
-//   Lista (Card):     nome, ator (portrayed_by) e status, com a imagem.
+//   Lista (Card):     nome e ator (portrayed_by), com a imagem e o status em uma etiqueta colorida.
 //   Detalhes (Modal): todos os campos, com a imagem e o alt. Para quem morre na
 //                     série, também o episódio e a causa da morte.
 //
@@ -19,14 +19,19 @@ let mortes = [];
 
 // Card de UM personagem (usado pelo montarLista, do componente Card)
 function criarCardDoPersonagem(personagem) {
-    const linhas = [
-        'Ator: ' + personagem.portrayed_by,
-        'Status: ' + personagem.status
-    ];
+    const linhas = ['Ator: ' + personagem.portrayed_by];
+
+    // Status colorido (T-27): o status em minúsculas vira a classe da cor
+    // ('Morto' -> 'morto' -> .etiqueta-morto, no style.css desta página)
+    const etiqueta = {
+        rotulo: 'Status',
+        texto: personagem.status,
+        tipo: personagem.status.toLowerCase()
+    };
 
     return criarCard(personagem.name, linhas, personagem.image, function () {
         abrirPersonagem(personagem);
-    });
+    }, etiqueta);
 }
 
 // A data de nascimento pode ser exata ('1958-09-07') ou aproximada ('c. 1958',

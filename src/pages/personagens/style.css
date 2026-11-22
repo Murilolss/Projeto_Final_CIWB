@@ -10,3 +10,18 @@
 .card-imagem {
     aspect-ratio: 4 / 5;
 }
+
+/* Status colorido (T-27): a etiqueta vem do componente Card (.etiqueta, no card.css)
+   e a classe de cada tipo é o status em minúsculas (etiqueta-vivo, -morto, -desconhecido).
+   As três cores têm contraste de pelo menos 4,5:1 com o texto branco (RNF02). */
+.etiqueta-vivo {
+    background-color: var(--bb-verde);
+}
+
+.etiqueta-morto {
+    background-color: var(--bb-vermelho);
+}
+
+.etiqueta-desconhecido {
+    background-color: var(--bb-cinza);
+}

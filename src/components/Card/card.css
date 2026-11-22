@@ -42,6 +42,25 @@
     color: var(--bb-texto-suave);
 }
 
+/* Etiqueta (T-27), ex.: o status do personagem. Fica no canto de cima da foto:
+   position: absolute se posiciona em relação ao .card, que o Bootstrap já deixa
+   com position: relative. A cor de fundo de cada tipo fica no style.css da página. */
+.etiqueta {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.4em 0.7em;
+    font-family: var(--bb-fonte-titulo);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+    background-color: var(--bb-fundo-elevado);   /* reserva, se a página não der a cor */
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);    /* destaca a etiqueta sobre fotos claras */
+}
+
 /* "Ver detalhes": parece um link, no rodapé do card */
 .card-botao {
     margin-top: 0.5rem;

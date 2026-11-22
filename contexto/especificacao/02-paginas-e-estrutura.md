@@ -87,6 +87,7 @@ src/
 ├── index.html  index.css  index.js     # página inicial (carrossel T-19; sinopse, atalhos, elenco e frase T-20)
 ├── global.css                          # :root com as cores + base (vale para todas as páginas)
 ├── config.json                         # link da API + prefixo do cache (ver 03-configuracao.md)
+├── img/favicon.svg                     # ícone da aba: o ladrilho "Br" do logo (T-27)
 ├── components/                         # pedaços de tela reaproveitados: um .js + um .css cada
 │   ├── Header/     header.js    header.css     # montarHeader(raiz)                 (T-11)
 │   ├── Navbar/     navbar.js    navbar.css     # montarNavbar(paginaAtual, raiz)    (T-11)
