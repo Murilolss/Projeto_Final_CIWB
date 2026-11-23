@@ -1,14 +1,4 @@
-// Página inicial (T-19 e T-20)
-// Monta o layout (Header, Navbar, Footer), o carrossel com as imagens da API (/carousel)
-// e as seções da T-20:
-//   - atalhos: um ladrilho da tabela periódica por página, com o total de itens da API;
-//   - elenco principal: os personagens com role "principal";
-//   - frase em destaque: uma frase marcante sorteada (com botão para sortear outra).
-// A sinopse e a ficha técnica são texto fixo, direto no index.html.
-//
-// raiz = '', porque o index.html fica na pasta src/.
-//
-// Os scripts não são módulos, então o await precisa ficar dentro de uma async function.
+// JS da Página inicial
 
 // Guardados aqui fora para o botão "Sortear outra frase" enxergar depois do carregamento
 let frases = [];
@@ -20,12 +10,12 @@ let indiceAtual = -1;   // posição da frase na tela (-1: nenhuma ainda)
 // Um atalho para cada página do menu, menos o Início (paginasDoMenu fica no navbar.js).
 // Cada atalho é um link com o ladrilho, o nome, a descrição e o total, que começa vazio
 // e é preenchido pelo mostrarTotal quando os dados chegam.
-// Roda ANTES de chamar a API: se ela estiver fora do ar, os atalhos continuam funcionando.
+
 function montarAtalhos() {
     const atalhos = document.querySelector('#atalhos');
     atalhos.innerHTML = '';
 
-    // for com índice (aula 04): o índice vira o "número atômico" do ladrilho.
+    // for para o índice vira o "número atômico" do ladrilho.
     // Começa em 1 para pular o Início, que é a posição 0.
     for (let i = 1; i < paginasDoMenu.length; i++) {
         const pagina = paginasDoMenu[i];
@@ -64,14 +54,14 @@ function montarAtalhos() {
     }
 }
 
-// Escreve o total no ladrilho da página. Ex.: mostrarTotal('mortes', '270 vítimas')
+// Escreve o total no ladrilho da página.
 function mostrarTotal(idPagina, texto) {
     const total = document.querySelector('#total-' + idPagina);
     total.textContent = texto;
 }
 
 // Cada registro de morte tem victims_count: 1 nas mortes individuais e o total nos
-// grupos (ex.: Wayfarer 515). A soma dá o número de vítimas da série.
+// grupos
 function somarVitimas(mortes) {
     let soma = 0;
     mortes.forEach(function (morte) {
@@ -84,7 +74,7 @@ function somarVitimas(mortes) {
 // ===================== Elenco principal =====================
 
 // Só os personagens do elenco principal (role === 'principal').
-// forEach + if + push, como nas aulas (o filter não foi visto).
+// forEach + if + push.
 function personagensPrincipais(personagens) {
     const principais = [];
     personagens.forEach(function (personagem) {
@@ -123,9 +113,7 @@ function mostrarFrase(frase) {
     document.querySelector('#frase-contexto').textContent = frase.context;
 }
 
-// Sorteia uma posição de 0 até frases.length - 1, como o dado do exemplo da aula 04
-// (Math.floor(Math.random() * 6) + 1). O while sorteia de novo se cair na frase
-// que já está na tela, para o botão sempre trocar a frase.
+// Sorteia uma posição de 0 até frases.length - 1.
 function sortearFrase() {
     let indice = Math.floor(Math.random() * frases.length);
 
@@ -141,7 +129,6 @@ function sortearFrase() {
 // ===================== Início =====================
 
 async function iniciarPagina() {
-    // Layout comum (T-11) e atalhos (T-20): não dependem do config.json nem da API
     montarHeader('');
     montarNavbar('inicio', '');
     montarAtalhos();
@@ -149,23 +136,17 @@ async function iniciarPagina() {
     // try/catch: se algo der throw lá dentro (config.json ou API fora do ar),
     // o JavaScript pula para o catch, que mostra o erro na tela
     try {
-        // Configuração (T-12): link da API e prefixo do cache
         const config = await carregarConfig('');
         montarFooter(config.apiUrl);
 
         mostrarAviso('Carregando...', 'carregando');
 
-        // Carrossel (T-19). O buscarComCache olha PRIMEIRO o localStorage (chave 'ciwb_carrossel'):
-        // se os slides já estiverem lá, usa o cache e não chama a API (RN02).
-        // Só na primeira visita ele busca /carousel e salva os 10 slides (RN01).
-        // O cache guarda os dados de cada slide (nome, descrição, episódio e o LINK da foto);
-        // os arquivos .jpg ficam no cache do próprio navegador.
+        // Carrossel de imagens, aqui ele olha primeiro o LocalStorage (cache) e só chama a API se não tiver nada lá.
+        // O montarCarrossel (carrossel.js) cria o carrossel do Bootstrap e coloca no <section id="carrossel">.
         const slides = await buscarComCache(config.prefixoCache + 'carrossel', config.apiUrl + '/carousel');
         montarCarrossel(slides);
 
-        // Os 5 recursos (T-20), com AS MESMAS chaves das páginas de recurso
-        // (ciwb_personagens, ciwb_mortes...). Quem abre a página inicial já deixa tudo
-        // salvo, e as outras páginas não precisam chamar a API (RN02).
+        // Aqui ele carrega os dados da API e salva no LocalStorage com cada nome da pagina.
         const personagens = await buscarComCache(config.prefixoCache + 'personagens', config.apiUrl + '/characters');
         const mortes = await buscarComCache(config.prefixoCache + 'mortes', config.apiUrl + '/deaths');
         const temporadas = await buscarComCache(config.prefixoCache + 'temporadas', config.apiUrl + '/seasons');
@@ -182,7 +163,7 @@ async function iniciarPagina() {
         // Elenco principal (componente Card, dentro de <div id="lista">)
         montarLista(personagensPrincipais(personagens), criarCardDoElenco);
 
-        // Frase em destaque: sorteia uma e mostra a seção (tira o hidden do HTML)
+        // Frase em destaque: sorteia uma e mostra a seção
         frases = frasesSemPalavrao(todasAsFrases);
         sortearFrase();
         document.querySelector('#frase').hidden = false;

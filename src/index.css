@@ -1,11 +1,6 @@
-/*
- * index.css: estilos só da página inicial (T-19 e T-20).
- * As cores e fontes vêm das variáveis do global.css (var(--bb-...)).
- */
+/* CSS da Pagina Inicial */
 
-/* ===================== Seções ===================== */
-
-/* Espaço entre o carrossel e cada seção da T-20 */
+/* Espaço entre o carrossel */
 .secao {
     margin-top: 3rem;
 }
@@ -18,7 +13,7 @@
     display: inline-block;
 }
 
-/* Título e link "Ver todos" na mesma linha. flex-wrap: no celular, o link desce. */
+/* Título e link na mesma linha. flex-wrap: no celular, o link desce. */
 .secao-topo {
     display: flex;
     flex-wrap: wrap;
@@ -27,9 +22,7 @@
     gap: 0.5rem 1rem;
 }
 
-
-/* ===================== A série (sinopse + ficha) ===================== */
-
+/* ===================== Sinopse ===================== */
 .sinopse p {
     font-size: 1.1rem;
     line-height: 1.7;
@@ -56,8 +49,7 @@
 
 /* ===================== Atalhos (ladrilhos da tabela periódica) ===================== */
 
-/* O link inteiro é o card: fundo escuro, borda fina e sem sublinhado.
-   O transition deixa o hover suave (o mesmo efeito do card clicável, card.css). */
+/* O link inteiro é o card. */
 .atalho {
     display: flex;
     flex-direction: column;
@@ -71,8 +63,6 @@
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Mouse em cima ou foco pelo teclado: sobe um pouco e a borda fica verde.
-   O global.css desliga o movimento para quem pediu "reduzir movimento". */
 .atalho:hover,
 .atalho:focus-visible {
     transform: translateY(-4px);
@@ -119,9 +109,6 @@
 
 /* ===================== Elenco principal ===================== */
 
-/* As fotos dos personagens são retratos em pé. O card.css usa 4 x 3 (bom para as
-   fotos deitadas de mortes e episódios), que aqui cortava testa e queixo.
-   No elenco, a imagem fica em pé (4 x 5), igual à página de Personagens. */
 #elenco .card-imagem {
     aspect-ratio: 4 / 5;
 }

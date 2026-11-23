@@ -7,39 +7,38 @@
     <title>Início | Breaking Bad</title>
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 
-    <!-- 1. Bootstrap 5.3 (CDN) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <!-- 2. Estilos globais: cores (:root) e base -->
+    
+    <!-- CSS globla -->
     <link rel="stylesheet" href="global.css">
-    <!-- 3. Componentes usados nesta página -->
+
+    <!-- Componentes -->
     <link rel="stylesheet" href="components/Header/header.css">
     <link rel="stylesheet" href="components/Navbar/navbar.css">
     <link rel="stylesheet" href="components/Footer/footer.css">
     <link rel="stylesheet" href="components/Aviso/aviso.css">
     <link rel="stylesheet" href="components/Carrossel/carrossel.css">
     <link rel="stylesheet" href="components/Card/card.css">
-    <!-- 4. Estilos só desta página -->
+
+    <!-- CSS Pagina Inicial -->
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <!-- Preenchidos pelos componentes (T-11) -->
+
     <header id="cabecalho"></header>
     <nav id="menu"></nav>
 
     <main class="container py-4">
         <h1>Breaking Bad</h1>
 
-        <!-- "Carregando..." ou erro (componente Aviso, T-16) -->
+        
         <div id="aviso"></div>
 
-        <!-- Carrossel (T-19): preenchido pelo montarCarrossel com as imagens da API -->
+        <!-- Carrossel de Cenas Marcantes da serié -->
         <section id="carrossel" aria-label="Cenas marcantes da série"></section>
 
-        <!-- ============ Apresentação e atalhos (T-20) ============ -->
-
-        <!-- 1. A série: sinopse e ficha técnica. Texto fixo, porque é conteúdo da página,
-                e não dado de um recurso da API (decisão do usuário, T-20). -->
+        <!-- Sobre a Serié -->
         <section id="sobre" class="secao" aria-labelledby="titulo-sobre">
             <h2 id="titulo-sobre">A série</h2>
 
@@ -65,8 +64,7 @@
                     <article class="card ficha">
                         <div class="card-body">
                             <h3 class="h5 card-title">Ficha técnica</h3>
-                            <!-- dl: lista de pares "nome → valor". O row/col do Bootstrap põe
-                                 cada par numa linha no tablet e no desktop. -->
+                
                             <dl class="row mb-0">
                                 <dt class="col-sm-4">Criação</dt>
                                 <dd class="col-sm-8">Vince Gilligan</dd>
@@ -99,15 +97,13 @@
             </div>
         </section>
 
-        <!-- 2. Atalhos: um ladrilho da tabela periódica para cada página de recurso,
-                com o total de itens que veio da API. Preenchido pelo montarAtalhos (index.js). -->
+        <!-- Seção com resumo de cada pagina -->
         <section id="explorar" class="secao" aria-labelledby="titulo-explorar">
             <h2 id="titulo-explorar">Explore o site</h2>
             <div id="atalhos" class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3"></div>
         </section>
 
-        <!-- 3. Elenco principal: os personagens com role "principal" da API.
-                O montarLista (componente Card) preenche o <div id="lista">. -->
+        <!-- Elenco Principal -->
         <section id="elenco" class="secao" aria-labelledby="titulo-elenco">
             <div class="secao-topo">
                 <h2 id="titulo-elenco">Elenco principal</h2>
@@ -116,8 +112,7 @@
             <div id="lista"></div>
         </section>
 
-        <!-- 4. Frase sorteada entre as frases marcantes da API.
-                hidden: a seção só aparece depois que as frases carregam (o index.js tira o hidden). -->
+        <!-- Frases aleatorias -->
         <section id="frase" class="secao"aria-labelledby="titulo-frase" hidden>
             <h2 id="titulo-frase">Frase em destaque</h2>
 
@@ -140,12 +135,15 @@
     <footer id="rodape"></footer>
 
     <!-- Scripts no fim do body, nesta ordem: cada arquivo usa funções dos anteriores -->
+
     <!-- 1. Bootstrap (navbar que recolhe, carrossel, modal) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- 2. Services -->
+
+    <!-- 2. Services/API-->
     <script src="services/config.js"></script>
     <script src="services/api.js"></script>
     <script src="services/cache.js"></script>
+
     <!-- 3. Componentes -->
     <script src="components/Header/header.js"></script>
     <script src="components/Navbar/navbar.js"></script>
@@ -153,6 +151,7 @@
     <script src="components/Aviso/aviso.js"></script>
     <script src="components/Carrossel/carrossel.js"></script>
     <script src="components/Card/card.js"></script>
+
     <!-- 4. Script desta página -->
     <script src="index.js"></script>
 </body>

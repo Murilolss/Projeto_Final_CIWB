@@ -1,16 +1,4 @@
-// Página Temporadas (T-25 e T-26)
-// Diz O QUE mostrar; o COMO fica nos services e componentes compartilhados (RNF03).
-// Recursos da API: /seasons (5 temporadas) e /episodes (62 episódios)
-//   Lista (Card):     nome, quantidade de episódios e período de exibição.
-//   Detalhes (Modal): número, quantidade, estreia, último episódio e TODOS os episódios.
-//
-// Cada temporada da API traz só os links dos episódios, sem o título. Por isso a página
-// também busca /episodes, na mesma chave de cache da página de Episódios (ciwb_episodios):
-// quem abrir uma das duas páginas já deixa os episódios salvos para a outra.
-//
-// raiz = '../../', porque a página está em src/pages/temporadas/.
-//
-// Os scripts não são módulos, então o await precisa ficar dentro de uma async function.
+// Página Temporadas
 
 // Guardados aqui fora para a busca e o modal enxergarem depois do carregamento
 let temporadas = [];
@@ -28,8 +16,7 @@ function criarCardDaTemporada(temporada) {
     });
 }
 
-// Monta uma linha de texto para cada episódio da temporada, ex.:
-// "1x01 · Pilot (Piloto) · 20/01/2008"
+// Monta uma linha de texto para cada episódio da temporada.
 function episodiosDaTemporada(temporada) {
     const linhas = [];
 
@@ -56,27 +43,26 @@ function abrirTemporada(temporada) {
 }
 
 async function iniciarPagina() {
-    // Layout comum (T-11): header e menu primeiro, porque não dependem do config.json
+    // Layout comum
     montarHeader('../../');
     montarNavbar('temporadas', '../../');
 
     // try/catch: se o config.json ou a API falharem, o erro aparece na tela
     try {
-        // Configuração (T-12): link da API e prefixo do cache
+        // Configuração
         const config = await carregarConfig('../../');
         montarFooter(config.apiUrl);
 
         mostrarAviso('Carregando...', 'carregando');
 
-        // Cache antes da API (RN01, RN02): só chama a API se a chave não estiver salva
+        // Cache antes da API, só chama a API se a chave não estiver salva
         temporadas = await buscarComCache(config.prefixoCache + 'temporadas', config.apiUrl + '/seasons');
         episodios = await buscarComCache(config.prefixoCache + 'episodios', config.apiUrl + '/episodes');
 
-        // Lista inicial com todas as temporadas (RF03, RF04); o montarLista esconde o "Carregando..."
+        // Lista inicial com todas as temporadas
         montarLista(temporadas, criarCardDaTemporada);
 
-        // Busca por nome (RF06): redesenha a lista a cada letra digitada.
-        // Sem resultado, o montarLista mostra "Nenhum item encontrado." (RF07).
+        // Busca por nome : redesenha a lista a cada letra digitada.
         const campoBusca = document.querySelector('#busca');
         campoBusca.addEventListener('input', function () {
             montarLista(filtrarPorNome(temporadas, campoBusca.value), criarCardDaTemporada);
