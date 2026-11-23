@@ -258,6 +258,7 @@ Gerada a partir dos episódios. A temporada 5 junta as partes 5A e 5B (16 episó
 - **Baixadas em 12/11/2026** (187 imagens, 7,6 MB, com 500 px de largura) com `npm run imagens`, rodado a pedido do usuário. A Wiki bloqueia o acesso sem `Referer` (403), por isso o script envia esse cabeçalho.
   - Personagens e episódios: o script usa os links da fonte.
   - Mortes: o endereço vem da API MediaWiki (`api.php`, `prop=imageinfo`), porque `Special:FilePath` dá 403 para scripts.
+  - **Sem imagens animadas** (pedido do usuário, 23/11/2026): `deaths/09.webp` (Policial federal mexicano, 26 quadros) e `deaths/18.webp` (Marco Salamanca, 32 quadros) vieram animadas da Wiki. Elas foram trocadas pelo **primeiro quadro**: o bloco VP8 do primeiro `ANMF` foi copiado para um WebP estático, sem recomprimir, e o tamanho caiu de ~580/680 KB para ~35 KB. O nome dos arquivos é o mesmo, então os links e o cache `ciwb_mortes` do site continuam valendo. Se o `npm run imagens` for rodado de novo, as animações voltam.
 - Citar a Breaking Bad Wiki (CC BY-SA) no README da API (feito).
 - O carrossel da página inicial tem as **próprias 10 imagens** (`public/img/carousel/`), em tamanho maior (até 1280 px). Elas foram baixadas à mão em 17/11/2026, com `Referer` + `?format=original`, e convertidas para JPEG com o .NET do PowerShell.
 

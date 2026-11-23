@@ -208,6 +208,18 @@ Segue o modelo de Temporadas.
   - `numerosDasTemporadas(personagem)`: `split('/')` em cada link de `seasons` e o último pedaço, concatenado em "1, 2, 3, 4, 5" (sem `join`).
 - **Requisições:** com o localStorage vazio, 14 (7 `/characters` + 7 `/deaths`). Com o cache cheio, ou depois da página inicial, nenhuma.
 
+### Página de Mortes: `src/pages/mortes/` (T-22, 23/11/2026)
+
+Segue o modelo de Personagens e já usa o padrão de comentários curtos do commit `6bc92ad` (cabeçalho `// Página Mortes`, sem citar tarefas, requisitos nem aulas).
+
+- `let mortes = []` fica fora das funções. Carrega só `/deaths`, na chave `ciwb_mortes`.
+- **Card** (`criarCardDaMorte`): `criarCard(name, ['Episódio 2x12', 'Responsáveis: Ela mesma, Walter White (...)'], image, aoClicar, etiqueta)`. Quando há 1 responsável só, a linha diz "Responsável:". O `textoDosResponsaveis` junta os nomes com `forEach` e concatenação (sem `join`).
+- **Etiqueta só nas mortes em grupo** (decisão do usuário, 23/11/2026): quando `victims_count > 1`, `{ rotulo: 'Morte em grupo', texto: '167 vítimas', tipo: 'grupo' }`, em vermelho (`.etiqueta-grupo` com `--bb-vermelho`, no `style.css` da página). São 11 grupos. Nas mortes individuais, a etiqueta é `null` e não aparece. A imagem continua no 4:3 do `card.css`.
+- **Modal** (`abrirMorte`): Vítimas, Causa, Arma, Responsáveis (array), Temporada (o `numeroDaTemporada` pega o último pedaço do `split('/')` do link `season`) e Episódio (`episode_code`, **só o código**, sem carregar `/episodes`: decisão do usuário).
+- **Últimas palavras:** com `last_words` `null` (18 registros), um campo só, "Não informado". Senão, "Últimas palavras" (`pt`) e "Em inglês" (`en`). "No idioma original" entra com `push` só quando existe `original` (11 registros, ex.: Tortuga, "Gracias, jefe.").
+- **Requisições:** com o localStorage vazio, 7 (`/deaths`). Com o cache cheio, ou depois da página inicial ou de Personagens, nenhuma.
+- Busca: `filtrarPorNome` sobre o `name`, que nos grupos é a descrição ("Seis membros da gangue de Jack Welker, entre eles Kenny, ..."). Digitar "kenny" acha o grupo.
+
 ### Carrossel (página inicial): implementado em `src/components/Carrossel/carrossel.js` (T-19, 20/11/2026)
 
 - Estrutura do Bootstrap: `.carousel.slide` → `.carousel-inner` → um `.carousel-item` por imagem (o primeiro com `active`) → `<img class="d-block w-100" alt="...">` e, se houver, `.carousel-caption`.

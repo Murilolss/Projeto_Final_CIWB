@@ -7,43 +7,55 @@
     <title>Mortes | Breaking Bad</title>
     <link rel="icon" type="image/svg+xml" href="../../img/favicon.svg">
 
-    <!-- Os caminhos começam com ../../ porque esta página está em src/pages/mortes/ -->
-
-    <!-- 1. Bootstrap 5.3 (CDN) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <!-- 2. Estilos globais: cores (:root) e base -->
+
+    <!-- CSS global -->
     <link rel="stylesheet" href="../../global.css">
-    <!-- 3. Componentes usados nesta página -->
+
+    <!-- Componentes -->
     <link rel="stylesheet" href="../../components/Header/header.css">
     <link rel="stylesheet" href="../../components/Navbar/navbar.css">
     <link rel="stylesheet" href="../../components/Footer/footer.css">
     <link rel="stylesheet" href="../../components/Card/card.css">
     <link rel="stylesheet" href="../../components/Aviso/aviso.css">
     <link rel="stylesheet" href="../../components/Modal/modal.css">
-    <!-- 4. Estilos só desta página -->
+
+    <!-- CSS Pagina Mortes -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Preenchidos pelos componentes (T-11) -->
     <header id="cabecalho"></header>
     <nav id="menu"></nav>
 
     <main class="container py-4">
         <h1>Mortes</h1>
-        <!-- Busca (T-15), aviso (T-15/T-16), lista (T-16) e modal (T-17): montados no T-22 -->
+
+        <!-- Busca por nome -->
+        <div class="busca mb-4">
+            <label for="busca" class="form-label">Buscar morte</label>
+            <input type="search" id="busca" class="form-control" placeholder="Ex.: Jane Margolis" autocomplete="off">
+        </div>
+
+        <div id="aviso"></div>
+
+        <!-- Um card por morte -->
+        <div id="lista"></div>
     </main>
 
     <footer id="rodape"></footer>
 
     <!-- Scripts no fim do body, nesta ordem: cada arquivo usa funções dos anteriores -->
+
     <!-- 1. Bootstrap (navbar que recolhe e modal) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- 2. Services -->
     <script src="../../services/config.js"></script>
     <script src="../../services/api.js"></script>
     <script src="../../services/cache.js"></script>
     <script src="../../services/busca.js"></script>
+
     <!-- 3. Componentes -->
     <script src="../../components/Header/header.js"></script>
     <script src="../../components/Navbar/navbar.js"></script>
@@ -51,6 +63,7 @@
     <script src="../../components/Card/card.js"></script>
     <script src="../../components/Aviso/aviso.js"></script>
     <script src="../../components/Modal/modal.js"></script>
+
     <!-- 4. Script desta página -->
     <script src="script.js"></script>
 </body>

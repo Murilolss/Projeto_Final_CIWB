@@ -1,4 +1,6 @@
-/*
- * Página Mortes (T-22): estilos só desta página.
- * O que for comum a várias páginas vai no global.css ou no CSS do componente.
- */
+/* Página Mortes: estilos só desta página. */
+
+/* Etiqueta das mortes em grupo, no canto da foto */
+.etiqueta-grupo {
+    background-color: var(--bb-vermelho);
+}
