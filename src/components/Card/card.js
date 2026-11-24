@@ -20,7 +20,9 @@
 //   etiqueta: opcional (T-27). Objeto { rotulo, texto, tipo } que vira uma etiqueta colorida
 //             no canto da foto, ex.: { rotulo: 'Status', texto: 'Morto', tipo: 'morto' }.
 //             A cor de cada tipo fica no style.css da página (.etiqueta-morto, ...).
-function criarCard(titulo, linhas, imagem, aoClicar, etiqueta) {
+//   nivelTitulo: opcional (T-28). 'h2' se não vier; o Elenco da página inicial usa 'h3',
+//                porque os cards ficam dentro de uma seção que já tem um h2.
+function criarCard(titulo, linhas, imagem, aoClicar, etiqueta, nivelTitulo) {
     // Coluna da grade: o .row do montarLista decide quantas cabem por linha
     const coluna = document.createElement('div');
     coluna.className = 'col';
@@ -42,7 +44,11 @@ function criarCard(titulo, linhas, imagem, aoClicar, etiqueta) {
     corpo.className = 'card-body';
 
     // h2 com cara de h5: o h1 é o título da página
-    const tituloCard = document.createElement('h2');
+    let tag = 'h2';
+    if (nivelTitulo) {
+        tag = nivelTitulo;
+    }
+    const tituloCard = document.createElement(tag);
     tituloCard.className = 'card-title h5';
     tituloCard.textContent = titulo;
     corpo.appendChild(tituloCard);
@@ -81,6 +87,14 @@ function criarCard(titulo, linhas, imagem, aoClicar, etiqueta) {
         botao.type = 'button';
         botao.className = 'btn btn-link stretched-link card-botao';
         botao.textContent = 'Ver detalhes';
+
+        // Só para o leitor de tela (T-28): "Ver detalhes de Walter White", e não
+        // "Ver detalhes" repetido em todos os cards
+        const nomeDoItem = document.createElement('span');
+        nomeDoItem.className = 'visually-hidden';
+        nomeDoItem.textContent = ' de ' + titulo;
+        botao.appendChild(nomeDoItem);
+
         botao.addEventListener('click', aoClicar);
         corpo.appendChild(botao);
     }
@@ -100,6 +114,19 @@ function montarLista(itens, criarCardDoItem) {
 
     // Grade do Bootstrap: 1 card por linha no celular, 2 no tablet, 3 e 4 nas telas grandes
     lista.className = 'row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4';
+
+    // Total da busca (T-28): só nas páginas que têm o <p id="total-busca">.
+    // Com 0, fica vazio: o Aviso já diz "Nenhum item encontrado."
+    const total = document.querySelector('#total-busca');
+    if (total !== null) {
+        if (itens.length === 0) {
+            total.textContent = '';
+        } else if (itens.length === 1) {
+            total.textContent = '1 item encontrado';
+        } else {
+            total.textContent = itens.length + ' itens encontrados';
+        }
+    }
 
     if (itens.length === 0) {
         mostrarAviso('Nenhum item encontrado.', 'vazio');

@@ -44,7 +44,7 @@ function abrirFrase(frase) {
     }
 
     campos.push({ rotulo: 'Frase', valor: frase.quote.pt });
-    campos.push({ rotulo: 'Em inglês', valor: frase.quote.en });
+    campos.push({ rotulo: 'Em inglês', valor: frase.quote.en, idioma: 'en' });
     campos.push({ rotulo: 'Contexto', valor: frase.context });
     campos.push({ rotulo: 'Temporada', valor: numeroDaTemporada(frase) });
     campos.push({ rotulo: 'Episódio', valor: frase.episode_code });

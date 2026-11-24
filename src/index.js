@@ -87,8 +87,9 @@ function personagensPrincipais(personagens) {
 
 // Card de UM personagem (componente Card). Sem a função de clique, o card não é
 // clicável: os detalhes completos ficam na página de Personagens.
+// 'h3': os cards ficam dentro da seção "Elenco principal", que é h2 (T-28).
 function criarCardDoElenco(personagem) {
-    return criarCard(personagem.name, ['Interpretado por ' + personagem.portrayed_by], personagem.image);
+    return criarCard(personagem.name, ['Interpretado por ' + personagem.portrayed_by], personagem.image, null, null, 'h3');
 }
 
 

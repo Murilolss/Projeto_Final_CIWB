@@ -67,7 +67,7 @@ function abrirMorte(morte) {
         campos.push({ rotulo: 'Últimas palavras', valor: null });
     } else {
         campos.push({ rotulo: 'Últimas palavras', valor: morte.last_words.pt });
-        campos.push({ rotulo: 'Em inglês', valor: morte.last_words.en });
+        campos.push({ rotulo: 'Em inglês', valor: morte.last_words.en, idioma: 'en' });
 
         // Só existe quando a fala original é em espanhol ou alemão
         if (morte.last_words.original) {

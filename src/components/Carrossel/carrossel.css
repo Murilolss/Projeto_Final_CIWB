@@ -7,7 +7,7 @@
 /* Moldura: borda fina e cantos arredondados, como os cards.
    overflow: hidden faz as fotos respeitarem os cantos. */
 .carrossel-cenas {
-    margin-bottom: 2rem;
+    margin-bottom: 0.75rem;   /* o botão de pausa vem logo abaixo */
     border: 1px solid var(--bb-borda);
     border-radius: var(--bb-raio);
     overflow: hidden;
@@ -50,6 +50,25 @@
 /* Indicadores: o do slide atual fica verde */
 .carrossel-cenas .carousel-indicators .active {
     background-color: var(--bb-verde-claro);
+}
+
+/* Botão "Pausar cenas" (T-28): pequeno, à direita, embaixo da foto.
+   display: block + margin-left: auto empurra o botão para a direita.
+   As cores vão nas variáveis do .btn do Bootstrap, que valem para o normal,
+   o hover, o foco e o clique ao mesmo tempo. */
+.carrossel-pausa {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 2rem;
+    --bs-btn-color: var(--bb-texto-suave);
+    --bs-btn-bg: var(--bb-fundo-elevado);
+    --bs-btn-border-color: var(--bb-borda);
+    --bs-btn-hover-color: var(--bb-amarelo);
+    --bs-btn-hover-bg: var(--bb-fundo-elevado);
+    --bs-btn-hover-border-color: var(--bb-amarelo);
+    --bs-btn-active-color: var(--bb-amarelo);
+    --bs-btn-active-bg: var(--bb-fundo-elevado);
+    --bs-btn-active-border-color: var(--bb-amarelo);
 }
 
 /* Celular: foto mais baixa e letras menores */

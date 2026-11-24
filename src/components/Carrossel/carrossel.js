@@ -1,7 +1,8 @@
 // Componente Carrossel (T-19), usado só no index.html
 // Recebe os slides da rota /carousel da API (lidos com buscarComCache) e monta o
 // carousel do Bootstrap: um .carousel-item por slide (o primeiro com active),
-// indicadores e controles anterior/próximo com texto visually-hidden.
+// indicadores, controles anterior/próximo com texto visually-hidden e, embaixo,
+// o botão "Pausar cenas" (T-28).
 // Cada slide tem image (src), description (alt, RNF02) e name (legenda).
 // As imagens têm proporções diferentes (16:9, 4:3, 3:2): usar altura fixa + object-fit: cover.
 //
@@ -90,6 +91,33 @@ function criarControle(direcao, texto) {
     return botao;
 }
 
+// Monta o botão "Pausar cenas" / "Continuar cenas" (T-28), que fica embaixo do carrossel.
+//   instancia: o bootstrap.Carousel já criado, com pause() e cycle()
+// Quem usa só o teclado também consegue parar a troca automática das fotos.
+function criarBotaoPausa(instancia) {
+    let pausado = false;
+
+    const botao = document.createElement('button');
+    botao.type = 'button';
+    botao.className = 'btn btn-sm carrossel-pausa';
+    botao.setAttribute('aria-controls', 'carrossel-cenas');
+    botao.textContent = 'Pausar cenas';
+
+    botao.addEventListener('click', function () {
+        if (pausado) {
+            instancia.cycle();   // volta a passar a cada 5 s
+            pausado = false;
+            botao.textContent = 'Pausar cenas';
+        } else {
+            instancia.pause();   // para no slide atual
+            pausado = true;
+            botao.textContent = 'Continuar cenas';
+        }
+    });
+
+    return botao;
+}
+
 // Monta o carrossel inteiro dentro de <section id="carrossel"> e liga o autoplay
 function montarCarrossel(slides) {
     const area = document.querySelector('#carrossel');
@@ -120,12 +148,18 @@ function montarCarrossel(slides) {
     carrossel.appendChild(criarControle('next', 'Próximo'));
     area.appendChild(carrossel);
 
-    // Autoplay: passa sozinho a cada 5 s e pausa com o mouse em cima (padrão do Bootstrap).
-    // O atributo data-bs-ride="carousel" só funciona nos carrosséis que já existem quando
-    // a página termina de carregar. Este é criado depois do fetch, então ligamos pelo
-    // JavaScript do Bootstrap, como no bootstrap.Modal do componente Modal.
-    bootstrap.Carousel.getOrCreateInstance(carrossel, {
+    // Autoplay pelo JavaScript do Bootstrap, como no bootstrap.Modal do componente Modal:
+    // o data-bs-ride="carousel" só funciona nos carrosséis que já existem quando a página
+    // termina de carregar, e este é criado depois do fetch.
+    // ride: false e pause: false (T-28): sem isso, o Bootstrap volta a passar as fotos
+    // sozinho quando o mouse sai ou quando alguém clica numa seta, e o botão "Pausar
+    // cenas" não seguraria. Quem liga e desliga é o cycle() e o pause().
+    const instancia = bootstrap.Carousel.getOrCreateInstance(carrossel, {
         interval: 5000,     // 5000 ms = 5 s em cada slide
-        ride: 'carousel'    // começa a passar sozinho já agora
+        ride: false,
+        pause: false
     });
+    instancia.cycle();      // começa a passar sozinho já agora
+
+    area.appendChild(criarBotaoPausa(instancia));
 }

@@ -48,7 +48,7 @@ async function iniciarPagina() {
 }
 iniciarPagina();
 ```
-- No `main` de cada página de recurso ficam o campo de busca (`label for="busca"` + `input type="search" id="busca"`) e os contêineres vazios `<div id="aviso"></div>` e `<div id="lista"></div>`, preenchidos pelos componentes Aviso e Card (T-16). Já estão em `pages/temporadas/` (T-26) e entram nas outras nas T-21 a T-24. **Use `src/pages/temporadas/` como modelo** (HTML e `script.js`).
+- No `main` de cada página de recurso ficam o campo de busca (`label for="busca"` + `input type="search" id="busca"` + `<p id="total-busca" class="form-text" role="status">`, este último da T-28, onde o `montarLista` escreve "N itens encontrados") e os contêineres vazios `<div id="aviso"></div>` e `<div id="lista"></div>`, preenchidos pelos componentes Aviso e Card (T-16). Já estão em `pages/temporadas/` (T-26) e entram nas outras nas T-21 a T-24. **Use `src/pages/temporadas/` como modelo** (HTML e `script.js`).
 - Assim o menu existe **uma vez só** (em `components/Navbar/navbar.js`), sem copiar e colar entre as páginas (RNF03).
 
 ## Página inicial (`index.html`)
@@ -58,7 +58,7 @@ iniciarPagina();
   - O JavaScript monta os slides com `createElement`/`appendChild`; o primeiro slide recebe a classe `active`.
   - Toda imagem precisa de `alt` (RNF02).
   - Controles anterior/próximo e indicadores, com texto para leitor de tela (`visually-hidden`).
-  - **Implementado na T-19 (20/11/2026):** `<div id="aviso">` ("Carregando..." ou erro) e `<section id="carrossel" aria-label="Cenas marcantes da série">` abaixo do `h1`; autoplay de 5 s com pausa no hover; legenda com o nome da cena e o código do episódio. Detalhes em [04-padroes-de-codigo.md](04-padroes-de-codigo.md#carrossel-página-inicial-implementado-em-srccomponentscarrosselcarrosseljs-t-19-20112026).
+  - **Implementado na T-19 (20/11/2026):** `<div id="aviso">` ("Carregando..." ou erro) e `<section id="carrossel" aria-label="Cenas marcantes da série">` abaixo do `h1`; autoplay de 5 s, com o botão "Pausar cenas" embaixo desde a T-28 (24/11/2026), que substituiu a pausa no hover; legenda com o nome da cena e o código do episódio. Detalhes em [04-padroes-de-codigo.md](04-padroes-de-codigo.md#carrossel-página-inicial-implementado-em-srccomponentscarrosselcarrosseljs-t-19-20112026).
 - **Abaixo do carrossel (T-20, implementado em 20/11/2026)**, nesta ordem, cada seção com o seu `h2`:
   1. **A série** (`#sobre`): sinopse sem spoilers do fim + ficha técnica (criação, emissora, exibição, ambientação, gênero, produção, prêmios, continuações). **Texto fixo no HTML** (escolha do usuário).
   2. **Explore o site** (`#explorar`): um **ladrilho da tabela periódica** por página de recurso (Pe, Mo, Te, Ep, Fr), com nome, descrição e o **total vindo da API** (61 personagens, 270 vítimas, 5 temporadas, 62 episódios, 28 frases). Os atalhos são montados a partir do `paginasDoMenu`, que ganhou os campos `simbolo` e `descricao`.

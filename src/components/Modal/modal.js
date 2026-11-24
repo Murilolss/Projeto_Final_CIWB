@@ -9,6 +9,8 @@
 //             - texto ou número: aparece como está;
 //             - array: uma linha para cada item (ex.: as ocupações);
 //             - null, '' ou array vazio: aparece "Não informado".
+//           idioma (opcional, T-28): ex.: 'en' nos textos em inglês. Vira o lang do valor,
+//           e o leitor de tela lê com a pronúncia certa.
 //   imagem: link da imagem, ou null (as frases não têm imagem)
 //
 // Exemplo (Personagens), no script.js da página:
@@ -102,13 +104,17 @@ function criarModal() {
 }
 
 // Acrescenta UM campo na lista: o rótulo (dt) e o valor (dd)
-function adicionarCampo(lista, rotulo, valor) {
+function adicionarCampo(lista, rotulo, valor, idioma) {
     const termo = document.createElement('dt');
     termo.className = 'col-sm-4';
     termo.textContent = rotulo;
 
     const descricao = document.createElement('dd');
     descricao.className = 'col-sm-8';
+
+    if (idioma) {
+        descricao.lang = idioma;   // ex.: lang="en" no texto em inglês
+    }
 
     // instanceof Array (aula 02): true quando o valor é um array
     const ehArray = valor instanceof Array;
@@ -166,7 +172,7 @@ function mostrarDetalhes(titulo, campos, imagem) {
     lista.className = 'row modal-campos';
 
     campos.forEach(function (campo) {
-        adicionarCampo(lista, campo.rotulo, campo.valor);
+        adicionarCampo(lista, campo.rotulo, campo.valor, campo.idioma);
     });
 
     corpo.appendChild(lista);
