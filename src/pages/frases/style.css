@@ -1,4 +1,28 @@
-/*
- * Página Frases marcantes (T-24): estilos só desta página.
- * O que for comum a várias páginas vai no global.css ou no CSS do componente.
- */
+/* Página Frases: estilos só desta página. */
+
+/* Borda amarela à esquerda, como a frase em destaque da página inicial */
+.card-item {
+    border-left: 4px solid var(--bb-amarelo);
+}
+
+/* A frase é o título do card. Ela fica na fonte do texto e sem as maiúsculas
+   dos títulos (global.css), porque frase longa em maiúsculas é difícil de ler. */
+.card-item .card-title {
+    font-family: var(--bb-fonte-texto);
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.4;
+}
+
+/* Sem foto, a etiqueta ficaria em cima do título.
+   Aqui ela sai do canto e entra no fluxo, logo abaixo da frase. */
+.card-item .etiqueta {
+    position: static;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.etiqueta-palavrao {
+    background-color: var(--bb-vermelho);
+}

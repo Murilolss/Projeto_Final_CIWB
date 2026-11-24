@@ -216,7 +216,7 @@ Gerada a partir dos episódios. A temporada 5 junta as partes 5A e 5B (16 episó
 
 - `name` é quem fala, então a busca filtra por personagem.
 - `explicit: true` marca as 4 frases com palavrão.
-- **Lista:** a frase em português e o personagem. **Modal:** a frase nos dois idiomas, o contexto e o episódio.
+- **Lista:** a frase em português como título do card (as frases não têm foto), quem fala e o episódio, com a etiqueta "Palavrão" nas 4 com `explicit`. **Modal:** o aviso (só nessas 4), a frase nos dois idiomas, o contexto, a temporada e o episódio (T-24).
 
 ### Carrossel (`/api/carousel/:id`)
 

@@ -230,6 +230,18 @@ Segue o modelo de Mortes, com o mesmo padrão de comentários curtos.
 - **Busca no título original e no português** (decisão do usuário, 24/11/2026): o `filtrarEpisodios(termo)` da página segue o padrão do `filtrarPorNome` (`trim`, `toLowerCase`, `forEach`, `includes`, `push`), com um `||` a mais para o `title_pt`. "piloto" e "pilot" acham o 1x01, e "saco" acha 1x02 e 1x03. O `services/busca.js` não mudou. Como o `filtrarPorNome`, não ignora acentos.
 - **Requisições:** com o localStorage vazio, 7 (`/episodes`). Com o cache cheio, ou depois da página inicial ou de Temporadas, nenhuma.
 
+### Página de Frases: `src/pages/frases/` (T-24, 24/11/2026)
+
+Segue o modelo de Mortes, com o mesmo padrão de comentários curtos. É a única página de recurso **sem foto**.
+
+- `let frases = []` fica fora das funções. Carrega só `/quotes`, na chave `ciwb_frases`, a mesma da página inicial.
+- **Card** (`criarCardDaFrase`): `criarCard('“Diga meu nome.”', ['Walter White', 'Episódio 5x07'], null, aoClicar, etiqueta)`. **A frase é o título** (decisão do usuário, 24/11/2026): com o nome no título, o Walter, que fala 14 das 28 frases, repetiria 14 vezes. O `card.js` já aceita `imagem` null.
+- **Etiqueta só nas 4 frases com `explicit`:** `{ rotulo: 'Aviso', texto: 'Palavrão', tipo: 'palavrao' }`, em vermelho (`.etiqueta-palavrao` com `--bb-vermelho`). O leitor de tela lê "Aviso: Palavrão". Sem foto, o `style.css` da página tira a etiqueta do canto (`position: static`) e a põe no fluxo, logo abaixo da frase.
+- **Visual da frase** (no `style.css` da página): o título do card fica na fonte do texto, sem as maiúsculas do `global.css`, porque frase longa em maiúsculas é difícil de ler. O card ganha a borda amarela à esquerda, como a frase em destaque da página inicial.
+- **Modal** (`abrirFrase`): `mostrarDetalhes(name, campos, null)`. Se `explicit`, o campo "Aviso: Contém palavrão" entra com `push` **antes** da frase. Depois vêm Frase (`quote.pt`), Em inglês (`quote.en`), Contexto, Temporada e Episódio (`episode_code`, só o código, como em Mortes). A frase não tem o campo `season`, então o `numeroDaTemporada` faz o `split('x')` do código ("5x07" → "5"). `character` e `episode` (links) não entram.
+- **Busca por quem fala** (decisão do usuário, 24/11/2026): `filtrarPorNome(frases, termo)` sobre o `name`, sem mudar o `services/busca.js`. "walter" traz 14, "mike" 3 e "jesse" 4.
+- **Requisições:** com o localStorage vazio, 3 (`/quotes`). Com o cache cheio, ou depois da página inicial, nenhuma.
+
 ### Carrossel (página inicial): implementado em `src/components/Carrossel/carrossel.js` (T-19, 20/11/2026)
 
 - Estrutura do Bootstrap: `.carousel.slide` → `.carousel-inner` → um `.carousel-item` por imagem (o primeiro com `active`) → `<img class="d-block w-100" alt="...">` e, se houver, `.carousel-caption`.

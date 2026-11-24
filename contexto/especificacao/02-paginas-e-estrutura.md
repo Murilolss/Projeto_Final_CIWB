@@ -9,7 +9,7 @@
 | Mortes | `src/pages/mortes/index.html` | Busca + lista resumida (episódio e responsáveis, com a etiqueta "N vítimas" nas mortes em grupo) + modal com todos os campos e as últimas palavras. **Implementada** na T-22 (23/11/2026) |
 | Temporadas | `src/pages/temporadas/index.html` | idem. O modal lista **todos os episódios** da temporada. Aprovada na T-25 e **implementada** na T-26 (20/11/2026) |
 | Episódios | `src/pages/episodios/index.html` | Busca no título original e no português + lista resumida (título em português e data, com o código "1x01" na etiqueta) + modal com todos os campos e um personagem por linha. **Implementada** na T-23 (24/11/2026) |
-| Frases marcantes | `src/pages/frases/index.html` | idem |
+| Frases marcantes | `src/pages/frases/index.html` | Busca por quem fala + lista resumida sem foto (a frase em português como título, quem fala e o episódio, com a etiqueta "Palavrão" nas 4 frases com `explicit`) + modal com a frase em pt e en, o contexto e o episódio. **Implementada** na T-24 (24/11/2026) |
 
 Ordem do menu (`paginasDoMenu`, em `navbar.js`), desde 20/11/2026: Início · Personagens · Mortes · **Temporadas** · Episódios · Frases marcantes. Temporadas vem antes de Episódios, do geral para o específico (escolha do usuário).
 
