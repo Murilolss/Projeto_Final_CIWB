@@ -220,6 +220,16 @@ Segue o modelo de Personagens e já usa o padrão de comentários curtos do comm
 - **Requisições:** com o localStorage vazio, 7 (`/deaths`). Com o cache cheio, ou depois da página inicial ou de Personagens, nenhuma.
 - Busca: `filtrarPorNome` sobre o `name`, que nos grupos é a descrição ("Seis membros da gangue de Jack Welker, entre eles Kenny, ..."). Digitar "kenny" acha o grupo.
 
+### Página de Episódios: `src/pages/episodios/` (T-23, 24/11/2026)
+
+Segue o modelo de Mortes, com o mesmo padrão de comentários curtos.
+
+- `let episodios = []` fica fora das funções. Carrega só `/episodes`, na chave `ciwb_episodios`, a mesma de Temporadas e da página inicial. O `index.html` inclui o `services/datas.js`, para o `formatarData`.
+- **Card** (`criarCardDoEpisodio`): `criarCard(name, ['Piloto', 'Exibido em 20/01/2008'], image, aoClicar, { rotulo: 'Episódio', texto: '1x01', tipo: 'codigo' })`. O código fica na etiqueta sobre a foto (escolha do usuário), em verde (`.etiqueta-codigo` com `--bb-verde`, no `style.css` da página). O leitor de tela lê "Episódio: 1x01". O `title_pt` entra com `push` **só quando é diferente do `name`**: em 10 episódios é igual (Ozymandias, Felina, ABQ...), e o card não repete o título. Sobram 52 cards com as duas linhas. A imagem continua no 4:3 do `card.css`.
+- **Modal** (`abrirEpisodio`): Título em português, Código, Temporada (`numeroDaTemporada`, o `split('/')` do link `season`, como em Mortes), Número na temporada, Exibido em (`formatarData`), Roteiro, Direção, Sinopse e Personagens (`characters_names`, array: um `li` por nome, de 3 a 20, figurantes incluídos). O `characters` (links) não entra, porque os nomes já estão em `characters_names`.
+- **Busca no título original e no português** (decisão do usuário, 24/11/2026): o `filtrarEpisodios(termo)` da página segue o padrão do `filtrarPorNome` (`trim`, `toLowerCase`, `forEach`, `includes`, `push`), com um `||` a mais para o `title_pt`. "piloto" e "pilot" acham o 1x01, e "saco" acha 1x02 e 1x03. O `services/busca.js` não mudou. Como o `filtrarPorNome`, não ignora acentos.
+- **Requisições:** com o localStorage vazio, 7 (`/episodes`). Com o cache cheio, ou depois da página inicial ou de Temporadas, nenhuma.
+
 ### Carrossel (página inicial): implementado em `src/components/Carrossel/carrossel.js` (T-19, 20/11/2026)
 
 - Estrutura do Bootstrap: `.carousel.slide` → `.carousel-inner` → um `.carousel-item` por imagem (o primeiro com `active`) → `<img class="d-block w-100" alt="...">` e, se houver, `.carousel-caption`.

@@ -176,7 +176,7 @@ As funções planejadas em [`04-padroes-de-codigo.md`](04-padroes-de-codigo.md) 
 - `characters` traz só os personagens que estão na API.
 - `characters_names` traz todos os nomes do episódio, inclusive figurantes, com os erros de digitação da fonte corrigidos.
 
-**Lista:** `name` (+ `title_pt`), `code` e `air_date`. **Modal:** todos os campos.
+**Lista:** `name`, o `code` numa etiqueta sobre a foto, o `title_pt` (só quando difere do `name`: em 10 episódios é igual) e o `air_date`. **Modal:** todos os campos; os personagens vêm de `characters_names`, um por linha (T-23).
 
 ### Temporada (`/api/seasons/:id`)
 

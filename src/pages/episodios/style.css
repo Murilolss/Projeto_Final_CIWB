@@ -1,4 +1,6 @@
-/*
- * Página Episódios (T-23): estilos só desta página.
- * O que for comum a várias páginas vai no global.css ou no CSS do componente.
- */
+/* Página Episódios: estilos só desta página. */
+
+/* Etiqueta com o código do episódio (1x01), no canto da foto */
+.etiqueta-codigo {
+    background-color: var(--bb-verde);
+}

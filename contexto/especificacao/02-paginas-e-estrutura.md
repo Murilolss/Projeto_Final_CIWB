@@ -8,7 +8,7 @@
 | Personagens | `src/pages/personagens/index.html` | Busca + lista resumida (ator e status) + modal de detalhes, com o episódio e a causa da morte de quem morre. **Implementada** na T-21 (21/11/2026) |
 | Mortes | `src/pages/mortes/index.html` | Busca + lista resumida (episódio e responsáveis, com a etiqueta "N vítimas" nas mortes em grupo) + modal com todos os campos e as últimas palavras. **Implementada** na T-22 (23/11/2026) |
 | Temporadas | `src/pages/temporadas/index.html` | idem. O modal lista **todos os episódios** da temporada. Aprovada na T-25 e **implementada** na T-26 (20/11/2026) |
-| Episódios | `src/pages/episodios/index.html` | idem |
+| Episódios | `src/pages/episodios/index.html` | Busca no título original e no português + lista resumida (título em português e data, com o código "1x01" na etiqueta) + modal com todos os campos e um personagem por linha. **Implementada** na T-23 (24/11/2026) |
 | Frases marcantes | `src/pages/frases/index.html` | idem |
 
 Ordem do menu (`paginasDoMenu`, em `navbar.js`), desde 20/11/2026: Início · Personagens · Mortes · **Temporadas** · Episódios · Frases marcantes. Temporadas vem antes de Episódios, do geral para o específico (escolha do usuário).
