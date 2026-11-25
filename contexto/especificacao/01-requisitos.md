@@ -20,7 +20,7 @@ Marque `[x]` conforme for implementando. Fonte do enunciado: `contexto/slides/00
 ## Cache (enunciado)
 
 - [x] **RN01.** Os dados da API são salvos no **localStorage** em formato **JSON**. *(T-14, 15/11/2026: `buscarComCache(chave, url)` em `src/services/cache.js` salva a lista inteira com `JSON.stringify` na chave `ciwb_<recurso>`. A página inicial (T-20) e as 5 páginas de recurso (T-21 a T-24 e T-26) usam, com as mesmas chaves (tabela em `04-padroes-de-codigo.md`).)*
-- [x] **RN02.** Antes de cada requisição, verificar se os dados já estão no localStorage; se estiverem, usar o cache em vez da API. *(T-14, 15/11/2026: `buscarComCache` olha o `getItem` antes; se não for `null`, devolve o `JSON.parse` sem chamar a API. Testado em Temporadas: com o cache cheio, nenhuma requisição (T-26). Testado no início (T-20): 26 requisições com o cache vazio e nenhuma com ele cheio. Depois do início, Temporadas também não faz nenhuma. Personagens, Mortes, Episódios e Frases (T-21 a T-24) foram testadas do mesmo jeito: com o cache cheio, nenhuma requisição.)*
+- [x] **RN02.** Antes de cada requisição, verificar se os dados já estão no localStorage; se estiverem, usar o cache em vez da API. *(T-14, 15/11/2026: `buscarComCache` olha o `getItem` antes; se não for `null`, devolve o `JSON.parse` sem chamar a API. Testado em Temporadas: com o cache cheio, nenhuma requisição (T-26). Testado no início (T-20): 26 requisições com o cache vazio e nenhuma com ele cheio. Depois do início, Temporadas também não faz nenhuma. Personagens, Mortes, Episódios e Frases (T-21 a T-24) foram testadas do mesmo jeito: com o cache cheio, nenhuma requisição. As 6 páginas foram testadas juntas na T-30, em 24/11/2026: ver "Antes de entregar".)*
 
 ## Requisitos não funcionais (enunciado)
 
@@ -31,7 +31,7 @@ Marque `[x]` conforme for implementando. Fonte do enunciado: `contexto/slides/00
 
 ## Antes de entregar
 
-- [ ] Testar cada página com o localStorage vazio (DevTools → Application → Local Storage → Clear) e depois com o cache cheio.
+- [x] Testar cada página com o localStorage vazio (DevTools → Application → Local Storage → Clear) e depois com o cache cheio. *(**T-30, 24/11/2026:** teste no Chrome com `localStorage.clear()` e recarga, contando os `fetch` para `/api/` com o `performance.getEntriesByType('resource')`. Requisições com o cache vazio: início 26, Personagens 14, Mortes 7, Episódios 7, Frases 3 e Temporadas 8. Com o cache cheio, todas fazem 0. Cada página salva só as suas chaves, em JSON válido e com o total certo: 10 cenas, 61 personagens, 64 mortes, 62 episódios, 28 frases e 5 temporadas. As listas mostram o mesmo número de cards nas duas situações. As chaves são compartilhadas entre as páginas: começando com o cache limpo e indo de Personagens para Mortes, Episódios, Temporadas, Frases e início, as requisições foram 14, 0, 7, 1 (só `/seasons`), 3 e 1 (só `/carousel`). Console sem erros. As chaves `debug` e `shopifySelectors` que aparecem no localStorage vêm da extensão Honey do Chrome, e não do site.)*
 - [x] Testar em largura de celular (DevTools → modo responsivo). *(T-29, 24/11/2026: ver RNF01.)*
 - [ ] Conferir se não há erros no console.
 - [ ] Preencher o `README.md` do projeto.
