@@ -144,6 +144,13 @@ async function iniciarPagina() {
 ```
 
 - Em uma frase, para a apresentação: "o `try` tenta carregar; se algo der `throw` lá dentro, o JavaScript pula para o `catch`, que recebe o erro e mostra a mensagem na tela."
+- **Testado na T-31 (24/11/2026), nas 6 páginas.** Com o cache vazio, as mensagens reais foram:
+  - API fora do ar (host que não existe): "... Failed to fetch";
+  - rota errada na API: "... Erro ao acessar a API (404)". A API tem `cors()`, então o 404 chega ao site;
+  - sem o `config.json`: "... Erro ao carregar a configuração (config.json)". Nesse caso o rodapé não aparece, porque depende do `config.apiUrl`.
+
+  Em todos os casos, o header e o menu continuam na tela, nenhuma chave `ciwb_*` é salva e não há erro do código no console. Com o cache cheio, a página funciona normalmente mesmo com a URL errada (RN02).
+- Na página inicial, as seções que dependem dos dados (Elenco e Frase) nascem com `hidden` e só aparecem no fim do `try`. Assim, quando dá erro, não sobra título de seção sem conteúdo.
 
 ### Modal de detalhes (RF05): implementado em `src/components/Modal/modal.js` (T-17, 17/11/2026)
 
@@ -284,6 +291,7 @@ As funções ficam no `src/index.js`, porque só servem à página inicial. Os e
   - `personagensPrincipais` usa `forEach` + `if (role === 'principal')` + `push` (11 personagens);
   - `criarCardDoElenco` chama `criarCard(name, ['Interpretado por ' + portrayed_by], image, null, null, 'h3')`, **sem** `aoClicar` e com o título em `h3` (T-28). Os detalhes ficam na página de Personagens, para onde aponta o link "Ver todos os personagens";
   - a lista é desenhada com `montarLista` em `<div id="lista">`;
+  - a `<section id="elenco">` nasce com `hidden` e só aparece depois do `montarLista`, como a frase (T-31, 24/11/2026, a pedido do usuário). Antes, com a API fora, ficavam o título e o link "Ver todos" sem nenhum card;
   - o `index.css` troca a imagem para `aspect-ratio: 4 / 5` só em `#elenco .card-imagem`, como na página de Personagens. No 4:3 do `card.css`, os retratos ficavam com testa e queixo cortados (corrigido a pedido do usuário).
 - **Frase em destaque:**
   - `frasesSemPalavrao` deixa de fora as 4 com `explicit: true` (sobram 24);

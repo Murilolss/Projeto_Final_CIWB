@@ -161,8 +161,9 @@ async function iniciarPagina() {
         mostrarTotal('episodios', episodios.length + ' episódios');
         mostrarTotal('frases', todasAsFrases.length + ' frases');
 
-        // Elenco principal (componente Card, dentro de <div id="lista">)
+        // Elenco principal (componente Card, dentro de <div id="lista">) e mostra a seção
         montarLista(personagensPrincipais(personagens), criarCardDoElenco);
+        document.querySelector('#elenco').hidden = false;
 
         // Frase em destaque: sorteia uma e mostra a seção
         frases = frasesSemPalavrao(todasAsFrases);

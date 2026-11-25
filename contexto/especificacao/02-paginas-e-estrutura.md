@@ -62,7 +62,7 @@ iniciarPagina();
 - **Abaixo do carrossel (T-20, implementado em 20/11/2026)**, nesta ordem, cada seção com o seu `h2`:
   1. **A série** (`#sobre`): sinopse sem spoilers do fim + ficha técnica (criação, emissora, exibição, ambientação, gênero, produção, prêmios, continuações). **Texto fixo no HTML** (escolha do usuário).
   2. **Explore o site** (`#explorar`): um **ladrilho da tabela periódica** por página de recurso (Pe, Mo, Te, Ep, Fr), com nome, descrição e o **total vindo da API** (61 personagens, 270 vítimas, 5 temporadas, 62 episódios, 28 frases). Os atalhos são montados a partir do `paginasDoMenu`, que ganhou os campos `simbolo` e `descricao`.
-  3. **Elenco principal** (`#elenco`): cards (componente Card, sem clique) dos 11 personagens com `role: "principal"` e link para Personagens.
+  3. **Elenco principal** (`#elenco`): cards (componente Card, sem clique) dos 11 personagens com `role: "principal"` e link para Personagens. A seção fica `hidden` até os dados chegarem (T-31).
   4. **Frase em destaque** (`#frase`): uma frase marcante sorteada (sem as `explicit`), em PT e EN, com quem fala, o episódio e o contexto, e um botão "Sortear outra frase".
   - Detalhes do código em [04-padroes-de-codigo.md](04-padroes-de-codigo.md#página-inicial-apresentação-atalhos-elenco-e-frase-t-20-20112026).
 - A página inicial **não** é obrigada a ter lista/busca, porque não é página de recurso.
